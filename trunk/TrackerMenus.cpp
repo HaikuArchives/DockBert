@@ -31,7 +31,11 @@
 #include "WindowMenuItem.h"
 
 #include "IconMenuItem.h"
-#define _T(s) s
+
+#include <Catalog.h>
+#include <Locale.h>
+
+#define B_TRANSLATE_CONTEXT "tracker-menus"
 
 //#include <private/IconLoader.h>
 
@@ -330,20 +334,20 @@ TAwarePopupMenu *TDockMenus::WindowListMenu(const BList *fTeam, const char *sign
 				{
 					in_other_workspaces_count++;
 
-					submenu->AddItem( new TDockInnerWindowMenuItem( _T("Bring here"), 0, T_BRING_HERE, wInfo->id, theTeam, wInfo->name ) );
+					submenu->AddItem( new TDockInnerWindowMenuItem( B_TRANSLATE("Bring here"), 0, T_BRING_HERE, wInfo->id, theTeam, wInfo->name ) );
 					submenu->AddSeparatorItem();
 				}
 
-				const char *bring_to_front_label = _T("Bring to front");
+				const char *bring_to_front_label = B_TRANSLATE("Bring to front");
 				if (wInfo->is_mini)
 				{
 					miniCount++;
-					bring_to_front_label = _T("Show");
+					bring_to_front_label = B_TRANSLATE("Show");
 				}
 				else
-					submenu->AddItem( new TDockInnerWindowMenuItem( _T("Hide"), const_cast<BBitmap*>( AppResSet()->FindBitmap('BBMP', R_HideAllButton) ), B_MINIMIZE_WINDOW, wInfo->id, theTeam, wInfo->name ) );
+					submenu->AddItem( new TDockInnerWindowMenuItem( B_TRANSLATE("Hide"), const_cast<BBitmap*>( AppResSet()->FindBitmap('BBMP', R_HideAllButton) ), B_MINIMIZE_WINDOW, wInfo->id, theTeam, wInfo->name ) );
 				submenu->AddItem( new TDockInnerWindowMenuItem( bring_to_front_label, const_cast<BBitmap*>( AppResSet()->FindBitmap('BBMP', R_ShowAllButton) ), B_BRING_TO_FRONT, wInfo->id, theTeam, wInfo->name ) );
-				submenu->AddItem( new TDockInnerWindowMenuItem( _T("Close"), const_cast<BBitmap*>( AppResSet()->FindBitmap('BBMP', R_CloseButton) ), B_QUIT_REQUESTED, wInfo->id, theTeam, wInfo->name ) );
+				submenu->AddItem( new TDockInnerWindowMenuItem( B_TRANSLATE("Close"), const_cast<BBitmap*>( AppResSet()->FindBitmap('BBMP', R_CloseButton) ), B_QUIT_REQUESTED, wInfo->id, theTeam, wInfo->name ) );
 
 				TDockWindowMenuItem* item = new TDockWindowMenuItem(submenu, wInfo->id, 
 					wInfo->is_mini, ((1 << current_workspace()) & wInfo->workspaces) != 0, wInfo->workspaces);
@@ -357,7 +361,7 @@ TAwarePopupMenu *TDockMenus::WindowListMenu(const BList *fTeam, const char *sign
 
 	int32 itemCount = menu->CountItems();
 	if (itemCount < 1) {
-		TMenuItem *noWindowsItem = new TMenuItem(_T("No windows"), 0);
+		TMenuItem *noWindowsItem = new TMenuItem(B_TRANSLATE("No windows"), 0);
 
 		noWindowsItem->SetEnabled(false);
 
@@ -367,7 +371,7 @@ TAwarePopupMenu *TDockMenus::WindowListMenu(const BList *fTeam, const char *sign
  		// (but we only add this option if the application is not Tracker.)
  		if (fApplicationSignature.Compare(kTrackerSignature) != 0) {
  			menu->AddSeparatorItem();
-			menu->AddItem(new TDockShowHideMenuItem(_T("Quit application"), 0, fTeam, B_QUIT_REQUESTED));
+			menu->AddItem(new TDockShowHideMenuItem(B_TRANSLATE("Quit application"), 0, fTeam, B_QUIT_REQUESTED));
  		}
 	} else {
 
@@ -376,16 +380,16 @@ TAwarePopupMenu *TDockMenus::WindowListMenu(const BList *fTeam, const char *sign
 		if ( add_workspace_functions && in_other_workspaces_count > 0)
 		{
 //			menu->AddItem( new TDockShowHideMenuItem( "Bring All Here", const_cast<BBitmap*>( AppResSet()->FindBitmap('BBMP', R_BringAllHereButton) ), fTeam, T_BRING_ALL_HERE ) );
-			menu->AddItem( new TDockShowHideMenuItem(_T("Bring all here"), 0, fTeam, T_BRING_HERE ) );
+			menu->AddItem( new TDockShowHideMenuItem(B_TRANSLATE("Bring all here"), 0, fTeam, T_BRING_HERE ) );
 			menu->AddSeparatorItem();
 		}
 
 		TDockShowHideMenuItem *hide =
-			new TDockShowHideMenuItem(_T("Hide all"), const_cast<BBitmap*>( AppResSet()->FindBitmap('BBMP', R_HideAllButton) ), fTeam, B_MINIMIZE_WINDOW);
+			new TDockShowHideMenuItem(B_TRANSLATE("Hide all"), const_cast<BBitmap*>( AppResSet()->FindBitmap('BBMP', R_HideAllButton) ), fTeam, B_MINIMIZE_WINDOW);
 		TDockShowHideMenuItem *show =
-			new TDockShowHideMenuItem(_T("Show all"), const_cast<BBitmap*>( AppResSet()->FindBitmap('BBMP', R_ShowAllButton) ), fTeam, B_BRING_TO_FRONT);
+			new TDockShowHideMenuItem(B_TRANSLATE("Show all"), const_cast<BBitmap*>( AppResSet()->FindBitmap('BBMP', R_ShowAllButton) ), fTeam, B_BRING_TO_FRONT);
 		TDockShowHideMenuItem* close =
-			new TDockShowHideMenuItem(_T("Close all"), const_cast<BBitmap*>( AppResSet()->FindBitmap('BBMP', R_CloseButton) ), fTeam, B_QUIT_REQUESTED);
+			new TDockShowHideMenuItem(B_TRANSLATE("Close all"), const_cast<BBitmap*>( AppResSet()->FindBitmap('BBMP', R_CloseButton) ), fTeam, B_QUIT_REQUESTED);
 
 		if (miniCount == itemCount)
 			hide->SetEnabled(false);
@@ -517,7 +521,7 @@ int TDockMenus::BuildTrackerMenu( TMenu *menu, entry_ref &ref )
 
 	if ( empty )
 	{
-		TMenuItem *empty = new TMenuItem( _T("No entries"), 0 );
+		TMenuItem *empty = new TMenuItem( B_TRANSLATE("No entries"), 0 );
 		empty->SetEnabled(false);
 		menu->AddItem( empty );
 	}

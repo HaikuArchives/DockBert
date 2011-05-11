@@ -34,7 +34,10 @@
 #include "ResourceSet.h"
 #include "othericons.h"
 
-#define _T(s) s
+#include <Catalog.h>
+#include <Locale.h>
+
+#define B_TRANSLATE_CONTEXT "inner-panel-icons"
 
 using namespace BPrivate;
 
@@ -478,7 +481,7 @@ const char *TTrackerIcon::BubbleText() const
 	if ( strlen(text) == 0 )
 	{
 		if ( !strcmp( fPath.Path(), "/" ) )
-			return _T("Disks");
+			return B_TRANSLATE("Disks");
 		else
 			return 0;
 	}
@@ -967,13 +970,13 @@ TAwarePopupMenu *TClockIcon::Menu()
 {
 	TAwarePopupMenu *menu = new TAwarePopupMenu("ClockMenu");
 
-	menu->AddItem( new TMenuItem( fShowDate ? _T("Show clock") : _T("Show date"), new BMessage( kClockToggleClockDate ) ) );
+	menu->AddItem( new TMenuItem( fShowDate ? B_TRANSLATE("Show clock") : B_TRANSLATE("Show date"), new BMessage( kClockToggleClockDate ) ) );
 
 	if ( !fShowDate )
-		menu->AddItem( new TMenuItem(_T("24 hour clock"), new BMessage(kClockToggle24hDisplay) ) );
+		menu->AddItem( new TMenuItem(B_TRANSLATE("24 hour clock"), new BMessage(kClockToggle24hDisplay) ) );
 
 	if ( fShow24h && !fShowDate )
-		menu->AddItem( new TMenuItem( fShowSeconds ? _T("Hide seconds") : _T("Show seconds"), new BMessage(kClockToggleShowSeconds) ) );
+		menu->AddItem( new TMenuItem( fShowSeconds ? B_TRANSLATE("Hide seconds") : B_TRANSLATE("Show seconds"), new BMessage(kClockToggleShowSeconds) ) );
 
 	menu->AddSeparatorItem();
 
@@ -982,7 +985,7 @@ TAwarePopupMenu *TClockIcon::Menu()
 	{
 		BEntry e(&ref, true);
 		BBitmap* icon = new BBitmap( GetTrackerIcon(&e, B_MINI_ICON) );
-		menu->AddItem( new TBitmapMenuItem( _T("Change time"), icon, new BMessage(kLaunchTimePrefs) ) );
+		menu->AddItem( new TBitmapMenuItem( B_TRANSLATE("Change time"), icon, new BMessage(kLaunchTimePrefs) ) );
 	}
 	else
 	{
@@ -1102,13 +1105,13 @@ static const char *time_approx(int hour, int minute)
     mm = minute % 5;
 
     if ((mm == 0) || (mm == 4))
-	return _T("Exactly");
+	return B_TRANSLATE("Exactly");
     else if (mm == 1)
-	return _T("Just after");
+	return B_TRANSLATE("Just after");
     else if (mm == 2)
-	return _T("A little after");
+	return B_TRANSLATE("A little after");
     else
-	return _T("Almost");
+	return B_TRANSLATE("Almost");
 }
 
 static const char *time_min(int hour, int minute)
@@ -1125,29 +1128,29 @@ static const char *time_min(int hour, int minute)
     if (mm == 0)
 	return "";
     else if (mm == 5)
-	return _T("five past");
+	return B_TRANSLATE("five past");
     else if (mm == 10)
-	return _T("ten past");
+	return B_TRANSLATE("ten past");
     else if (mm == 15)
-	return _T("quarter past");
+	return B_TRANSLATE("quarter past");
     else if (mm == 20)
-	return _T("twenty past");
+	return B_TRANSLATE("twenty past");
     else if (mm == 25)
-	return _T("twenty-five past");
+	return B_TRANSLATE("twenty-five past");
     else if (mm == 30)
-	return _T("half past");
+	return B_TRANSLATE("half past");
     else if (mm == 35)
-	return _T("twenty-five to");
+	return B_TRANSLATE("twenty-five to");
     else if (mm == 40)
-	return _T("twenty to");
+	return B_TRANSLATE("twenty to");
     else if (mm == 45)
-	return _T("quarter to");
+	return B_TRANSLATE("quarter to");
     else if (mm == 50)
-	return _T("ten to");
+	return B_TRANSLATE("ten to");
     else if (mm == 55)
-	return _T("five to");
+	return B_TRANSLATE("five to");
     else
-	return _T("five to");
+	return B_TRANSLATE("five to");
 }
 
 static const char *time_hour(int hour, int minute)
@@ -1163,33 +1166,33 @@ static const char *time_hour(int hour, int minute)
 	hh -= 12;
 
     if (hh == 0)
-	return _T("midnight");
+	return B_TRANSLATE("midnight");
     else if (hh == 1)
-	return _T("one");
+	return B_TRANSLATE("one");
     else if (hh == 2)
-	return _T("two");
+	return B_TRANSLATE("two");
     else if (hh == 3)
-	return _T("three");
+	return B_TRANSLATE("three");
     else if (hh == 4)
-	return _T("four");
+	return B_TRANSLATE("four");
     else if (hh == 5)
-	return _T("five");
+	return B_TRANSLATE("five");
     else if (hh == 6)
-	return _T("six");
+	return B_TRANSLATE("six");
     else if (hh == 7)
-	return _T("seven");
+	return B_TRANSLATE("seven");
     else if (hh == 8)
-	return _T("eight");
+	return B_TRANSLATE("eight");
     else if (hh == 9)
-	return _T("nine");
+	return B_TRANSLATE("nine");
     else if (hh == 10)
-	return _T("ten");
+	return B_TRANSLATE("ten");
     else if (hh == 11)
-	return _T("eleven");
+	return B_TRANSLATE("eleven");
     else if (hh == 12)
-	return _T("twelve");
+	return B_TRANSLATE("twelve");
     else
-	return _T("twelve");
+	return B_TRANSLATE("twelve");
 }
 
 static const char *time_tod(int hour, int minute)
@@ -1202,11 +1205,11 @@ static const char *time_tod(int hour, int minute)
     if (hh == 24)
 	return "";
     else if (hh > 17)
-	return _T("In the evening");
+	return B_TRANSLATE("In the evening");
     if (hh > 11)
-	return _T("In the afternoon");
+	return B_TRANSLATE("In the afternoon");
     else
-	return _T("In the morning");
+	return B_TRANSLATE("In the morning");
 }
 
 const char *TClockIcon::BubbleText() const
@@ -1223,7 +1226,7 @@ const char *TClockIcon::BubbleText() const
 	strftime( formatedday, 256, "Today is %A, the %d %B of %Y", _time );
 
     sprintf(thetime,
-	    "%s, %s %s %s, %s", _T("The time is now"),
+	    "%s, %s %s %s, %s", B_TRANSLATE("The time is now"),
 	    //"The time is now, %s %s %s, %s",
 	    time_approx(hour,min),
 	    time_min(hour,min),
@@ -1265,7 +1268,7 @@ TTrashIcon::~TTrashIcon()
 
 bool TTrashIcon::Removable() const
 {
-	BAlert *alert = new BAlert( "Question", _T("Do you really wish to remove the Trash icon?"), _T("Yes"), _T("No"));
+	BAlert *alert = new BAlert( "Question", B_TRANSLATE("Do you really wish to remove the Trash icon?"), B_TRANSLATE("Yes"), B_TRANSLATE("No"));
 	int32 res = alert->Go();
 	return res == 0;
 }
@@ -1329,14 +1332,14 @@ TAwarePopupMenu *TTrashIcon::Menu()
 
 			if ( thiscount == 0 )
 			{
-				TMenuItem *empty = new TMenuItem( _T("No entries"), 0 );
+				TMenuItem *empty = new TMenuItem( B_TRANSLATE("No entries"), 0 );
 				empty->SetEnabled(false);
 				menu->AddItem( empty );
 			}			
 		}
 	}
 
-	TMenuItem *trashitem = new TMenuItem( _T("Empty trash"), new BMessage(kTrackerEmptyTrash) );
+	TMenuItem *trashitem = new TMenuItem( B_TRANSLATE("Empty trash"), new BMessage(kTrackerEmptyTrash) );
 	if ( entrycount == 0 )
 		trashitem->SetEnabled(false);
 	menu->AddSeparatorItem();
@@ -1524,7 +1527,7 @@ TDockbertIcon::TDockbertIcon( BMessage *message )
 
 bool TDockbertIcon::Removable() const
 {
-	BAlert *alert = new BAlert( "Question", _T("ReallyRemoveTheBeMenu"), _T("Yes"), _T("No"));
+	BAlert *alert = new BAlert( "Question", B_TRANSLATE("ReallyRemoveTheBeMenu"), B_TRANSLATE("Yes"), B_TRANSLATE("No"));
 	int32 res = alert->Go();
 	return res == 0;
 }
@@ -1536,8 +1539,8 @@ TAwarePopupMenu *TDockbertIcon::Menu()
 
 	TAwarePopupMenu *menu = new TAwarePopupMenu("BeMenu");
 
-	menu->AddItem( new TMenuItem( _T("Restart"), new BMessage(CMD_REBOOT_SYSTEM) ) );
-	menu->AddItem( new TMenuItem( _T("Shut down"), new BMessage(CMD_SHUTDOWN_SYSTEM) ) );
+	menu->AddItem( new TMenuItem( B_TRANSLATE("Restart"), new BMessage(CMD_REBOOT_SYSTEM) ) );
+	menu->AddItem( new TMenuItem( B_TRANSLATE("Shut down"), new BMessage(CMD_SHUTDOWN_SYSTEM) ) );
 
 	menu->AddSeparatorItem();
 
@@ -1556,8 +1559,8 @@ TAwarePopupMenu *TDockbertIcon::Menu()
 		icon = new BBitmap( GetTrackerIcon(&e, B_MINI_ICON) );
 	}
 
-	menu->AddItem( new TBitmapMenuItem( _T("Find"), icon, new BMessage(kFindButton) ) );
-	BString s(_T("About"));
+	menu->AddItem( new TBitmapMenuItem( B_TRANSLATE("Find"), icon, new BMessage(kFindButton) ) );
+	BString s(B_TRANSLATE("About"));
 	s << " Zeta";
 	TBitmapMenuItem *item = new TBitmapMenuItem(s.String(), const_cast<BBitmap*>( AppResSet()->FindBitmap( 'BBMP', R_BeLogo ) ), new BMessage(kShowSplash) );
 	item->SetBitmapAutoDestruct(false);
@@ -1711,6 +1714,6 @@ void TShowDesktopIcon::MouseDown( BPoint /* where */, uint32 /* modifiers */, ui
 
 const char *TShowDesktopIcon::BubbleText() const
 {
-	return _T("Left Click to Hide All Windows in this workspace,\nRight click to bring them back.");
+	return B_TRANSLATE("Left Click to Hide All Windows in this workspace,\nRight click to bring them back.");
 }
 

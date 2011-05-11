@@ -29,7 +29,10 @@
 
 #include <Debug.h>
 
-#define _T(s) s
+#include <Catalog.h>
+#include <Locale.h>
+
+#define B_TRANSLATE_CONTEXT "panel-window"
 
 #define _MNITEM_W 4
 #define _MNITEM_H 4
@@ -65,7 +68,7 @@ TPanelWindow::TPanelWindow()
 	else
 	{
 		// first time using
-		(new BAlert( _T("First Time"), _T("This is your first time running Dockbert so we'll give you a small introduction to it.\nBy now there should be a small window in the bottom of your screen with some icons, that's Dockbert.\nWe'll now give you a small info about each icon, from left to right:\n- The trash, drag files to it to move them to trash, left clicking it opens the trash window, right clicking shows you a handy menu\n-The workspaces, left click to forward a workspace, right click to backward a workspace, the middle button gives you a list of the workspaces\n-The clock, right click it for options\n-The Tracker, right click the tracker for the tracker menu, with some usefull options\n-The Be menu, right click it to see the Be Menu\n-the other two icons are shortcuts, read the readme for aditional information"), _T("Ok thanks!")))->Go(0);
+		(new BAlert( B_TRANSLATE("First Time"), B_TRANSLATE("This is your first time running Dockbert so we'll give you a small introduction to it.\nBy now there should be a small window in the bottom of your screen with some icons, that's Dockbert.\nWe'll now give you a small info about each icon, from left to right:\n- The trash, drag files to it to move them to trash, left clicking it opens the trash window, right clicking shows you a handy menu\n-The workspaces, left click to forward a workspace, right click to backward a workspace, the middle button gives you a list of the workspaces\n-The clock, right click it for options\n-The Tracker, right click the tracker for the tracker menu, with some usefull options\n-The Be menu, right click it to see the Be Menu\n-the other two icons are shortcuts, read the readme for aditional information"), B_TRANSLATE("Ok thanks!")))->Go(0);
 	}
 
 	if ( !fTeamListView )
