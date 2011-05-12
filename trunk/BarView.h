@@ -41,7 +41,7 @@ All rights reserved.
 #include <MessageRunner.h>
 
 #include "NavMenu.h"
-#include "support/ObjectList.h"
+#include <ObjectList.h>
 
 class TFLList;
 

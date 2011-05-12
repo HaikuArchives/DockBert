@@ -25,7 +25,7 @@
 
 #include "WindowMenuItem.h" // for nasty stuff
 
-#include "ObjectList.h"
+#include <ObjectList.h>
 #include "FSUtils.h"
 #include "Commands.h"
 

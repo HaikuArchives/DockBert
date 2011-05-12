@@ -13,7 +13,8 @@ namespace TPrivate
 	TBubbleHelpView::TBubbleHelpView( BRect rect )
 		: BView( rect, 0, B_FOLLOW_ALL, B_WILL_DRAW )
 	{
-		BFont font( be_bold_font );
+		//BFont font( be_bold_font );
+		BFont font;
 		font.SetSize( 12 );
 		SetFont( &font );
 
@@ -21,9 +22,9 @@ namespace TPrivate
 		font.GetHeight(&fontHeight);
 		float fTitleAscent = ceilf(fontHeight.ascent);
 		float fTitleDescent = ceilf(fontHeight.descent + fontHeight.leading);
-		fLineHeight = fTitleAscent + fTitleDescent;
+		fLineHeight = 2 * fTitleAscent + fTitleDescent;
 
-		SetViewColor(B_TRANSPARENT_COLOR);
+		//SetViewColor(B_TRANSPARENT_COLOR);
 	}
 
 	void TBubbleHelpView::SetLabel( const char *label )

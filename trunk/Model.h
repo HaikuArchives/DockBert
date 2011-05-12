@@ -42,7 +42,7 @@ All rights reserved.
 #include <StorageDefs.h>
 #include <String.h>
 
-#include "support/ObjectList.h"
+#include <ObjectList.h>
 #include "IconCacheTypes.h"
 
 class BPath;

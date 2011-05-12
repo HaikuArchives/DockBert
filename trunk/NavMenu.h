@@ -149,21 +149,16 @@ class BNavMenu : public BSlowMenu {
 //	Spring Loaded Folder convenience routines
 //		used in both Tracker and Deskbar
 
-#define _IMPEXP_TRACKER
 
 
-_IMPEXP_TRACKER bool SpringLoadedFolderCompareMessages(const BMessage *incoming,
+bool SpringLoadedFolderCompareMessages(const BMessage *incoming,
 	const BMessage *dragmessage);
-_IMPEXP_TRACKER void SpringLoadedFolderSetMenuStates(const BMenu *menu,
+void SpringLoadedFolderSetMenuStates(const BMenu *menu,
 	const BObjectList<BString> *typeslist);
-_IMPEXP_TRACKER void SpringLoadedFolderAddUniqueTypeToList(entry_ref *ref,
+void SpringLoadedFolderAddUniqueTypeToList(entry_ref *ref,
 	BObjectList<BString> *typeslist);
-_IMPEXP_TRACKER void SpringLoadedFolderCacheDragData(const BMessage *incoming,
+void SpringLoadedFolderCacheDragData(const BMessage *incoming,
 	BMessage **, BObjectList<BString> **typeslist);
-	
-#if B_BEOS_VERSION_DANO
-#undef _IMPEXP_TRACKER
-#endif
 
 } // namespace BPrivate
 

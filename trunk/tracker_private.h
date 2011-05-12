@@ -43,8 +43,6 @@ All rights reserved.
 
 namespace BPrivate {
 
-#define _IMPEXP_TRACKER
-
 void InitIconPreloader();
 
 }

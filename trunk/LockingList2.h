@@ -4,7 +4,7 @@
 // we just make 'lock' public to be able to use it in a BAutoLock
 
 #include <Locker.h>
-#include "support/ObjectList.h"
+#include <ObjectList.h>
 
 namespace BPrivate {
 
