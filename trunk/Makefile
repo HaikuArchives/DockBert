@@ -1,24 +1,20 @@
-## ********************************* ##
-## BeOS Generic Makefile v2.9.0.Zeta ##
+## BeOS Generic Makefile v2.3 ##
 
 ## Fill in this file to specify the project being created, and the referenced
 ## makefile-engine will do all of the hard work for you.  This handles both
-## Intel and PowerPC builds of the BeOS.
+## Intel and PowerPC builds of the BeOS and Haiku.
 
 ## Application Specific Settings ---------------------------------------------
 
 # specify the name of the binary
-NAME := Dock
+NAME= Dock
 
 # specify the type of binary
 #	APP:	Application
 #	SHARED:	Shared library or add-on
 #	STATIC:	Static library archive
 #	DRIVER: Kernel Driver
-#	MODULE: Kernel Module
-#	DECOR:	A window decorator project
-TYPE := APP
-
+TYPE= APP
 #	add support for new Pe and Eddie features
 #	to fill in generic makefile
 
@@ -33,14 +29,18 @@ TYPE := APP
 #	if two source files with the same name (source.c or source.cpp)
 #	are included from different directories.  Also note that spaces
 #	in folder names do not work well with this makefile.
-SRCS := $(wildcard *.cpp)
+SRCS= Bubble.cpp DockArchivableUtils.cpp InnerPanel.cpp \
+      InnerPanelIcons.cpp main.cpp NMenu.cpp PanelWindow.cpp \
+      PanelWindowView.cpp ResourceSet.cpp TrackerMenus.cpp
 
-#	specify the resource files to use
+#	specify the resource definition files to use
 #	full path or a relative path to the resource file can be used.
-RSRCS :=
-
-#	Specify your RDEF files, if any.
-RDEFS := $(wildcard *.rdef)
+RDEFS= icon-freelogo.rdef icons.rdef othericons.rdef
+	
+#	specify the resource files to use. 
+#	full path or a relative path to the resource file can be used.
+#	both RDEFS and RSRCS can be defined in the same makefile.
+RSRCS= dockbert.rsrc
 
 # @<-src@ 
 #%}
@@ -57,7 +57,7 @@ RDEFS := $(wildcard *.rdef)
 #		naming scheme you need to specify the path to the library
 #		and it's name
 #		library: my_lib.a entry: my_lib.a or path/my_lib.a
-LIBS := be tracker stdc++ locale localestub
+LIBS= be tracker stdc++ locale localestub
 
 #	specify additional paths to directories following the standard
 #	libXXX.so or libXXX.a naming scheme.  You can specify full paths
@@ -65,104 +65,62 @@ LIBS := be tracker stdc++ locale localestub
 #	be recursive, so include all of the paths where libraries can
 #	be found.  Directories where source files are found are
 #	automatically included.
-LIBPATHS := 
+LIBPATHS= 
 
 #	additional paths to look for system headers
 #	thes use the form: #include <header>
 #	source file directories are NOT auto-included here
-SYSTEM_INCLUDE_PATHS := 
+SYSTEM_INCLUDE_PATHS = 
 
 #	additional paths to look for local headers
 #	thes use the form: #include "header"
 #	source file directories are automatically included
-LOCAL_INCLUDE_PATHS := 
+LOCAL_INCLUDE_PATHS = 
 
 #	specify the level of optimization that you desire
 #	NONE, SOME, FULL
-OPTIMIZE	:= FULL
+OPTIMIZE= 
 
 #	specify any preprocessor symbols to be defined.  The symbols will not
 #	have their values set automatically; you must supply the value (if any)
 #	to use.  For example, setting DEFINES to "DEBUG=1" will cause the
 #	compiler option "-DDEBUG=1" to be used.  Setting DEFINES to "DEBUG"
 #	would pass "-DDEBUG" on the compiler's command line.
-DEFINES		:= 
+DEFINES= 
 
 #	specify special warning levels
 #	if unspecified default warnings will be used
 #	NONE = supress all warnings
 #	ALL = enable all warnings
-WARNINGS	:= NONE
+WARNINGS = 
 
 #	specify whether image symbols will be created
 #	so that stack crawls in the debugger are meaningful
 #	if TRUE symbols will be created
-SYMBOLS		:=
+SYMBOLS = 
 
 #	specify debug settings
 #	if TRUE will allow application to be run from a source-level
 #	debugger.  Note that this will disable all optimzation.
-DEBUGGER	:= 
+DEBUGGER = 
 
 #	specify additional compiler flags for all files
-COMPILER_FLAGS	:=
+COMPILER_FLAGS =
 
 #	specify additional linker flags
-LINKER_FLAGS	:=
+LINKER_FLAGS =
 
 #	specify the version of this particular item
 #	(for example, -app 3 4 0 d 0 -short 340 -long "340 "`echo -n -e '\302\251'`"1999 GNU GPL") 
-#E	This may also be specified in a resource.
-APP_VERSION	:= 
+#	This may also be specified in a resource.
+APP_VERSION = 
 
 #	(for TYPE == DRIVER only) Specify desired location of driver in the /dev
 #	hierarchy. Used by the driverinstall rule. E.g., DRIVER_PATH = video/usb will
 #	instruct the driverinstall rule to place a symlink to your driver's binary in
 #	~/add-ons/kernel/drivers/dev/video/usb, so that your driver will appear at
 #	/dev/video/usb when loaded. Default is "misc".
-DRIVER_PATH	:= 
-
-#	Specify if you want the object files to be somewhere besides the default location.
-OBJ_DIR		:=
-
-#	Specify a non default placement for the target
-TARGET_DIR	:=
-
-#       Special Zeta build system var 
-BOOTREL_INSTALL_DIR     := apps/System/Dockbert
-
-#       Specify a directory for the 'install' target. 
-INSTALL_DIR     := /boot/$(BOOTREL_INSTALL_DIR)
- 
-#	Specify the name of this makefile.
-#	If you leave this blank, the makefile will not be considered as part of the
-#	dependenies for the project, and the project will not be rebuilt when the makefile
-#	is changed
-MAKEFILE	:= 
-
-#	Specify TRUE if you want the install target to create links in the BeMenu
-MENU_LINKS	:= TRUE
-
-#	Related to MENU_LINKS, specify the name of the direcotry in the BeMenu
-#	you wish the link to go in. If the directory does not exist, it will be
-#	created.
-APP_MENU	:= Software/System
-
-#       If, for some reason, you don't want to use the dependencies (flex and yacc seem to choke 
-#       on them), set this to false 
-DODEPS		:= 
-
-#	Set this variable if you have an svg text file you wish to use as your targets
-#	icon.
-SVG_ICON	:= 
-
-#	If you have some fancy custom build steps to do, specify them here
-EXTRA_BUILD_STEPS	=
-
-#	If you have some other files that should trigger a re-link, such as libs in the same
-#	project that may get rebuilt, specify the full path to them here.
-EXTRA_DEPS :=
-
-
-## include the makefile-engine 
+DRIVER_PATH = 
+LOCALES = en ru
+## include the makefile-engine
 include $(BUILDHOME)/etc/makefile-engine
