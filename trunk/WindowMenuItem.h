@@ -123,6 +123,12 @@ struct window_info {
 	char		name[1];
 };
 
+struct client_window_info : window_info {
+	float		tab_height;
+	float		border_size;
+	char		name[1];
+};
+
 // from interface_misc.h
 enum window_action {
 	B_MINIMIZE_WINDOW,
@@ -132,7 +138,7 @@ enum window_action {
 // from interface_misc.h
 void		do_window_action(int32 window_id, int32 action, 
 							 BRect zoomRect, bool zoom);
-window_info	*get_window_info(int32 a_token);
+client_window_info	*get_window_info(int32 a_token);
 int32		*get_token_list(team_id app, int32 *count);
 void do_minimize_team(BRect zoomRect, team_id team, bool zoom);
 void do_bring_to_front_team(BRect zoomRect, team_id app, bool zoom);

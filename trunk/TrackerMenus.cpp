@@ -234,7 +234,7 @@ status_t TDockShowHideMenuItem::Invoke( BMessage *message )
 						int32 *tokens = get_token_list(team, &count);
 
 						for (int32 j = 0; j < count; j++) {
-							window_info *wInfo = get_window_info(tokens[j]);
+							client_window_info *wInfo = get_window_info(tokens[j]);
 							if (wInfo == NULL)
 								continue;
 							if ( !WindowShouldBeListed(wInfo->w_type) || wInfo->workspaces == 0xffffffff )
@@ -315,7 +315,7 @@ TAwarePopupMenu *TDockMenus::WindowListMenu(const BList *fTeam, const char *sign
 		int32 *tokens = get_token_list(theTeam, &count);
 
 		for (int32 j = 0; j < count; j++) {
-			window_info *wInfo = get_window_info(tokens[j]);
+			client_window_info *wInfo = get_window_info(tokens[j]);
 			if (wInfo == NULL)
 				continue;
 
