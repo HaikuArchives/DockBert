@@ -11,7 +11,6 @@
 #include <VolumeRoster.h>
 #include <MessageRunner.h>
 #include <Region.h>
-//#include <sys_apps/Tracker/Icons.h>
 #include <malloc.h>
 #include <locale/Locale.h>
 
@@ -52,7 +51,7 @@ BBitmap* GetTrackerIcon(BEntry *e, icon_size which)
     if(which==kDefaultSmallIconSize)
         bmp = new BBitmap(BRect(0,0,15,15), B_RGBA32);
     else
-        bmp = new BBitmap(BRect(0,0,31,31), B_RGBA32);
+        bmp = new BBitmap(BRect(0,0,47,47), B_RGBA32);
 
     if(e->GetRef(&ref) == B_OK) {
         if(BNodeInfo::GetTrackerIcon(&ref, bmp, which) == B_OK) {
@@ -428,7 +427,7 @@ void TTrackerIcon::ReloadIcons()
 		fSmallIcon = new BBitmap( GetTrackerIcon(&ent, B_MINI_ICON));
 		
 		delete fBigIcon;
-		fBigIcon = new BBitmap( GetTrackerIcon(&ent, B_LARGE_ICON));
+		fBigIcon = new BBitmap( GetTrackerIcon(&ent, (icon_size)3));
 	}
 }
 
