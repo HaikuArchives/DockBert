@@ -19,7 +19,7 @@
 #include "TrackerMenus.h"
 #include "InnerPanel.h"
 #include "PanelWindowView.h"
-
+#include "RosterPrivate.h"
 #include "OffscreenView.h"
 
 #include "WindowMenuItem.h" // for nasty stuff
@@ -1580,11 +1580,20 @@ void TDockbertIcon::MessageReceived( BMessage *message )
 		be_roster->Launch( "application/x-vnd.Deskbar-Preferences" );
 		break;
 	case kRebootSystem:
-		BMessenger(ROSTER_SIG).SendMessage(message);
-		break;
 	case kShutdownSystem:
-		BMessenger(ROSTER_SIG).SendMessage(message);
-		break;
+		{
+			bool reboot = (message->what == kRebootSystem);
+			bool confirm;
+			message->FindBool("confirm", &confirm);
+
+			BRoster roster;
+			BRoster::Private rosterPrivate(roster);
+			status_t error = rosterPrivate.ShutDown(reboot, confirm, false);
+			if (error != B_OK)
+				fprintf(stderr, "Shutdown failed: %s\n", strerror(error));
+
+			break;
+		}
 	default:
 		TTrackerIcon::MessageReceived(message);
 	}
