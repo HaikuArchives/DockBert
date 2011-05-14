@@ -18,6 +18,8 @@ TYPE= APP
 #	add support for new Pe and Eddie features
 #	to fill in generic makefile
 
+APP_MIME_SIG = x-vnd.Dockbert
+
 #%{
 # @src->@ 
 
