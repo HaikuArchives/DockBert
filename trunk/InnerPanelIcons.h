@@ -30,9 +30,10 @@ const uint32 kClockToggleClockDate = 0x1003;
 const uint32 kClockToggle24hDisplay = 0x1004;
 const uint32 kClockToggleShowSeconds = 0x1005;
 
-const uint32 CMD_SHUTDOWN_SYSTEM = 301;
-const uint32 CMD_REBOOT_SYSTEM = 302;
-const uint32 CMD_SUSPEND_SYSTEM = 304;
+// from roster_private.h
+const uint32 kShutdownSystem = 301;
+const uint32 kRebootSystem = 302;
+const uint32 kSuspendSystem = 304;
 
 #define ROSTER_SIG "application/x-vnd.Be-ROST"
 

@@ -1538,8 +1538,8 @@ TAwarePopupMenu *TDockbertIcon::Menu()
 
 	TAwarePopupMenu *menu = new TAwarePopupMenu("BeMenu");
 
-	menu->AddItem( new TMenuItem( B_TRANSLATE("Restart"), new BMessage(CMD_REBOOT_SYSTEM) ) );
-	menu->AddItem( new TMenuItem( B_TRANSLATE("Shut down"), new BMessage(CMD_SHUTDOWN_SYSTEM) ) );
+	menu->AddItem( new TMenuItem( B_TRANSLATE("Restart"), new BMessage(kRebootSystem) ) );
+	menu->AddItem( new TMenuItem( B_TRANSLATE("Shut down"), new BMessage(kShutdownSystem) ) );
 
 	menu->AddSeparatorItem();
 
@@ -1559,9 +1559,7 @@ TAwarePopupMenu *TDockbertIcon::Menu()
 	}
 
 	menu->AddItem( new TBitmapMenuItem( B_TRANSLATE("Find"), icon, new BMessage(kFindButton) ) );
-	BString s(B_TRANSLATE("About"));
-	s << " Zeta";
-	TBitmapMenuItem *item = new TBitmapMenuItem(s.String(), const_cast<BBitmap*>( AppResSet()->FindBitmap( 'BBMP', R_BeLogo ) ), new BMessage(kShowSplash) );
+	TBitmapMenuItem *item = new TBitmapMenuItem( B_TRANSLATE("About Haiku-OS"), const_cast<BBitmap*>( AppResSet()->FindBitmap( 'BBMP', R_BeLogo ) ), new BMessage(kShowSplash) );
 	item->SetBitmapAutoDestruct(false);
 	menu->AddItem( item );
 
@@ -1573,8 +1571,7 @@ void TDockbertIcon::MessageReceived( BMessage *message )
 	switch ( message->what )
 	{
 	case kShowSplash:
-		system("/boot/beos/system/About &");
-//		run_be_about();
+		run_be_about();
 		break;
 	case kFindButton:
 		BMessenger(kTrackerSignature).SendMessage(message);
@@ -1582,10 +1579,10 @@ void TDockbertIcon::MessageReceived( BMessage *message )
 	case kDeskbarPreferences:
 		be_roster->Launch( "application/x-vnd.Deskbar-Preferences" );
 		break;
-	case CMD_REBOOT_SYSTEM:
+	case kRebootSystem:
 		BMessenger(ROSTER_SIG).SendMessage(message);
 		break;
-	case CMD_SHUTDOWN_SYSTEM:
+	case kShutdownSystem:
 		BMessenger(ROSTER_SIG).SendMessage(message);
 		break;
 	default:
