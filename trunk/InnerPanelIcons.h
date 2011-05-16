@@ -38,7 +38,7 @@ const uint32 kSuspendSystem = 304;
 #define ROSTER_SIG "application/x-vnd.Be-ROST"
 
 const uint32 kDefaultBigIconSize = 48;
-const uint32 kDefaultSmallIconSize = 16;
+const uint32 kDefaultSmallIconSize = 32;
 
 // TPanelIcon:
 //   Base class for all TRaisingIconPanel items
@@ -150,19 +150,27 @@ public:
 	// returns 32x32
 	virtual void GetPreferredSize( float *, float * );
 	virtual void Draw();
+	
+	void AnimateIcon(BBitmap* startIcon, BBitmap* endIcon);
 
 protected:
 	// the default implementation prepares drawing using B_OP_COPY
 	virtual void PrepareDrawing();
-
+	
 	BBitmap *fSmallIcon, *fBigIcon;
 	BBitmap *fDimmedSmallIcon, *fDimmedBigIcon;
 	bool fDeleteBitmaps;
 	bool fDisabled;
+	bool fCachedIcons;
 
 private:
+
+	virtual void CreateIconCache();
+	BBitmap *fIconCache[16];
+	
 	BBitmap *Bitmap();
 	static BBitmap *DimmBitmap(BBitmap *);
+	static void ScaleBilinear(BBitmap *, BBitmap *);
 };
 
 class _EXPORT TTrackerIcon : public TZoomableIcon

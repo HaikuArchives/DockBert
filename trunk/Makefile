@@ -88,7 +88,7 @@ OPTIMIZE=
 #	to use.  For example, setting DEFINES to "DEBUG=1" will cause the
 #	compiler option "-DDEBUG=1" to be used.  Setting DEFINES to "DEBUG"
 #	would pass "-DDEBUG" on the compiler's command line.
-DEFINES= 
+DEFINES= DEBUG=1
 
 #	specify special warning levels
 #	if unspecified default warnings will be used
@@ -104,7 +104,7 @@ SYMBOLS =
 #	specify debug settings
 #	if TRUE will allow application to be run from a source-level
 #	debugger.  Note that this will disable all optimzation.
-DEBUGGER = 
+DEBUGGER = TRUE
 
 #	specify additional compiler flags for all files
 COMPILER_FLAGS =

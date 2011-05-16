@@ -49,7 +49,7 @@ BBitmap* GetTrackerIcon(BEntry *e, icon_size which)
     BBitmap *bmp = NULL;
 
     if(which==kDefaultSmallIconSize)
-        bmp = new BBitmap(BRect(0,0,15,15), B_RGBA32);
+        bmp = new BBitmap(BRect(0,0,31,31), B_RGBA32);
     else
         bmp = new BBitmap(BRect(0,0,47,47), B_RGBA32);
 
@@ -126,21 +126,24 @@ void TPanelIcon::DoMenu()
 TZoomableIcon::TZoomableIcon()
 	: TPanelIcon(), fSmallIcon(0), fBigIcon(0),
 					fDimmedSmallIcon(0), fDimmedBigIcon(0),
-					fDeleteBitmaps(true), fDisabled(false)
+					fDeleteBitmaps(true), fDisabled(false),
+					fCachedIcons(false)
 {
 }
 
 TZoomableIcon::TZoomableIcon( BBitmap *small, BBitmap *big )
 	: TPanelIcon(), fSmallIcon(small), fBigIcon(big),
 					fDimmedSmallIcon(0), fDimmedBigIcon(0),
-					fDeleteBitmaps(true), fDisabled(false)
+					fDeleteBitmaps(true), fDisabled(false),
+					fCachedIcons(false)
 {
 }
 
 TZoomableIcon::TZoomableIcon( BMessage *archive )
 	: TPanelIcon(archive), fSmallIcon(0), fBigIcon(0),
 					fDimmedSmallIcon(0), fDimmedBigIcon(0),
-					fDeleteBitmaps(true), fDisabled(false)
+					fDeleteBitmaps(true), fDisabled(false),
+					fCachedIcons(false)
 {
 }
 
@@ -151,9 +154,16 @@ TZoomableIcon::~TZoomableIcon()
 		delete fSmallIcon;
 		delete fBigIcon;
 	}
+	
+	if ( fCachedIcons )
+	{
+		for (int i = 0; i <= 16; i++)
+			delete fIconCache[i];	
+	}
 
 	delete fDimmedSmallIcon;
 	delete fDimmedBigIcon;
+	
 }
 
 void TZoomableIcon::SetDestroyBitmaps( bool b )
@@ -167,34 +177,23 @@ void TZoomableIcon::GetPreferredSize( float *width, float *height )
 	*height = kDefaultBigIconSize;
 }
 
-float _zoom_factors[16+1] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
-//float _zoom_factors[16+1] = { 0, 0.19372, 0.42497, 0.70102, 1.0305, 1.4239, 1.8935, 2.454, 3.1231, 3.9218, 4.8753, 6.0135, 7.3721, 8.994, 10.93, 13.241, 16 };
-
 void TZoomableIcon::Draw()
 {
 	PrepareDrawing();
 	BPoint where = ContentLocation();
 
-//	float animation_factor = fZoomStep/2;
-	float animation_factor = _zoom_factors[fZoomStep]/2;
-
-	int _e = ((kDefaultBigIconSize-kDefaultSmallIconSize)/2);
+	float animation_factor = fZoomStep / 2;
+	
+	float _e = (kDefaultBigIconSize - kDefaultSmallIconSize) / 2;
 	animation_factor *= ((float)_e) / 8.0f;
 
 	float _dl = _e - animation_factor;
 	where.x += _dl;
 	where.y += _dl;
-
-	float factor = kDefaultSmallIconSize + animation_factor*2;
-
-	BRect size( where, BPoint( where.x + factor -1, where.y + factor -1) );
-
+	
 	BView *canvas = fParent->Parent();
-
 	BBitmap *which = Bitmap();
-
-	if ( which )
-		canvas->DrawBitmap( which, size );
+	canvas->DrawBitmap( which, where );		
 }
 
 void TZoomableIcon::PrepareDrawing()
@@ -205,9 +204,15 @@ void TZoomableIcon::PrepareDrawing()
 
 BBitmap *TZoomableIcon::Bitmap()
 {
+	int stepsCount = kDefaultBigIconSize - kDefaultSmallIconSize;
 	if (fZoomStep > 0) {
-		if (!fDisabled)
-			return fBigIcon;
+		if (!fDisabled) {
+			if (fZoomStep == stepsCount) return fBigIcon;
+			if (!fCachedIcons)
+				CreateIconCache();
+				
+			return fIconCache[fZoomStep];
+		}
 		if (!fDimmedBigIcon) {
 			fDimmedBigIcon = DimmBitmap(fBigIcon);
 		}
@@ -229,11 +234,149 @@ BBitmap *TZoomableIcon::DimmBitmap(BBitmap *orig)
 
 	BBitmap *result = new BBitmap(orig->Bounds(), B_RGBA32);
 	memcpy(result->Bits(), orig->Bits(), orig->BitsLength());
+	
 	uchar *bits = (uchar *)result->Bits();
-	for (int32 index = 0; index < result->BitsLength(); index+=4) {
-		bits[index+3] = bits[index+3] * 30 / 100;
-	}
+    for (int32 index = 0; index < result->BitsLength(); index+=4) {
+		bits[index+3] = bits[index+3] * 0.3;
+    }
+
 	return result;
+}
+
+void TZoomableIcon::CreateIconCache()
+{
+	if (!fBigIcon)
+		return;	
+	for (int i = 0; i <= (kDefaultBigIconSize - kDefaultSmallIconSize); i++) {
+		BRect rect(0, 0, kDefaultSmallIconSize + i, kDefaultSmallIconSize + i);
+		fIconCache[i] = new BBitmap(rect, B_RGBA32);
+		ScaleBilinear(fBigIcon, fIconCache[i]);
+	}		
+	fCachedIcons = true;
+}
+
+typedef struct {
+	int32 srcColumn;
+	float alpha0;
+	float alpha1;
+} ColumnData;
+
+void TZoomableIcon::ScaleBilinear(BBitmap* src, BBitmap* dest)
+{
+	int32 srcW, srcH;
+	int32 destW, destH;
+	int32 x, y, i;
+	ColumnData* columnData;
+	ColumnData* cd;
+	const uchar* srcBits;
+	uchar* destBits;
+	int32 srcBPR, destBPR;
+	const uchar* srcData;
+	uchar* destDataRow;
+	uchar* destData;
+	const int32 kBPP = 4;
+
+	srcW = src->Bounds().IntegerWidth();
+	srcH = src->Bounds().IntegerHeight();
+	destW = dest->Bounds().IntegerWidth();
+	destH = dest->Bounds().IntegerHeight();
+
+	srcBits = (uchar*)src->Bits();
+	destBits = (uchar*)dest->Bits();
+	srcBPR = src->BytesPerRow();
+	destBPR = dest->BytesPerRow();
+
+	columnData = new ColumnData[destW];
+	cd = columnData;
+	for (i = 0; i < destW; i ++, cd++) {
+		float column = (float)i * (float)srcW / (float)destW;
+		cd->srcColumn = (int32)column;
+		cd->alpha1 = column - cd->srcColumn;
+		cd->alpha0 = 1.0 - cd->alpha1;
+	}
+
+	destDataRow = destBits; //+ fromRow * destBPR;
+
+	for (y = 0; y <= destH; y++, destDataRow += destBPR) {
+		float row;
+		int32 srcRow;
+		float alpha0, alpha1;
+
+		if (destH == 0) {
+			row = 0;
+		} else {
+			row = (float)y * (float)srcH / (float)destH;
+		}
+		srcRow = (int32)row;
+		alpha1 = row - srcRow;
+		alpha0 = 1.0 - alpha1;
+
+		srcData = srcBits + srcRow * srcBPR;
+		destData = destDataRow;
+
+		if (y < destH) {
+			float a0, a1;
+			const uchar *a, *b, *c, *d;
+
+			for (x = 0; x < destW; x ++, destData += kBPP) {
+				a = srcData + columnData[x].srcColumn * kBPP;
+				b = a + kBPP;
+				c = a + srcBPR;
+				d = c + kBPP;
+
+				a0 = columnData[x].alpha0;
+				a1 = columnData[x].alpha1;
+
+				destData[0] = static_cast<uchar>(
+								(a[0] * a0 + b[0] * a1) * alpha0 +
+								(c[0] * a0 + d[0] * a1) * alpha1);
+				destData[1] = static_cast<uchar>(
+								(a[1] * a0 + b[1] * a1) * alpha0 +
+								(c[1] * a0 + d[1] * a1) * alpha1);
+				destData[2] = static_cast<uchar>(
+								(a[2] * a0 + b[2] * a1) * alpha0 +
+								(c[2] * a0 + d[2] * a1) * alpha1);
+				destData[3] = static_cast<uchar>(
+								(a[3] * a0 + b[3] * a1) * alpha0 +
+								(c[3] * a0 + d[3] * a1) * alpha1);
+			}
+
+			// right column
+			a = srcData + srcW * kBPP;
+			c = a + srcBPR;
+
+			destData[0] = static_cast<uchar>(a[0] * alpha0 + c[0] * alpha1);
+			destData[1] = static_cast<uchar>(a[1] * alpha0 + c[1] * alpha1);
+			destData[2] = static_cast<uchar>(a[2] * alpha0 + c[2] * alpha1);
+			destData[3] = static_cast<uchar>(a[3] * alpha0 + c[3] * alpha1);
+		} else {
+			float a0, a1;
+			const uchar *a, *b;
+			for (x = 0; x < destW; x ++, destData += kBPP) {
+				a = srcData + columnData[x].srcColumn * kBPP;
+				b = a + kBPP;
+
+				a0 = columnData[x].alpha0;
+				a1 = columnData[x].alpha1;
+
+				destData[0] = static_cast<uchar>(a[0] * a0 + b[0] * a1);
+				destData[1] = static_cast<uchar>(a[1] * a0 + b[1] * a1);
+				destData[2] = static_cast<uchar>(a[2] * a0 + b[2] * a1);
+				destData[3] = static_cast<uchar>(a[3] * a0 + b[3] * a1);
+			}
+
+			// bottom, right pixel
+			a = srcData + srcW * kBPP;
+
+			destData[0] = a[0];
+			destData[1] = a[1];
+			destData[2] = a[2];
+			destData[3] = a[3];
+		}
+
+	}
+
+	delete[] columnData;
 }
 
 TTrackerIcon::TTrackerIcon( entry_ref ref )
@@ -424,10 +567,10 @@ void TTrackerIcon::ReloadIcons()
 	
 	if( ent.InitCheck() == B_OK )
 	{
-		fSmallIcon = new BBitmap( GetTrackerIcon(&ent, B_MINI_ICON));
+		fSmallIcon = new BBitmap( GetTrackerIcon(&ent, B_LARGE_ICON));
 		
 		delete fBigIcon;
-		fBigIcon = new BBitmap( GetTrackerIcon(&ent, (icon_size)3));
+		fBigIcon = new BBitmap( GetTrackerIcon(&ent, (icon_size)2));
 	}
 }
 
