@@ -116,18 +116,18 @@ struct window_info {
     uint32      flags;	  	  /* B_WILL_FLOAT, etc. */
 	int32		window_left;
 	int32		window_top;
-	int32		window_right;
+	int32		window_right;	
 	int32		window_bottom;
+	
 	int32		show_hide_level;
 	bool		is_mini;
-	char		name[1];
-};
+} _PACKED;
 
 struct client_window_info : window_info {
 	float		tab_height;
 	float		border_size;
 	char		name[1];
-};
+} _PACKED;
 
 // from interface_misc.h
 enum window_action {
