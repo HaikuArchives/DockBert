@@ -36,6 +36,8 @@
 #include <Catalog.h>
 #include <Locale.h>
 
+#include <Screen.h>
+
 #define B_TRANSLATE_CONTEXT "inner-panel-icons"
 
 using namespace BPrivate;
@@ -193,6 +195,7 @@ void TZoomableIcon::Draw()
 	
 	BView *canvas = fParent->Parent();
 	BBitmap *which = Bitmap();
+	
 	canvas->DrawBitmap( which, where );		
 }
 
@@ -206,24 +209,24 @@ BBitmap *TZoomableIcon::Bitmap()
 {
 	int stepsCount = kDefaultBigIconSize - kDefaultSmallIconSize;
 	if (fZoomStep > 0) {
-		if (!fDisabled) {
-			if (fZoomStep == stepsCount) return fBigIcon;
-			if (!fCachedIcons)
-				CreateIconCache();
-				
-			return fIconCache[fZoomStep];
+		if (fZoomStep == stepsCount) {
+			if (fDisabled)
+				return DimmBitmap(fBigIcon);
+			else
+				return fBigIcon;			
 		}
-		if (!fDimmedBigIcon) {
-			fDimmedBigIcon = DimmBitmap(fBigIcon);
-		}
-		return fDimmedBigIcon;
+		if (!fCachedIcons)
+			CreateIconCache();
+			
+			if (fDisabled)
+				return DimmBitmap(fIconCache[fZoomStep]);
+			else
+				return fIconCache[fZoomStep];
 	} else {
-		if (!fDisabled)
+		if (fDisabled)
+			return DimmBitmap(fSmallIcon);
+		else
 			return fSmallIcon;
-		if (!fDimmedSmallIcon) {
-			fDimmedSmallIcon = DimmBitmap(fSmallIcon);
-		}
-		return fDimmedSmallIcon;
 	}
 }
 
@@ -295,7 +298,7 @@ void TZoomableIcon::ScaleBilinear(BBitmap* src, BBitmap* dest)
 		cd->alpha0 = 1.0 - cd->alpha1;
 	}
 
-	destDataRow = destBits; //+ fromRow * destBPR;
+	destDataRow = destBits;
 
 	for (y = 0; y <= destH; y++, destDataRow += destBPR) {
 		float row;
