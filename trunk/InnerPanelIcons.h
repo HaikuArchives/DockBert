@@ -24,7 +24,7 @@ class BMessageRunner;
 class TRaisingIconPanel;
 
 const uint32 kTrackerEmptyTrash = 0x1000;
-const uint32 kDeskbarPreferences = 0x1001;
+const uint32 kDockbertPreferences = 0x1001;
 const uint32 kLaunchTimePrefs = 0x1002;
 const uint32 kClockToggleClockDate = 0x1003;
 const uint32 kClockToggle24hDisplay = 0x1004;

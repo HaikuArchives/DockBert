@@ -39,7 +39,8 @@
 #define TASK_BAR_MIME_SIG "application/x-vnd.Be-TSKB "
 
 TPanelWindow::TPanelWindow()
-	: BWindow( BRect( 0, 0, 24, 24 ), "Dock", B_NO_BORDER_WINDOW_LOOK, B_FLOATING_ALL_WINDOW_FEEL, B_NOT_MOVABLE | B_NOT_CLOSABLE | B_NOT_ZOOMABLE | B_NOT_MINIMIZABLE | B_NOT_RESIZABLE | B_WILL_ACCEPT_FIRST_CLICK | B_AVOID_FOCUS, B_ALL_WORKSPACES )
+	: BWindow( BRect( 0, 0, 24, 24 ), "Dock", B_NO_BORDER_WINDOW_LOOK, B_FLOATING_ALL_WINDOW_FEEL, B_NOT_MOVABLE | B_NOT_CLOSABLE | B_NOT_ZOOMABLE | B_NOT_MINIMIZABLE | B_NOT_RESIZABLE | B_WILL_ACCEPT_FIRST_CLICK | B_AVOID_FOCUS, B_ALL_WORKSPACES ),
+	 fPreferencesWindow(NULL)
 {
 	fAutoHide = false;
 	fHideEffectDelay = kWindowHidderAnimationStaleSpeed;
@@ -179,6 +180,9 @@ void TPanelWindow::MessageReceived( BMessage *message )
 
 			break;
 		}
+	case kDockbertPreferences:
+            ShowPreferencesWindow();
+            break;
 	case msg_AddTeam:
 		{
 			const char *sig = message->FindString("sig");
@@ -546,4 +550,15 @@ int32 TMessageRunner::_thread_instance( void *p )
 {
 	((TMessageRunner*)p)->Loop();
 	return 0;
+}
+
+void
+TPanelWindow::ShowPreferencesWindow()
+{
+       if (fPreferencesWindow)
+               fPreferencesWindow->Activate();
+       else {
+               fPreferencesWindow = new PreferencesWindow(BRect(0, 0, 320, 240));
+               fPreferencesWindow->Show();
+       }
 }

@@ -33,7 +33,8 @@ APP_MIME_SIG = x-vnd.Dockbert
 #	in folder names do not work well with this makefile.
 SRCS= Bubble.cpp DockArchivableUtils.cpp InnerPanel.cpp \
       InnerPanelIcons.cpp main.cpp NMenu.cpp PanelWindow.cpp \
-      PanelWindowView.cpp ResourceSet.cpp TrackerMenus.cpp
+      PanelWindowView.cpp ResourceSet.cpp TrackerMenus.cpp \
+	PreferencesWindow.cpp
 
 #	specify the resource definition files to use
 #	full path or a relative path to the resource file can be used.

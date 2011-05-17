@@ -1705,6 +1705,7 @@ TAwarePopupMenu *TDockbertIcon::Menu()
 	}
 
 	menu->AddItem( new TBitmapMenuItem( B_TRANSLATE("Find"), icon, new BMessage(kFindButton) ) );
+	menu->AddItem( new TBitmapMenuItem( B_TRANSLATE("Dockbert Preferences"), icon, new BMessage(kDockbertPreferences) ) );
 	TBitmapMenuItem *item = new TBitmapMenuItem( B_TRANSLATE("About Haiku-OS"), const_cast<BBitmap*>( AppResSet()->FindBitmap( 'BBMP', R_BeLogo ) ), new BMessage(kShowSplash) );
 	item->SetBitmapAutoDestruct(false);
 	menu->AddItem( item );
@@ -1722,9 +1723,9 @@ void TDockbertIcon::MessageReceived( BMessage *message )
 	case kFindButton:
 		BMessenger(kTrackerSignature).SendMessage(message);
 		break;
-	case kDeskbarPreferences:
-		be_roster->Launch( "application/x-vnd.Deskbar-Preferences" );
-		break;
+//	case kDeskbarPreferences:
+//		be_roster->Launch( "application/x-vnd.Deskbar-Preferences" );
+//		break;
 	case kRebootSystem:
 	case kShutdownSystem:
 		{

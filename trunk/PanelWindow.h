@@ -15,6 +15,7 @@
 #include <Entry.h>
 #include <Locker.h>
 #include <Messenger.h>
+#include "PreferencesWindow.h"
 
 class TInnerPanel;
 class TPanelIcon;
@@ -155,6 +156,8 @@ private:
 
 	bool fAutoHide;
 	int fHideEffectDelay;
+	void ShowPreferencesWindow();
+    PreferencesWindow* fPreferencesWindow;
 };
 
 #endif /* PANEL_WINDOW_H */
