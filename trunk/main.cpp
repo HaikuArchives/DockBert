@@ -4,7 +4,7 @@
 
 int main()
 {
-	BApplication app("application/x-vnd.BeClan-Dock");
+	BApplication app("application/x-vnd.Dockbert");
 	TPanelWindow* main = new TPanelWindow;
 	main->Show();
 	app.Run();
