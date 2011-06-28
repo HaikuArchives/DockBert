@@ -39,6 +39,7 @@ const uint32 kSuspendSystem = 304;
 
 const uint32 kDefaultBigIconSize = 48;
 const uint32 kDefaultSmallIconSize = 32;
+const uint32 kAnimationSteps = kDefaultBigIconSize - kDefaultSmallIconSize - 1;
 
 // TPanelIcon:
 //   Base class for all TRaisingIconPanel items
@@ -150,8 +151,6 @@ public:
 	// returns 32x32
 	virtual void GetPreferredSize( float *, float * );
 	virtual void Draw();
-	
-	void AnimateIcon(BBitmap* startIcon, BBitmap* endIcon);
 
 protected:
 	// the default implementation prepares drawing using B_OP_COPY
@@ -166,7 +165,7 @@ protected:
 private:
 
 	virtual void CreateIconCache();
-	BBitmap *fIconCache[16];
+	BBitmap *fIconCache[kAnimationSteps + 1];
 	
 	BBitmap *Bitmap();
 	static BBitmap *DimmBitmap(BBitmap *);

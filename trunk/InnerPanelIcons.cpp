@@ -129,7 +129,7 @@ TZoomableIcon::TZoomableIcon()
 	: TPanelIcon(), fSmallIcon(0), fBigIcon(0),
 					fDimmedSmallIcon(0), fDimmedBigIcon(0),
 					fDeleteBitmaps(true), fDisabled(false),
-					fCachedIcons(false)
+					fCachedIcons(false)					
 {
 }
 
@@ -159,7 +159,7 @@ TZoomableIcon::~TZoomableIcon()
 	
 	if ( fCachedIcons )
 	{
-		for (int i = 0; i <= 16; i++)
+		for (int i = 0; i <= kAnimationSteps; i++)
 			delete fIconCache[i];	
 	}
 
@@ -186,7 +186,7 @@ void TZoomableIcon::Draw()
 
 	float animation_factor = fZoomStep / 2;
 	
-	float _e = (kDefaultBigIconSize - kDefaultSmallIconSize) / 2;
+	float _e = (kAnimationSteps + 1) / 2;
 	animation_factor *= ((float)_e) / 8.0f;
 
 	float _dl = _e - animation_factor;
@@ -207,27 +207,29 @@ void TZoomableIcon::PrepareDrawing()
 
 BBitmap *TZoomableIcon::Bitmap()
 {
-	int stepsCount = kDefaultBigIconSize - kDefaultSmallIconSize;
+	int stepsCount = kAnimationSteps + 1;
+	
 	if (fZoomStep > 0) {
-		if (fZoomStep == stepsCount) {
-			if (fDisabled)
-				return DimmBitmap(fBigIcon);
+	    if (fZoomStep == stepsCount) {
+    		if (fDisabled)
+            	return DimmBitmap(fBigIcon);
+        	else
+        		return fBigIcon;
+        	}
+        
+        	if (!fCachedIcons)
+        		CreateIconCache();
+        	
+        	if (fDisabled)
+        		return DimmBitmap(fIconCache[fZoomStep]);
+        	else
+        		return fIconCache[fZoomStep];
+        } else {
+        	if (fDisabled)
+            	return DimmBitmap(fSmallIcon);
 			else
-				return fBigIcon;			
+				return fSmallIcon;
 		}
-		if (!fCachedIcons)
-			CreateIconCache();
-			
-			if (fDisabled)
-				return DimmBitmap(fIconCache[fZoomStep]);
-			else
-				return fIconCache[fZoomStep];
-	} else {
-		if (fDisabled)
-			return DimmBitmap(fSmallIcon);
-		else
-			return fSmallIcon;
-	}
 }
 
 BBitmap *TZoomableIcon::DimmBitmap(BBitmap *orig)
@@ -249,10 +251,12 @@ BBitmap *TZoomableIcon::DimmBitmap(BBitmap *orig)
 void TZoomableIcon::CreateIconCache()
 {
 	if (!fBigIcon)
-		return;	
-	for (int i = 0; i <= (kDefaultBigIconSize - kDefaultSmallIconSize); i++) {
+		return;
+		
+	for (int i = 0; i <= kAnimationSteps; i++) {
 		BRect rect(0, 0, kDefaultSmallIconSize + i, kDefaultSmallIconSize + i);
 		fIconCache[i] = new BBitmap(rect, B_RGBA32);
+		
 		ScaleBilinear(fBigIcon, fIconCache[i]);
 	}		
 	fCachedIcons = true;
@@ -775,6 +779,7 @@ void TAppPanelIcon::MessageReceived( BMessage *message )
 
 status_t TAppPanelIcon::DroppedSomething( const BMessage *message )
 {
+	fprintf(stderr, "Dropped!\n");
 	if ( message->what == B_SIMPLE_DATA )
 	{
 		BMessage msg2app( B_REFS_RECEIVED );
@@ -799,7 +804,7 @@ status_t TAppPanelIcon::DroppedSomething( const BMessage *message )
 		}
 	}
 	else
-		return TTrackerIcon::DroppedSomething( message );
+		//return TTrackerIcon::DroppedSomething( message );
 	return B_OK;
 }
 
