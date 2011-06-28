@@ -1539,10 +1539,10 @@ TWorkspacesIcon::TWorkspacesIcon()
 	be_roster->FindApp( "application/x-vnd.Be-WORK", &ref );
 	BEntry e(&ref, true);
 
-	fWorkspaceImage = new BBitmap(GetTrackerIcon(&e, B_MINI_ICON));	
+	fWorkspaceImage = new BBitmap(GetTrackerIcon(&e, B_LARGE_ICON));	
 
 	fFont = BFont( be_bold_font );
-	fFont.SetSize( 11 );
+	fFont.SetSize( 12 );
 }
 
 TWorkspacesIcon::TWorkspacesIcon( BMessage *message )
@@ -1551,10 +1551,10 @@ TWorkspacesIcon::TWorkspacesIcon( BMessage *message )
 	entry_ref ref;
 	be_roster->FindApp( "application/x-vnd.Be-WORK", &ref );
 	BEntry e(&ref, true);
-	fWorkspaceImage = new BBitmap(GetTrackerIcon(&e, B_MINI_ICON));	
+	fWorkspaceImage = new BBitmap(GetTrackerIcon(&e, B_LARGE_ICON));	
 
 	fFont = BFont( be_bold_font );
-	fFont.SetSize( 11 );
+	fFont.SetSize( 12 );
 }
 
 TWorkspacesIcon::~TWorkspacesIcon()
@@ -1654,9 +1654,9 @@ void TWorkspacesIcon::DrawIcon()
 	BPoint where = ContentLocation();
 
 	canvas->SetDrawingMode( B_OP_ALPHA );
-	canvas->SetHighColor( 0, 0, 0, 50 );
+	canvas->SetHighColor( 0, 0, 0, 80 );
 	canvas->SetBlendingMode( B_CONSTANT_ALPHA, B_ALPHA_OVERLAY );
-	canvas->DrawBitmap( fWorkspaceImage, where + BPoint((kDefaultBigIconSize-B_MINI_ICON)/2+1,(kDefaultBigIconSize-B_MINI_ICON)/2) );
+	canvas->DrawBitmap( fWorkspaceImage, where + BPoint((kDefaultBigIconSize-kDefaultSmallIconSize)/2+1,(kDefaultBigIconSize-kDefaultSmallIconSize)/2) );
 	canvas->SetDrawingMode( B_OP_COPY );
 	BFont font;
 	canvas->GetFont(&font);
