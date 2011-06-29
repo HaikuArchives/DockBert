@@ -39,143 +39,17 @@ All rights reserved.
 #include <List.h>
 #include "BarWindow.h"
 
-/* ------------------------------------ */
-// Private app_server defines that I need to use
 
-#define _DESKTOP_W_TYPE_ 1024
-#define _FLOATER_W_TYPE_ 4
-#define _STD_W_TYPE_ 0
-
-// from roster_private.h
-extern
-const char *TASK_BAR_MIME_SIG;
-
-class BarTeamInfo {
-public:
-	BarTeamInfo(BList *teams, uint32 flags, char *sig, BBitmap *icon,
-				char *name);
-	~BarTeamInfo();
-
-	BList *teams;
-	uint32 flags;
-	char *sig;
-	BBitmap *icon;
-	char *name;
-};
-
-const uint32 msg_Win95 = 'Bill';
-const uint32 msg_Amiga = 'Ncro';
-const uint32 msg_Mac = 'WcOS';
-const uint32 msg_Be = 'Tabs';
-const uint32 msg_AlwaysTop = 'TTop';
-const uint32 msg_ToggleDraggers = 'TDra';
-const uint32 msg_config_db = 'cnfg';
-const uint32 msg_Unsubscribe = 'Unsb';
 const uint32 msg_AddTeam = 'AdTm';
 const uint32 msg_RemoveTeam = 'RmTm';
-const uint32 msg_Restart = 'Rtrt';
-const uint32 msg_ShutDown = 'ShDn';
-const uint32 msg_showseconds = 'ShSc';
-const uint32 msg_miltime = 'MilT';
-const uint32 msg_fulldate = 'FDat';
-const uint32 msg_eurodate = 'EDat';
-const uint32 msg_trackerFirst = 'TkFt';
-const uint32 msg_sortRunningApps = 'SAps';
-const uint32 msg_superExpando = 'SprE';
-const uint32 msg_expandNewTeams = 'ExTm';
 
-/* --------------------------------------------- */
+class TBarView : public BView {
+	public:
+		TBarView(BRect frame, bool vertical, bool left, bool top,
+			bool ampmMode, uint32 state, float width, bool showClock);
+		~TBarView();
 
-// if you want to extend this structure, maintain the
-// constants below (used in TBarApp::InitSettings())
-
-struct	desk_settings 
-{
-	bool vertical;				// version 1
-	bool left;
-	bool top;
-	bool ampmMode;
-	bool showTime;
-	uint32 state;
-	float width;
-	BPoint switcherLoc;			// version 2
-	int32 recentAppsCount;		// version 3
-	int32 recentDocsCount;
-	bool timeShowSeconds;		// version 4
-	bool timeShowMil;
-	int32 recentFoldersCount;	// version 5
-	bool timeShowEuro;			// version 6
-	bool alwaysOnTop;
-	bool timeFullDate;			// version 7
-	bool trackerAlwaysFirst;	// version 8
-	bool sortRunningApps;
-	bool superExpando;			// version 9
-	bool expandNewTeams;
 };
 
-// the following structures are defined to compute
-// valid sizes for "struct desk_settings"
-
-const uint32 kValidSettingsSize1 = 5 * sizeof(bool) + sizeof(uint32) + sizeof(float);
-const uint32 kValidSettingsSize2 = sizeof(BPoint) + kValidSettingsSize1;
-const uint32 kValidSettingsSize3 = 2 * sizeof(int32) + kValidSettingsSize2;
-const uint32 kValidSettingsSize4 = 2 * sizeof(bool) + kValidSettingsSize3;
-const uint32 kValidSettingsSize5 = sizeof(int32) + kValidSettingsSize4;
-const uint32 kValidSettingsSize6 = 2 * sizeof(bool) + kValidSettingsSize5;
-const uint32 kValidSettingsSize7 = sizeof(bool) + kValidSettingsSize6;
-const uint32 kValidSettingsSize8 = 2 * sizeof(bool) + kValidSettingsSize7;
-const uint32 kValidSettingsSize9 = 2 * sizeof(bool) + kValidSettingsSize8;
-const uint32 kValidSettingsSize11 = sizeof(bool) + kValidSettingsSize9;
-
-class TBarView;
-class BFile;
-
-namespace BPrivate {
-
-class TFavoritesConfigWindow;
-
-}
-
-using namespace BPrivate;
-
-class TBarApp : public BApplication {
-public:
-	TBarApp();
-	virtual ~TBarApp();
-
-	virtual	bool QuitRequested();
-	virtual void MessageReceived(BMessage *);
-	virtual	void ReadyToRun();
-
-	desk_settings *Settings()
-		{ return &fSettings; };
-	TBarView *BarView() const
-		{ return fBarWindow->BarView(); };
-	
-	static void Subscribe(const BMessenger &subscriber, BList *);
-	static void Unsubscribe(const BMessenger &subscriber);
-	
-private:
-	void AddTeam(team_id team, uint32 flags, const char	*sig, entry_ref	*);
-	void RemoveTeam(team_id);
-
-	void InitSettings();
-	void SaveSettings();
-	
-	void ShowConfigWindow();
-	void PreloadPrefsIcons();
-
-	TBarWindow *fBarWindow;
-	BMessenger fSwitcherMess;
-	BMessenger fStatusViewMess;
-	BFile *fSettingsFile;
-	desk_settings fSettings;
-	
-	TFavoritesConfigWindow *fConfigWindow;
-	
-	static BLocker sSubscriberLock;
-	static BList sBarTeamInfoList;
-	static BList sSubscribers;
-};
 
 #endif

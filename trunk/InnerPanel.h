@@ -24,8 +24,6 @@
 #include "InnerPanelIcons.h"
 #include "NMenu.h"
 
-// ReplicantShelf magic
-#include "StatusView.h"
 
 class BBitmap;
 class BMessage;

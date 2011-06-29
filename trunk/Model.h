@@ -41,6 +41,7 @@ All rights reserved.
 #include <Mime.h>
 #include <StorageDefs.h>
 #include <String.h>
+#include <Debug.h>
 
 #include <ObjectList.h>
 #include "IconCacheTypes.h"

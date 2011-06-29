@@ -20,7 +20,6 @@
 #include <ctype.h>
 
 #include "BarApp.h"
-#include "StatusView.h"
 
 
 #undef B_TRANSLATE_CONTEXT
@@ -79,7 +78,7 @@ PreferencesWindow::PreferencesWindow(BRect frame)
 //	folderTextView->SetMaxBytes(4);
 
 	// Values
-	TBarApp* barApp = static_cast<TBarApp*>(be_app);
+//	TBarApp* barApp = static_cast<TBarApp*>(be_app);
 //	dock_settings* appSettings = barApp->Settings();
 
 //	fAppsSort->SetValue(appSettings->sortRunningApps);
@@ -252,16 +251,6 @@ PreferencesWindow::_UpdateRecentCounts()
 {
 	BMessage message(kUpdateRecentCounts);
 
-	int32 docCount = atoi(fMenuRecentDocumentCount->Text());
-	int32 appCount = atoi(fMenuRecentApplicationCount->Text());
-	int32 folderCount = atoi(fMenuRecentFolderCount->Text());
-
-	message.AddInt32("documents", max_c(0, docCount));
-	message.AddInt32("applications", max_c(0, appCount));
-	message.AddInt32("folders", max_c(0, folderCount));
-
-	message.AddBool("documentsEnabled", fMenuRecentDocuments->Value());
-	message.AddBool("applicationsEnabled", fMenuRecentApplications->Value());
 	message.AddBool("foldersEnabled", fMenuRecentFolders->Value());
 
 	be_app->PostMessage(&message);
@@ -273,7 +262,7 @@ PreferencesWindow::_UpdateRecentCounts()
 void
 PreferencesWindow::_EnableDisableDependentItems()
 {
-	TBarApp* barApp = static_cast<TBarApp*>(be_app);
+//	TBarApp* barApp = static_cast<TBarApp*>(be_app);
 //	if (barApp->BarView()->Vertical()
 //		&& barApp->BarView()->Expando()) {
 //		fAppsShowExpanders->SetEnabled(true);
