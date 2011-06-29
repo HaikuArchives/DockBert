@@ -183,19 +183,14 @@ void TZoomableIcon::Draw()
 {
 	PrepareDrawing();
 	BPoint where = ContentLocation();
-
-	float animation_factor = fZoomStep / 2;
 	
-	float _e = (kAnimationSteps + 1) / 2;
-	animation_factor *= ((float)_e) / 8.0f;
-
-	float _dl = _e - animation_factor;
-	where.x += _dl;
-	where.y += _dl;
-	
-	BView *canvas = fParent->Parent();
 	BBitmap *which = Bitmap();
-	
+		
+	where.x += (kDefaultBigIconSize - which->Bounds().Width()) / 2;
+	where.y += (kDefaultBigIconSize - which->Bounds().Height()) / 2;
+
+	BView *canvas = fParent->Parent();
+		
 	canvas->DrawBitmap( which, where );		
 }
 
