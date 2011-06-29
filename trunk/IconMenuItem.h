@@ -40,11 +40,7 @@ All rights reserved.
 #include <MenuItem.h>
 #include "Model.h"
 #include "Utilities.h"
-//---YT code begins here (replacement)
-class BNode;
-//---end of YT code. Original OT code was like below
-//class BNodeInfo;
-//---end of original OT code
+class BNodeInfo;
 
 namespace BPrivate {
 
@@ -62,13 +58,7 @@ class IconMenuItem : public PositionPassingMenuItem {
 		virtual void DrawContent();
 
 	private:
-//---YT code begins
-		void BuildDisabledIcon();
-//---end of YT code
 		BBitmap *fDeviceIcon;
-//---YT code begins
-		BBitmap *fDisabledDeviceIcon;
-//---end of YT code
 		typedef BMenuItem _inherited;
 };
 

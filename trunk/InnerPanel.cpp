@@ -923,19 +923,15 @@ bool TApplicationPanel::SetOptions( const char *what, const BMessage *msg )
 			TInnerPanel::Invalidate();
 		}
 
-#ifndef B_BEOS_VERSION_DANO
 		if ( fDrawCpuUsageBars )
 			(new BAlert("Warning", "Using this option with BeOS R5 might give some rendering artifacts..", "Bummer" ))->Go(0);
-#endif
 	}
 	else if ( !strcasecmp( what, "DoAlphaBlendedActiveHandles" ) )
 	{
 		if ( msg->FindBool( "data", &fDoAlphaBlendedActiveHandles ) != B_OK )
 			return false;
-#ifndef B_BEOS_VERSION_DANO
 		if ( fDoAlphaBlendedActiveHandles )
 			(new BAlert("Warning", "Using this option with BeOS R5 might give some rendering artifacts..", "Bummer" ))->Go(0);
-#endif
 	}
 	else
 		return TRaisingIconPanel::SetOptions( what, msg );

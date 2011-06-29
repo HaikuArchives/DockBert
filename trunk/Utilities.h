@@ -75,11 +75,7 @@ const int64 kTBSize = kGBSize * kKBSize;
 
 const int32 kMiniIconSeparator = 3;
 
-//---this was the original OT code:
-//const color_space kDefaultIconDepth = B_COLOR_8_BIT;
-//---end of original OT code. YT code begins:
 const color_space kDefaultIconDepth = B_RGBA32;
-//---end of YT code
 
 // misc typedefs, constants and structs
 

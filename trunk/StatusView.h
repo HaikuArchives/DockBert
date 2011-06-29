@@ -65,12 +65,6 @@ const float kMinimumWindowWidth = kGutter + kMinimumTrayWidth + kDragRegionWidth
 struct DeskbarItemInfo {
 	bool isAddOn;		// attribute tagged item
 	int32 id;			// id given to replicant
-//---YT code begins
-	dev_t edevice;		// entry_ref to item tagged
-	ino_t edirectory;
-	dev_t realDevice;	// device for actual item for vol unmounting
-	char *ename;
-//---end of YT code
 	entry_ref entryRef;	// entry_ref to item tagged
 	node_ref nodeRef;	// node_ref to boot vol item
 };
@@ -159,12 +153,6 @@ private:
 	BPoint LocForReplicant(int32 replicantCount, int32 index, float width);
 	BShelf *Shelf() const;
 	
-//---YT code begins
-#ifdef B_BEOS_VERSION_DANO
-	status_t UISettingsChanged(const BMessage* changes, uint32 flags);
-#endif
-//---end of YT code
-
 	friend class TReplicantShelf;
 
 	TTimeView *fClock;

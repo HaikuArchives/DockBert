@@ -17,9 +17,7 @@
 
 #include <Autolock.h>
 
-#ifdef B_BEOS_VERSION_DANO
-#define USE_WINDOW_SHAPING
-#endif
+//#define USE_WINDOW_SHAPING /* BeOS Dano code*/
 
 property_info _dock_property_list[] = {
 	{ "TransparentMenus", { B_GET_PROPERTY, B_SET_PROPERTY }, { B_DIRECT_SPECIFIER }, 0, 0, { B_BOOL_TYPE }, {}, {} },
@@ -113,9 +111,6 @@ TPanelWindowView::~TPanelWindowView()
 
 void TPanelWindowView::AttachedToWindow()
 {
-#ifdef B_BEOS_VERSION_DANO
-	SetDoubleBuffering( 1 );
-#endif
 
 	fTimer = new BMessageRunner( BMessenger(Window()), new BMessage(kPanelWindowViewTimer), 999999 );
 

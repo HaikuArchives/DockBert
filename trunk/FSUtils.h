@@ -145,9 +145,6 @@ TrackerCopyLoopControl::TrackerCopyLoopControl(thread_id thread)
 
 #define B_DESKTOP_DIR_NAME "Desktop"
 
-#if B_BEOS_VERSION_DANO
-#define 
-#endif
 status_t FSCopyFile(BEntry *, StatStruct *, BDirectory *, CopyLoopControl *, 
 	BPoint * = 0, bool = false);
 status_t FSCopyFolder(BEntry *, BDirectory *, CopyLoopControl *, BPoint * = 0,

@@ -16,8 +16,4 @@ enum {
 	R_ResizeIcon = 22,
 	R_WindowShownSwitchIcon = 23,
 	R_WindowHiddenSwitchIcon = 24,
-//---YT code begins
-	R_ExpandableIcon = 25,
-	R_ExpandedIcon = 26
-//---end of YT code
 };
