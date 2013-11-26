@@ -35,7 +35,7 @@
 #include <Catalog.h>
 #include <Locale.h>
 
-#define B_TRANSLATE_CONTEXT "tracker-menus"
+#define B_TRANSLATION_CONTEXT "tracker-menus"
 
 //#include <private/IconLoader.h>
 
