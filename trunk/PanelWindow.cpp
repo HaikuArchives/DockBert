@@ -32,7 +32,7 @@
 #include <Catalog.h>
 #include <Locale.h>
 
-#define B_TRANSLATE_CONTEXT "panel-window"
+#define B_TRANSLATION_CONTEXT "panel-window"
 
 #define _MNITEM_W 4
 #define _MNITEM_H 4
