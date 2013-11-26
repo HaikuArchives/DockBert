@@ -38,7 +38,7 @@
 
 #include <Screen.h>
 
-#define B_TRANSLATE_CONTEXT "inner-panel-icons"
+#define B_TRANSLATION_CONTEXT "inner-panel-icons"
 
 using namespace BPrivate;
 
