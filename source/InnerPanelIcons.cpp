@@ -12,6 +12,7 @@
 #include <MessageRunner.h>
 #include <Region.h>
 #include <malloc.h>
+#include <strings.h>
 #include <locale/Locale.h>
 
 #include "InnerPanelIcons.h"

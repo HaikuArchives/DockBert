@@ -25,6 +25,7 @@
 #include "tracker_private.h"
 
 #include <stdio.h>
+#include <strings.h>
 #include <malloc.h>
 
 #include <Debug.h>

@@ -22,6 +22,7 @@
 #include <malloc.h>
 #include <stdio.h>
 #include <string.h>
+#include <strings.h>
 
 #include "PanelWindow.h"
 #include "PanelWindowView.h"

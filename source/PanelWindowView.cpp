@@ -15,6 +15,8 @@
 #include <FindDirectory.h>
 #include <Alert.h>
 
+#include <strings.h>
+
 #include <Autolock.h>
 
 //#define USE_WINDOW_SHAPING /* BeOS Dano code*/

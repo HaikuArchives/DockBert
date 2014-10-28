@@ -19,6 +19,7 @@
 
 
 #include <stdio.h>
+#include <strings.h>
 
 #include "FSUtils.h"
 #include "Commands.h"
