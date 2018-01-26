@@ -51,10 +51,14 @@ BBitmap* GetTrackerIcon(BEntry *e, icon_size which)
     entry_ref ref;    
     BBitmap *bmp = NULL;
 
-    if(which==kDefaultSmallIconSize)
-        bmp = new BBitmap(BRect(0,0,31,31), B_RGBA32);
-    else
-        bmp = new BBitmap(BRect(0,0,47,47), B_RGBA32);
+    switch (which) {
+		case kDefaultMenuIconSize:   	bmp = new BBitmap(BRect(0,0,15,15), B_RGBA32);
+										break;
+		case kDefaultSmallIconSize:  	bmp = new BBitmap(BRect(0,0,31,31), B_RGBA32);
+										break;
+		case kDefaultBigIconSize:
+		default:						bmp = new BBitmap(BRect(0,0,47,47), B_RGBA32);
+    }
 
     if(e->GetRef(&ref) == B_OK) {
         if(BNodeInfo::GetTrackerIcon(&ref, bmp, which) == B_OK) {
@@ -1444,6 +1448,10 @@ TAwarePopupMenu *TTrashIcon::Menu()
 			else
 				first = false;
 
+			char volumeName[B_FILE_NAME_LENGTH];
+			volume.GetName(volumeName);
+			menu->AddItem(new TMenuItem(volumeName , 0));
+
 			entry_ref ref;
 			get_ref_for_path(path.Path(), &ref);
 			BDirectory bdir( &ref );
@@ -1457,21 +1465,20 @@ TAwarePopupMenu *TTrashIcon::Menu()
 				dent = (dirent*)buf;
 				while ( count -- )
 				{
-					if ( !strcmp( dent->d_name, "." ) || !strcmp( dent->d_name, ".." ) )
-						continue;
-					entry_ref eref;
-					eref.device = dent->d_pdev;
-					eref.directory = dent->d_pino;
-					eref.set_name( dent->d_name );
+					if (strcmp( dent->d_name, "." ) != 0 && strcmp( dent->d_name, ".." ) != 0)
+					{
+						entry_ref eref;
+						eref.device = dent->d_pdev;
+						eref.directory = dent->d_pino;
+						eref.set_name( dent->d_name );
 		
-					BPath path( &eref );
-					BEntry e(&eref, true);
-					BBitmap *bitmap = new BBitmap( GetTrackerIcon(&e, B_MINI_ICON) ); 
-
-					menu->AddItem( new TTrackerMenuItem( path.Leaf(), bitmap, eref ) );
-					entrycount ++;
-					thiscount ++;
-		
+						BPath path( &eref );
+						BEntry e(&eref, true);
+						BBitmap *bitmap = new BBitmap( GetTrackerIcon(&e, B_MINI_ICON) );
+						menu->AddItem( new TTrackerMenuItem( path.Leaf(), bitmap, eref ) );
+						entrycount ++;
+						thiscount ++;
+					}
 					dent = (dirent *)((char *)dent + dent->d_reclen);
 				}
 			}
