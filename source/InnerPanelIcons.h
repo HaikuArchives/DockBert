@@ -39,6 +39,7 @@ const uint32 kSuspendSystem = 304;
 
 const uint32 kDefaultBigIconSize = 48;
 const uint32 kDefaultSmallIconSize = 32;
+const uint32 kDefaultMenuIconSize = 16;
 const uint32 kAnimationSteps = kDefaultBigIconSize - kDefaultSmallIconSize - 1;
 
 // TPanelIcon:
