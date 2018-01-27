@@ -481,39 +481,30 @@ int TDockMenus::BuildTrackerMenu( TMenu *menu, entry_ref &ref )
 	char buf[4096];
 	dirent *dent;
 	int count;
-	while( ( count = bdir.GetNextDirents( (dirent*)buf, 4096)) > 0 )
+	while((count = bdir.GetNextDirents((dirent*)buf, 4096)) > 0)
 	{
 		dent = (dirent*)buf;
-		while ( count -- )
+		while (count --)
 		{
-			if ( !strcmp( dent->d_name, "." ) || !strcmp( dent->d_name, ".." ) )
-				continue;
-			eref.device = dent->d_pdev;
-			eref.directory = dent->d_pino;
-			eref.set_name( dent->d_name );
-
-			BPath path( &eref );
-			BEntry e(&eref, true);
-			BBitmap *bitmap = new BBitmap( GetTrackerIcon(&e , B_MINI_ICON) );
-
-			BPath realpath;
-			BEntry entry( &eref, true );
-			entry.GetRef(&eref);
-			entry.GetPath(&realpath);
-			const char *rootpath = realpath.Path();
-
-			BEntry entryref(&eref);
-			Model model(&entryref);
-
-			if ( entry.IsDirectory() )
+			if (strcmp(dent->d_name, ".") != 0  && strcmp(dent->d_name, "..") !=0)
 			{
-				BNavMenu *submenu = new BNavMenu( path.Leaf(), B_REFS_RECEIVED, BMessenger(kTrackerSignature ) );
-				submenu->SetNavDir( &eref );
-				itemlist.AddItem( new TTrackerMenuItem( submenu, bitmap, eref ) );
-			}
-			else
-				itemlist.AddItem( new TTrackerMenuItem( path.Leaf(), bitmap, eref ) );
+				eref.device = dent->d_pdev;
+				eref.directory = dent->d_pino;
+				eref.set_name(dent->d_name);
 
+				BPath path(&eref);
+				BEntry entry(&eref, true);
+				BBitmap *bitmap = new BBitmap(GetTrackerIcon(&entry, B_MINI_ICON));
+
+				if (entry.IsDirectory())
+				{
+					BNavMenu *submenu = new BNavMenu(path.Leaf(), B_REFS_RECEIVED, BMessenger(kTrackerSignature));
+					submenu->SetNavDir(&eref);
+					itemlist.AddItem(new TTrackerMenuItem(submenu, bitmap, eref ));
+				}
+				else
+					itemlist.AddItem(new TTrackerMenuItem(path.Leaf(), bitmap, eref));
+			}
 			dent = (dirent *)((char *)dent + dent->d_reclen);
 		}
 	}
@@ -522,13 +513,13 @@ int TDockMenus::BuildTrackerMenu( TMenu *menu, entry_ref &ref )
 
 	if ( empty )
 	{
-		TMenuItem *empty = new TMenuItem( B_TRANSLATE("No entries"), 0 );
+		TMenuItem *empty = new TMenuItem(B_TRANSLATE("No entries"), 0);
 		empty->SetEnabled(false);
-		menu->AddItem( empty );
+		menu->AddItem(empty);
 	}
 	else
 	{
-		itemlist.SortItems( StaticCompareFilesFoldersFirst );
+		itemlist.SortItems(StaticCompareFilesFoldersFirst);
 		int32 count = itemlist.CountItems();
 		for ( int32 i=0; i<count; i++ )
 			menu->AddItem( static_cast<TMenuItem*>(itemlist.ItemAt(i)) );
