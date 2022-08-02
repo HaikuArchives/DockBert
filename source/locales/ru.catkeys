@@ -1,66 +1,66 @@
 1	english	x-vnd.Dockbert	3529301841
 Just after	inner-panel-icons		Just after
-nine	inner-panel-icons		девять
-Bring all here	tracker-menus		Перенести все сюда
-Find	inner-panel-icons		Поиск
-Show all	tracker-menus		Показать все
-ten	inner-panel-icons		десять
-Close all	tracker-menus		Закрыть все
-This is your first time running Dockbert - небольшое введение.\nСейчас Вы видите в нижней части экрана небольшое окно  с несколькими иконками, это Dockbert.\nНебольшой информация о каждой иконке, слева направо:\n- Корзина, - перетаскивайте файлы на иконку, чтобы переместить их в Корзину, левой кнопкой мыши открывается окно Корзины, щелчок правой кнопкой мыши показывает вам, удобное меню\n-Рабочие столы,- нашимайте левую и правую кнопки мыши для перемещения между рабочими столами, средняя кнопка мыши - список рабочих столов\n-Часы,- нажмите правую кнопку мыши для настроек\n-Tracker, нажмите правую кнопку мыши трекер для вызова меню, и другие полезные опции\n-The Be menu, right click it to see the Be Menu\n-the other two icons are shortcuts, read the readme for aditional information	panel-window		This is your first time running Dockbert so we'll give you a small introduction to it.\nBy now there should be a small window in the bottom of your screen with some icons, that's Dockbert.\nWe'll now give you a small info about each icon, from left to right:\n- The trash, drag files to it to move them to trash, left clicking it opens the trash window, right clicking shows you a handy menu\n-The workspaces, left click to forward a workspace, right click to backward a workspace, the middle button gives you a list of the workspaces\n-The clock, right click it for options\n-The Tracker, right click the tracker for the tracker menu, with some usefull options\n-The Be menu,- нажмите правую кнопку мыши, для вызова Be Menu
-three	inner-panel-icons		три
-Ok thanks!	panel-window		Ok спасибо!
-No entries	inner-panel-icons		Нет записей
-Show	tracker-menus		Показать
+nine	inner-panel-icons		Г¤ГҐГўГїГІГј
+Bring all here	tracker-menus		ГЏГҐГ°ГҐГ­ГҐГ±ГІГЁ ГўГ±ГҐ Г±ГѕГ¤Г 
+Find	inner-panel-icons		ГЏГ®ГЁГ±ГЄ
+Show all	tracker-menus		ГЏГ®ГЄГ Г§Г ГІГј ГўГ±ГҐ
+ten	inner-panel-icons		Г¤ГҐГ±ГїГІГј
+Close all	tracker-menus		Г‡Г ГЄГ°Г»ГІГј ГўГ±ГҐ
+This is your first time running Dockbert - Г­ГҐГЎГ®Г«ГјГёГ®ГҐ ГўГўГҐГ¤ГҐГ­ГЁГҐ.\nГ‘ГҐГ©Г·Г Г± Г‚Г» ГўГЁГ¤ГЁГІГҐ Гў Г­ГЁГ¦Г­ГҐГ© Г·Г Г±ГІГЁ ГЅГЄГ°Г Г­Г  Г­ГҐГЎГ®Г«ГјГёГ®ГҐ Г®ГЄГ­Г®  Г± Г­ГҐГ±ГЄГ®Г«ГјГЄГЁГ¬ГЁ ГЁГЄГ®Г­ГЄГ Г¬ГЁ, ГЅГІГ® Dockbert.\nГЌГҐГЎГ®Г«ГјГёГ®Г© ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГї Г® ГЄГ Г¦Г¤Г®Г© ГЁГЄГ®Г­ГЄГҐ, Г±Г«ГҐГўГ  Г­Г ГЇГ°Г ГўГ®:\n- ГЉГ®Г°Г§ГЁГ­Г , - ГЇГҐГ°ГҐГІГ Г±ГЄГЁГўГ Г©ГІГҐ ГґГ Г©Г«Г» Г­Г  ГЁГЄГ®Г­ГЄГі, Г·ГІГ®ГЎГ» ГЇГҐГ°ГҐГ¬ГҐГ±ГІГЁГІГј ГЁГµ Гў ГЉГ®Г°Г§ГЁГ­Гі, Г«ГҐГўГ®Г© ГЄГ­Г®ГЇГЄГ®Г© Г¬Г»ГёГЁ Г®ГІГЄГ°Г»ГўГ ГҐГІГ±Гї Г®ГЄГ­Г® ГЉГ®Г°Г§ГЁГ­Г», Г№ГҐГ«Г·Г®ГЄ ГЇГ°Г ГўГ®Г© ГЄГ­Г®ГЇГЄГ®Г© Г¬Г»ГёГЁ ГЇГ®ГЄГ Г§Г»ГўГ ГҐГІ ГўГ Г¬, ГіГ¤Г®ГЎГ­Г®ГҐ Г¬ГҐГ­Гѕ\n-ГђГ ГЎГ®Г·ГЁГҐ Г±ГІГ®Г«Г»,- Г­Г ГёГЁГ¬Г Г©ГІГҐ Г«ГҐГўГіГѕ ГЁ ГЇГ°Г ГўГіГѕ ГЄГ­Г®ГЇГЄГЁ Г¬Г»ГёГЁ Г¤Г«Гї ГЇГҐГ°ГҐГ¬ГҐГ№ГҐГ­ГЁГї Г¬ГҐГ¦Г¤Гі Г°Г ГЎГ®Г·ГЁГ¬ГЁ Г±ГІГ®Г«Г Г¬ГЁ, Г±Г°ГҐГ¤Г­ГїГї ГЄГ­Г®ГЇГЄГ  Г¬Г»ГёГЁ - Г±ГЇГЁГ±Г®ГЄ Г°Г ГЎГ®Г·ГЁГµ Г±ГІГ®Г«Г®Гў\n-Г—Г Г±Г»,- Г­Г Г¦Г¬ГЁГІГҐ ГЇГ°Г ГўГіГѕ ГЄГ­Г®ГЇГЄГі Г¬Г»ГёГЁ Г¤Г«Гї Г­Г Г±ГІГ°Г®ГҐГЄ\n-Tracker, Г­Г Г¦Г¬ГЁГІГҐ ГЇГ°Г ГўГіГѕ ГЄГ­Г®ГЇГЄГі Г¬Г»ГёГЁ ГІГ°ГҐГЄГҐГ° Г¤Г«Гї ГўГ»Г§Г®ГўГ  Г¬ГҐГ­Гѕ, ГЁ Г¤Г°ГіГЈГЁГҐ ГЇГ®Г«ГҐГ§Г­Г»ГҐ Г®ГЇГ¶ГЁГЁ\n-The Be menu, right click it to see the Be Menu\n-the other two icons are shortcuts, read the readme for aditional information	panel-window		This is your first time running Dockbert so we'll give you a small introduction to it.\nBy now there should be a small window in the bottom of your screen with some icons, that's Dockbert.\nWe'll now give you a small info about each icon, from left to right:\n- The trash, drag files to it to move them to trash, left clicking it opens the trash window, right clicking shows you a handy menu\n-The workspaces, left click to forward a workspace, right click to backward a workspace, the middle button gives you a list of the workspaces\n-The clock, right click it for options\n-The Tracker, right click the tracker for the tracker menu, with some useful options\n-The Be menu,- Г­Г Г¦Г¬ГЁГІГҐ ГЇГ°Г ГўГіГѕ ГЄГ­Г®ГЇГЄГі Г¬Г»ГёГЁ, Г¤Г«Гї ГўГ»Г§Г®ГўГ  Be Menu
+three	inner-panel-icons		ГІГ°ГЁ
+Ok thanks!	panel-window		Ok Г±ГЇГ Г±ГЁГЎГ®!
+No entries	inner-panel-icons		ГЌГҐГІ Г§Г ГЇГЁГ±ГҐГ©
+Show	tracker-menus		ГЏГ®ГЄГ Г§Г ГІГј
 ten past	inner-panel-icons		ten past
-Restart	inner-panel-icons		Рестарт
+Restart	inner-panel-icons		ГђГҐГ±ГІГ Г°ГІ
 The time is now	inner-panel-icons		The time is now
 twenty to	inner-panel-icons		twenty to
-seven	inner-panel-icons		семь
-Do you really wish to remove the Trash icon?	inner-panel-icons		Вы хотите удалить иконку Корзины?
+seven	inner-panel-icons		Г±ГҐГ¬Гј
+Do you really wish to remove the Trash icon?	inner-panel-icons		Г‚Г» ГµГ®ГІГЁГІГҐ ГіГ¤Г Г«ГЁГІГј ГЁГЄГ®Г­ГЄГі ГЉГ®Г°Г§ГЁГ­Г»?
 quarter past	inner-panel-icons		quarter past
 In the morning	inner-panel-icons		In the morning
-No windows	tracker-menus		Нет окон
+No windows	tracker-menus		ГЌГҐГІ Г®ГЄГ®Г­
 First Time	panel-window		First Time
 A little after	inner-panel-icons		A little after
-Bring here	tracker-menus		Перенести сюда
+Bring here	tracker-menus		ГЏГҐГ°ГҐГ­ГҐГ±ГІГЁ Г±ГѕГ¤Г 
 twenty-five past	inner-panel-icons		twenty-five past
 six	inner-panel-icons		six
 ReallyRemoveTheBeMenu	inner-panel-icons		ReallyRemoveTheBeMenu
 half past	inner-panel-icons		half past
-Show date	inner-panel-icons		Показывать дату
-Hide all	tracker-menus		Скрыть все
-Change time	inner-panel-icons		Изменить время
-Show clock	inner-panel-icons		Показывать часы
-Hide	tracker-menus		Скрыть
-Close	tracker-menus		Закрыть
-No	inner-panel-icons		Нет
-Left Click to Hide All Windows in this workspace,\nRight click to bring them back.	inner-panel-icons		Левый клик - скрыть все окна на столе,\nПравый клик - вернуть обратно.
-Empty trash	inner-panel-icons		Очистить корзину
+Show date	inner-panel-icons		ГЏГ®ГЄГ Г§Г»ГўГ ГІГј Г¤Г ГІГі
+Hide all	tracker-menus		Г‘ГЄГ°Г»ГІГј ГўГ±ГҐ
+Change time	inner-panel-icons		Г€Г§Г¬ГҐГ­ГЁГІГј ГўГ°ГҐГ¬Гї
+Show clock	inner-panel-icons		ГЏГ®ГЄГ Г§Г»ГўГ ГІГј Г·Г Г±Г»
+Hide	tracker-menus		Г‘ГЄГ°Г»ГІГј
+Close	tracker-menus		Г‡Г ГЄГ°Г»ГІГј
+No	inner-panel-icons		ГЌГҐГІ
+Left Click to Hide All Windows in this workspace,\nRight click to bring them back.	inner-panel-icons		Г‹ГҐГўГ»Г© ГЄГ«ГЁГЄ - Г±ГЄГ°Г»ГІГј ГўГ±ГҐ Г®ГЄГ­Г  Г­Г  Г±ГІГ®Г«ГҐ,\nГЏГ°Г ГўГ»Г© ГЄГ«ГЁГЄ - ГўГҐГ°Г­ГіГІГј Г®ГЎГ°Г ГІГ­Г®.
+Empty trash	inner-panel-icons		ГЋГ·ГЁГ±ГІГЁГІГј ГЄГ®Г°Г§ГЁГ­Гі
 24 hour clock	inner-panel-icons		24 hour clock
-Quit application	tracker-menus		Выход
-Shut down	inner-panel-icons		Выключение
+Quit application	tracker-menus		Г‚Г»ГµГ®Г¤
+Shut down	inner-panel-icons		Г‚Г»ГЄГ«ГѕГ·ГҐГ­ГЁГҐ
 one	inner-panel-icons		one
-Bring to front	tracker-menus		Перенести вперёд
+Bring to front	tracker-menus		ГЏГҐГ°ГҐГ­ГҐГ±ГІГЁ ГўГЇГҐГ°ВёГ¤
 In the afternoon	inner-panel-icons		In the afternoon
-eight	inner-panel-icons		восемь
-Yes	inner-panel-icons		Да
+eight	inner-panel-icons		ГўГ®Г±ГҐГ¬Гј
+Yes	inner-panel-icons		Г„Г 
 midnight	inner-panel-icons		midnight
-Hide seconds	inner-panel-icons		Скрыть секунды
+Hide seconds	inner-panel-icons		Г‘ГЄГ°Г»ГІГј Г±ГҐГЄГіГ­Г¤Г»
 About	inner-panel-icons		About
-Exactly	inner-panel-icons		Точно
+Exactly	inner-panel-icons		Г’Г®Г·Г­Г®
 five to	inner-panel-icons		five to
-four	inner-panel-icons		четыре
+four	inner-panel-icons		Г·ГҐГІГ»Г°ГҐ
 In the evening	inner-panel-icons		In the evening
-eleven	inner-panel-icons		одиннадцать
+eleven	inner-panel-icons		Г®Г¤ГЁГ­Г­Г Г¤Г¶Г ГІГј
 twenty past	inner-panel-icons		twenty past
-five	inner-panel-icons		пять
+five	inner-panel-icons		ГЇГїГІГј
 twenty-five to	inner-panel-icons		twenty-five to
-Show seconds	inner-panel-icons		Показывать секунды
+Show seconds	inner-panel-icons		ГЏГ®ГЄГ Г§Г»ГўГ ГІГј Г±ГҐГЄГіГ­Г¤Г»
 five past	inner-panel-icons		five past
-two	inner-panel-icons		два
+two	inner-panel-icons		Г¤ГўГ 
 quarter to	inner-panel-icons		quarter to
 ten to	inner-panel-icons		ten to
-twelve	inner-panel-icons		двенадцать
-Disks	inner-panel-icons		Диски
-No entries	tracker-menus		Нет записей
-Almost	inner-panel-icons		Почти
+twelve	inner-panel-icons		Г¤ГўГҐГ­Г Г¤Г¶Г ГІГј
+Disks	inner-panel-icons		Г„ГЁГ±ГЄГЁ
+No entries	tracker-menus		ГЌГҐГІ Г§Г ГЇГЁГ±ГҐГ©
+Almost	inner-panel-icons		ГЏГ®Г·ГІГЁ
