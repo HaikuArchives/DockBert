@@ -250,7 +250,7 @@ class Model {
 
 
 class ModelNodeLazyOpener {
-	// a utility open state manager, usefull to allocate on stack
+	// a utility open state manager, useful to allocate on stack
 	// and have close up model when done, etc.
 	public:
 		// consider failing when open does not succeed
