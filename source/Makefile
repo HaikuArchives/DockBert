@@ -38,7 +38,7 @@ SRCS= Bubble.cpp DockArchivableUtils.cpp InnerPanel.cpp \
 
 #	specify the resource definition files to use
 #	full path or a relative path to the resource file can be used.
-RDEFS= icon-freelogo.rdef icons.rdef othericons.rdef
+RDEFS= icons.rdef othericons.rdef
 	
 #	specify the resource files to use. 
 #	full path or a relative path to the resource file can be used.

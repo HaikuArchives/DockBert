@@ -1714,7 +1714,13 @@ TAwarePopupMenu *TDockbertIcon::Menu()
 
 	menu->AddItem( new TBitmapMenuItem( B_TRANSLATE("Find"), icon, new BMessage(kFindButton) ) );
 	menu->AddItem( new TBitmapMenuItem( B_TRANSLATE("Dockbert Preferences"), icon, new BMessage(kDockbertPreferences) ) );
-	TBitmapMenuItem *item = new TBitmapMenuItem( B_TRANSLATE("About Haiku-OS"), const_cast<BBitmap*>( AppResSet()->FindBitmap( 'BBMP', R_BeLogo ) ), new BMessage(kShowSplash) );
+
+	if ( be_roster->FindApp( "application/x-vnd.Haiku-About", &ref ) == B_OK )
+	{
+		BEntry e(&ref, true);
+		icon = new BBitmap( GetTrackerIcon(&e, B_MINI_ICON) );
+	}
+	TBitmapMenuItem *item = new TBitmapMenuItem( B_TRANSLATE("About Haiku"), icon, new BMessage(kShowSplash) );
 	item->SetBitmapAutoDestruct(false);
 	menu->AddItem( item );
 
