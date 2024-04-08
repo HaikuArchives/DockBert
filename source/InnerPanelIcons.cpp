@@ -1131,7 +1131,7 @@ TAwarePopupMenu *TClockIcon::Menu()
 	menu->AddSeparatorItem();
 
 	entry_ref ref;
-	if ( be_roster->FindApp( "application/x-vnd.Be-TIME", &ref ) == B_OK )
+	if ( be_roster->FindApp( "application/x-vnd.Haiku-Time", &ref ) == B_OK )
 	{
 		BEntry e(&ref, true);
 		BBitmap* icon = new BBitmap( GetTrackerIcon(&e, B_MINI_ICON) );
@@ -1170,7 +1170,7 @@ void TClockIcon::MessageReceived( BMessage *message )
 	}
 	else if ( message->what == kLaunchTimePrefs )
 	{
-		be_roster->Launch( "application/x-vnd.Be-TIME" );
+		be_roster->Launch( "application/x-vnd.Haiku-Time" );
 	}
 	else if ( message->what == kClockToggleClockDate )
 	{
@@ -1706,7 +1706,7 @@ TAwarePopupMenu *TDockbertIcon::Menu()
 
 	BBitmap *icon = NULL; //new BBitmap( BRect( 0, 0, B_MINI_ICON-1, B_MINI_ICON-1), B_RGBA32);
 
-	if ( be_roster->FindApp( "application/x-vnd.Be-MAGN", &ref ) == B_OK )
+	if ( be_roster->FindApp( "application/x-vnd.Haiku-Magnify", &ref ) == B_OK )
 	{
 		BEntry e(&ref, true);
 		icon = new BBitmap( GetTrackerIcon(&e, B_MINI_ICON) );

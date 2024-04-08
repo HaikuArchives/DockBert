@@ -235,7 +235,7 @@ void TPanelWindowView::AttachedToWindow()
 		cpanel->AddItem( new TWorkspacesIcon() );
 		cpanel->AddItem( new TClockIcon() );
 
-		BEntry entry( "/boot/beos/system/Tracker" );
+		BEntry entry( "/boot/system/Tracker" );
 		entry_ref ref;
 		entry.GetRef( &ref );
 		AddShortcut( cpanel, ref );
@@ -251,7 +251,7 @@ void TPanelWindowView::AttachedToWindow()
 
 		cpanel = new TShortcutPanel(this);
 		AddPanel( cpanel );
-		AddShortcut( cpanel, "application/x-vnd.Be-NPOS" );
+		AddShortcut( cpanel, "application/x-vnd.Haiku-WebPositive" );
 		AddShortcut( cpanel, "application/x-vnd.Sugoi-BeShare" );
 
 		fRunningAppPanel = new TApplicationPanel(this);
