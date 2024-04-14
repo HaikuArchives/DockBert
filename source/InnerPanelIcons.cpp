@@ -1697,7 +1697,7 @@ TAwarePopupMenu *TDockbertIcon::Menu()
 
 	menu->AddSeparatorItem();
 
-	find_directory (B_USER_DESKBAR_DIRECTORY, &path);
+	find_directory (B_SYSTEM_DESKBAR_DIRECTORY, &path);
 	get_ref_for_path(path.Path(), &ref);
 
 	TDockMenus::BuildTrackerMenu( menu, ref );

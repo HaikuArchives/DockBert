@@ -1040,9 +1040,10 @@ bool TApplicationPanel::AddItem( entry_ref &ref, int32 index )
 		BEntry entry( &ref, true );
 		if ( FSIsTrashDir( &entry ) )
 			icon = (TPanelIcon*) ( new TTrashIcon() );
-		else if ( FSIsDirFlavor( &entry, B_USER_DESKBAR_DIRECTORY ) )
+		else if ( FSIsDirFlavor( &entry, B_SYSTEM_DESKBAR_DIRECTORY ) ||
+			FSIsDirFlavor( &entry, B_USER_DESKBAR_DIRECTORY) ) {
 			icon = (TPanelIcon*) ( new TDockbertIcon( ref ) );
-		else
+		} else
 			icon = (TPanelIcon*) ( new TTrackerIcon( ref ) );
 	}
 

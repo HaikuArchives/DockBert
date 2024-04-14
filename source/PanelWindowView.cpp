@@ -240,10 +240,10 @@ void TPanelWindowView::AttachedToWindow()
 		entry.GetRef( &ref );
 		AddShortcut( cpanel, ref );
 
+		// TODO: B_USER_DESKBAR_DIRECTORY too?
 		BPath path;
-		if ( find_directory( B_USER_CONFIG_DIRECTORY, &path ) == B_OK )
+		if ( find_directory( B_SYSTEM_DESKBAR_DIRECTORY, &path ) == B_OK )
 		{
-			path.Append( "be" );
 			BEntry entry2( path.Path() );
 			entry2.GetRef( &ref );
 			AddShortcut( cpanel, ref );
