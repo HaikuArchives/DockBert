@@ -1,43 +1,41 @@
-#include <Bitmap.h>
-#include <Directory.h>
-#include <Message.h>
-#include <List.h>
-#include <NodeInfo.h>
-#include <String.h>
-#include <Roster.h>
-#include <Alert.h>
-#include <NodeMonitor.h>
-#include <Volume.h>
-#include <VolumeRoster.h>
-#include <MessageRunner.h>
-#include <Region.h>
+#include "InnerPanelIcons.h"
+
 #include <malloc.h>
 #include <strings.h>
-#include <locale/Locale.h>
 
-#include "InnerPanelIcons.h"
-#include "PanelWindow.h"
-#include "TrackerMenus.h"
+#include <Alert.h>
+#include <Bitmap.h>
+#include <Catalog.h>
+#include <ControlLook.h>
+#include <Directory.h>
+#include <List.h>
+#include <Locale.h>
+#include <Message.h>
+#include <MessageRunner.h>
+#include <NodeInfo.h>
+#include <NodeMonitor.h>
+#include <ObjectList.h>
+#include <Region.h>
+#include <Roster.h>
+#include <Screen.h>
+#include <String.h>
+#include <Volume.h>
+#include <VolumeRoster.h>
+
+#include "Commands.h"
+#include "FSUtils.h"
 #include "InnerPanel.h"
-#include "PanelWindowView.h"
-#include "RosterPrivate.h"
 #include "OffscreenView.h"
-
+#include "othericons.h"
+#include "PanelWindow.h"
+#include "PanelWindowView.h"
+#include "ResourceSet.h"
+#include "RosterPrivate.h"
+#include "TrackerMenus.h"
+#include "tracker_private.h"
+#include "Utils.h"
 #include "WindowMenuItem.h" // for nasty stuff
 
-#include <ObjectList.h>
-#include "FSUtils.h"
-#include "Commands.h"
-
-#include "tracker_private.h"
-
-#include "ResourceSet.h"
-#include "othericons.h"
-
-#include <Catalog.h>
-#include <Locale.h>
-
-#include <Screen.h>
 
 #define B_TRANSLATION_CONTEXT "inner-panel-icons"
 
@@ -48,7 +46,7 @@ WindowShouldBeListed(uint32 behavior);
 
 BBitmap* GetTrackerIcon(BEntry *e, icon_size which)
 {
-    entry_ref ref;    
+    entry_ref ref;
     BBitmap *bmp = NULL;
 
     switch (which) {
@@ -66,7 +64,7 @@ BBitmap* GetTrackerIcon(BEntry *e, icon_size which)
         }
     }
     return NULL;
-} 
+}
 
 
 TPanelIcon::~TPanelIcon()
@@ -134,7 +132,7 @@ TZoomableIcon::TZoomableIcon()
 	: TPanelIcon(), fSmallIcon(0), fBigIcon(0),
 					fDimmedSmallIcon(0), fDimmedBigIcon(0),
 					fDeleteBitmaps(true), fDisabled(false),
-					fCachedIcons(false)					
+					fCachedIcons(false)
 {
 }
 
@@ -161,16 +159,16 @@ TZoomableIcon::~TZoomableIcon()
 		delete fSmallIcon;
 		delete fBigIcon;
 	}
-	
+
 	if ( fCachedIcons )
 	{
 		for (int i = 0; i <= kAnimationSteps; i++)
-			delete fIconCache[i];	
+			delete fIconCache[i];
 	}
 
 	delete fDimmedSmallIcon;
 	delete fDimmedBigIcon;
-	
+
 }
 
 void TZoomableIcon::SetDestroyBitmaps( bool b )
@@ -188,15 +186,15 @@ void TZoomableIcon::Draw()
 {
 	PrepareDrawing();
 	BPoint where = ContentLocation();
-	
+
 	BBitmap *which = Bitmap();
-		
+
 	where.x += (kDefaultBigIconSize - which->Bounds().Width()) / 2;
 	where.y += (kDefaultBigIconSize - which->Bounds().Height()) / 2;
 
 	BView *canvas = fParent->Parent();
-		
-	canvas->DrawBitmap( which, where );		
+
+	canvas->DrawBitmap( which, where );
 }
 
 void TZoomableIcon::PrepareDrawing()
@@ -208,7 +206,7 @@ void TZoomableIcon::PrepareDrawing()
 BBitmap *TZoomableIcon::Bitmap()
 {
 	int stepsCount = kAnimationSteps + 1;
-	
+
 	if (fZoomStep > 0) {
 	    if (fZoomStep == stepsCount) {
     		if (fDisabled)
@@ -216,10 +214,10 @@ BBitmap *TZoomableIcon::Bitmap()
         	else
         		return fBigIcon;
         	}
-        
+
         	if (!fCachedIcons)
         		CreateIconCache();
-        	
+
         	if (fDisabled)
         		return DimmBitmap(fIconCache[fZoomStep]);
         	else
@@ -239,7 +237,7 @@ BBitmap *TZoomableIcon::DimmBitmap(BBitmap *orig)
 
 	BBitmap *result = new BBitmap(orig->Bounds(), B_RGBA32);
 	memcpy(result->Bits(), orig->Bits(), orig->BitsLength());
-	
+
 	uchar *bits = (uchar *)result->Bits();
     for (int32 index = 0; index < result->BitsLength(); index+=4) {
 		bits[index+3] = bits[index+3] * 0.3;
@@ -252,13 +250,13 @@ void TZoomableIcon::CreateIconCache()
 {
 	if (!fBigIcon)
 		return;
-		
+
 	for (int i = 0; i <= kAnimationSteps; i++) {
 		BRect rect(0, 0, kDefaultSmallIconSize + i, kDefaultSmallIconSize + i);
 		fIconCache[i] = new BBitmap(rect, B_RGBA32);
-		
+
 		ScaleBilinear(fBigIcon, fIconCache[i]);
-	}		
+	}
 	fCachedIcons = true;
 }
 
@@ -571,11 +569,11 @@ void TTrackerIcon::ReloadIcons()
 {
 	delete fSmallIcon;
 	BEntry ent(&fRef, true);
-	
+
 	if( ent.InitCheck() == B_OK )
 	{
 		fSmallIcon = new BBitmap( GetTrackerIcon(&ent, B_LARGE_ICON));
-		
+
 		delete fBigIcon;
 		fBigIcon = new BBitmap( GetTrackerIcon(&ent, (icon_size)2));
 	}
@@ -882,7 +880,7 @@ void TAppPanelIcon::Launch()
 		BList fWindowIDList;
 
 		int32 numTeams = fTeam->CountItems();
-		for (int32 i = 0; i < numTeams; i++) 
+		for (int32 i = 0; i < numTeams; i++)
 		{
 			team_id	theTeam = (team_id)fTeam->ItemAt(i);
 			int32 count = 0;
@@ -906,7 +904,7 @@ void TAppPanelIcon::Launch()
 			{
 				window_info *w1 = (window_info*)fWindowIDList.ItemAt(0);
 				window_info *w2 = (window_info*)fWindowIDList.ItemAt(1);
-	
+
 				if ( w1->team == w2->team )
 					fWindowCyclerIndex = 1;
 				else
@@ -933,7 +931,7 @@ void TAppPanelIcon::Launch()
 				{
 					window_info *w1 = (window_info*)fWindowIDList.ItemAt(0);
 					window_info *w2 = (window_info*)fWindowIDList.ItemAt(1);
-	
+
 					if ( w1->team == w2->team )
 						fWindowCyclerIndex = 1;
 					else
@@ -957,7 +955,7 @@ void TAppPanelIcon::Launch()
 				break;
 			}
 
-			fWindowCyclerIndex ++;					
+			fWindowCyclerIndex ++;
 		}
 
 		if ( nlaps > 1 && first_mini > 0)
@@ -1040,7 +1038,7 @@ float TAppPanelIcon::CpuUsage()
 
 		int32 cookie = 0;
 		thread_info tinfo;
-	
+
 		while ( get_next_thread_info( tid, &cookie, &tinfo ) == B_OK )
 		{
 			ukern += tinfo.kernel_time;
@@ -1439,7 +1437,7 @@ TAwarePopupMenu *TTrashIcon::Menu()
 	{
 		if ( volume.IsRemovable() || volume.IsReadOnly() || volume.IsShared() || !volume.IsPersistent() )
 			continue;
-	
+
 		BPath path;
 		if ( find_directory( B_TRASH_DIRECTORY, &path, false, &volume ) == B_OK )
 		{
@@ -1471,7 +1469,7 @@ TAwarePopupMenu *TTrashIcon::Menu()
 						eref.device = dent->d_pdev;
 						eref.directory = dent->d_pino;
 						eref.set_name( dent->d_name );
-		
+
 						BPath path( &eref );
 						BEntry e(&eref, true);
 						BBitmap *bitmap = new BBitmap( GetTrackerIcon(&e, B_MINI_ICON) );
@@ -1488,7 +1486,7 @@ TAwarePopupMenu *TTrashIcon::Menu()
 				TMenuItem *empty = new TMenuItem( B_TRANSLATE("No entries"), 0 );
 				empty->SetEnabled(false);
 				menu->AddItem( empty );
-			}			
+			}
 		}
 	}
 
@@ -1529,7 +1527,7 @@ void TTrashIcon::MessageReceived( BMessage *message )
 	{
 		BMessage emi( B_DELETE_PROPERTY );
 		emi.AddSpecifier( "Trash" );
-		BMessenger( kTrackerSignature ).SendMessage( &emi ); 
+		BMessenger( kTrackerSignature ).SendMessage( &emi );
 	}
 	else
 		TTrackerIcon::MessageReceived(message);
@@ -1542,7 +1540,7 @@ TWorkspacesIcon::TWorkspacesIcon()
 	be_roster->FindApp( "application/x-vnd.Be-WORK", &ref );
 	BEntry e(&ref, true);
 
-	fWorkspaceImage = new BBitmap(GetTrackerIcon(&e, B_LARGE_ICON));	
+	fWorkspaceImage = new BBitmap(GetTrackerIcon(&e, B_LARGE_ICON));
 
 	fFont = BFont( be_bold_font );
 	fFont.SetSize( 12 );
@@ -1554,7 +1552,7 @@ TWorkspacesIcon::TWorkspacesIcon( BMessage *message )
 	entry_ref ref;
 	be_roster->FindApp( "application/x-vnd.Be-WORK", &ref );
 	BEntry e(&ref, true);
-	fWorkspaceImage = new BBitmap(GetTrackerIcon(&e, B_LARGE_ICON));	
+	fWorkspaceImage = new BBitmap(GetTrackerIcon(&e, B_LARGE_ICON));
 
 	fFont = BFont( be_bold_font );
 	fFont.SetSize( 12 );
@@ -1801,8 +1799,11 @@ void TSeparatorIcon::Draw()
 TShowDesktopIcon::TShowDesktopIcon()
 	: TZoomableIcon()
 {
-	fSmallIcon = const_cast<BBitmap*>( AppResSet()->FindBitmap( 'BBMP', R_ShowDesktopIconSmall ) );
-	fBigIcon = const_cast<BBitmap*>( AppResSet()->FindBitmap( 'BBMP', R_ShowDesktopIcon ) );
+	fSmallIcon = new BBitmap(BRect(0, 0, kDefaultSmallIconSize - 1, kDefaultSmallIconSize - 1), B_RGBA32);
+	GetVectorIcon("ShowDesktopIcon", fSmallIcon);
+
+	fBigIcon = new BBitmap(BRect(0, 0, kDefaultBigIconSize - 1, kDefaultBigIconSize - 1), B_RGBA32);
+	GetVectorIcon("ShowDesktopIcon", fBigIcon);
 
 	SetDestroyBitmaps(false);
 }
@@ -1810,8 +1811,11 @@ TShowDesktopIcon::TShowDesktopIcon()
 TShowDesktopIcon::TShowDesktopIcon(BMessage *msg)
 	: TZoomableIcon(msg)
 {
-	fSmallIcon = const_cast<BBitmap*>( AppResSet()->FindBitmap( 'BBMP', R_ShowDesktopIconSmall ) );
-	fBigIcon = const_cast<BBitmap*>( AppResSet()->FindBitmap( 'BBMP', R_ShowDesktopIcon ) );
+	fSmallIcon = new BBitmap(BRect(0, 0, kDefaultSmallIconSize - 1, kDefaultSmallIconSize - 1), B_RGBA32);
+	GetVectorIcon("ShowDesktopIcon", fSmallIcon);
+
+	fBigIcon = new BBitmap(BRect(0, 0, kDefaultBigIconSize - 1, kDefaultBigIconSize - 1), B_RGBA32);
+	GetVectorIcon("ShowDesktopIcon", fBigIcon);
 
 	SetDestroyBitmaps(false);
 }
@@ -1823,34 +1827,34 @@ void TShowDesktopIcon::MouseDown( BPoint /* where */, uint32 /* modifiers */, ui
 		BList teamlist;
 		be_roster->GetAppList( &teamlist );
 		int32 count = teamlist.CountItems();
-	
+
 		team_id deskbar_team = -1;
 		app_info nfo;
-	
+
 		if ( be_roster->GetAppInfo( "application/x-vnd.Be-TSKB", &nfo ) == B_OK )
 			deskbar_team = nfo.team;
-	
+
 		fWindowList.MakeEmpty();
-	
+
 		for ( int32 i=0; i<count; i++ )
 		{
-			team_id	theTeam = (team_id)teamlist.ItemAt(i);	
-	
+			team_id	theTeam = (team_id)teamlist.ItemAt(i);
+
 			if ( theTeam == deskbar_team )
 				continue;
-	
+
 			if ( (be_roster->GetRunningAppInfo( theTeam, &nfo ) != B_OK) || ( nfo.flags & B_BACKGROUND_APP ) )
 				continue;
-	
+
 			int32 count = 0;
 			int32 *tokens = get_token_list(theTeam, &count);
-	
+
 			for (int32 j = 0; j < count; j++)
 			{
 				window_info *wInfo = get_window_info(tokens[j]);
 				if (wInfo == NULL)
 					continue;
-	
+
 				if (WindowShouldBeListed(wInfo->w_type) && (wInfo->show_hide_level <= 0 || wInfo->is_mini))
 				{
 					if ( ((1 << current_workspace()) & wInfo->workspaces) != 0 )
@@ -1867,13 +1871,13 @@ void TShowDesktopIcon::MouseDown( BPoint /* where */, uint32 /* modifiers */, ui
 	else if ( buttons & B_SECONDARY_MOUSE_BUTTON )
 	{
 		int32 count = fWindowList.CountItems();
-	
+
 		for ( int32 i=0; i<count; i++ )
 		{
 			int32 wid = (int32)fWindowList.ItemAt( i );
 			do_window_action( wid, B_BRING_TO_FRONT, BRect( 0, 0, 0, 0 ), false );
 		}
-	
+
 		fWindowList.MakeEmpty();
 	}
 }
