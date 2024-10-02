@@ -15,7 +15,6 @@ enum {
 	R_HomeIcon = 58,
 	R_HomeIconSmall = 59,
 	R_ShowDesktopIcon = 60,
-	R_ShowDesktopIconSmall = 61,
 	R_DisksIcon = 62,
 	R_DisksIconSmall = 63,
 	R_BringAllHereButton = 64,
