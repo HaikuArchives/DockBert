@@ -91,7 +91,7 @@ TInnerPanel::TInnerPanel( BMessage *msg )
 		fBackFrameColor = *temp_c;
 	else
 		fBackFrameColor = (rgb_color){218,218,205,255};
-	
+
 	if ( msg->FindString( "Name", &fTabName ) != B_OK )
 		fTabName = "unnamed";
 
@@ -213,7 +213,7 @@ void TInnerPanel::IncreaseFrame( float amount, bool update )
 void TInnerPanel::SetFrame( BRect rect, bool update )
 {
 	fFrame = rect;
-	fFrameFrame = BRect( rect.left + 5, rect.top + 6, rect.right - 5, rect.bottom-3 );
+	fFrameFrame = BRect( rect.left + 5, rect.top + 6, rect.right - 5, rect.bottom );
 
 	if ( update && fParent)
 		fParent->ChangedSize( this );
@@ -1023,7 +1023,7 @@ bool TApplicationPanel::AddItem( entry_ref &ref, int32 index )
 
 	TPanelIcon *icon;
 
-	if ( (info.InitCheck() == B_OK) && 
+	if ( (info.InitCheck() == B_OK) &&
 		 ( info.GetSignature( mime ) == B_OK ) &&
 		 !strncmp( mime, "application/", 12 )
 	   )
@@ -1227,7 +1227,7 @@ bool TShortcutPanel::AddItem( TPanelIcon *icon, int32 index )
 		IncreaseFrame( -150 );
 	return TApplicationPanel::AddItem(icon, index);
 }
- 
+
 bool TShortcutPanel::AddItem( entry_ref &ref, int32 index )
 {
 	if ( !TApplicationPanel::AddItem( ref, index ) )
@@ -1331,11 +1331,11 @@ TReplicantTrayPanel::TReplicantTrayPanel( TReplicantShelfPanel *shelf, bool vert
 void TReplicantTrayPanel::GetPreferredSize( float *preferredWidth, float *preferredHeight )
 {
 	float width = 0, height = kMinimumTrayHeight;
-	
+
 	uint32 id;
 	BView *view;
 	fShelf->ReplicantAt(IconCount() - 1, &view, &id);
-	if (view) {	
+	if (view) {
 		width = view->Frame().right + 3;
 	}
 
@@ -1361,7 +1361,7 @@ void TReplicantTrayPanel::Draw(BRect)
 /*	SetHighColor(light);
 	StrokeLine(frame.LeftBottom(), frame.RightBottom());
 	StrokeLine(frame.RightBottom(), frame.RightTop());
-	
+
 	SetHighColor(vdark);
 	StrokeLine(frame.RightTop(), frame.LeftTop());
 	StrokeLine(frame.LeftTop(), frame.LeftBottom());*/
