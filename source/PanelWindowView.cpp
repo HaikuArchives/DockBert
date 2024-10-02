@@ -417,7 +417,7 @@ void TPanelWindowView::MessageReceived( BMessage *message )
 					{
 						left = true;
 					}
-						
+
 					rpanel = new TShortcutPanel(this);
 					AddPanel( rpanel, left ? panel : 0 );
 				}
@@ -691,7 +691,7 @@ void TPanelWindowView::MouseMoved(BPoint point, uint32 transit, const BMessage *
 			Window()->PostMessage(B_ENTERED_VIEW);
 			break;
 		case B_EXITED_VIEW:
-			if ( !fOpenMenu ) 
+			if ( !fOpenMenu )
 				Window()->PostMessage(B_EXITED_VIEW);
 			break;
 	}
@@ -738,7 +738,7 @@ void TPanelWindowView::MouseMoved(BPoint point, uint32 transit, const BMessage *
 				if ( fPreviousMouseMovedPanel )
 					fPreviousMouseMovedPanel->IsDragging( point, B_ENDED_DRAGGING );
 			}
-	
+
 			fPreviousMouseMovedPanel = panel;
 		}
 		else
@@ -778,9 +778,6 @@ void TPanelWindowView::Draw( BRect updateRect )
 
 	FillRect( BRect( h/2, 0, w-(h/2), h/2) );
 	FillRect( BRect( 0, h/2, w, h ) );
-
-	SetHighColor( 196, 196, 176 );
-	FillRect( BRect( 0, h - 2, w, h ) );
 
 	fPanels.Lock();
 	for ( int i=0; i<fPanels.CountItems(); i++ )
@@ -1038,7 +1035,7 @@ bool TPanelWindowView::SetOptions( const char *option, const BMessage *msg )
 	{
 		if ( msg->FindBool( "data", &fHideStandardDeskbar ) != B_OK )
 			return false;
-		
+
 		BMessage msg(B_SET_PROPERTY);
 		msg.AddBool( "data", fHideStandardDeskbar );
 		msg.AddSpecifier( "Hidden" );
@@ -1158,7 +1155,7 @@ void TPanelWindowView::HandleDroppedMessage( BMessage *message, BPoint point )
 			{
 				left = true;
 			}
-						
+
 			TShortcutPanel *cpanel = new TShortcutPanel(this);
 			AddPanel( cpanel, left ? panel : 0 );
 			panel = cpanel;
