@@ -1,43 +1,41 @@
-#include <Bitmap.h>
-#include <Directory.h>
-#include <Message.h>
-#include <List.h>
-#include <NodeInfo.h>
-#include <String.h>
-#include <Roster.h>
-#include <Alert.h>
-#include <NodeMonitor.h>
-#include <Volume.h>
-#include <VolumeRoster.h>
-#include <MessageRunner.h>
-#include <Region.h>
+#include "InnerPanelIcons.h"
+
 #include <malloc.h>
 #include <strings.h>
-#include <locale/Locale.h>
 
-#include "InnerPanelIcons.h"
-#include "PanelWindow.h"
-#include "TrackerMenus.h"
+#include <Alert.h>
+#include <Bitmap.h>
+#include <Catalog.h>
+#include <ControlLook.h>
+#include <Directory.h>
+#include <List.h>
+#include <Locale.h>
+#include <Message.h>
+#include <MessageRunner.h>
+#include <NodeInfo.h>
+#include <NodeMonitor.h>
+#include <ObjectList.h>
+#include <Region.h>
+#include <Roster.h>
+#include <Screen.h>
+#include <String.h>
+#include <Volume.h>
+#include <VolumeRoster.h>
+
+#include "Commands.h"
+#include "FSUtils.h"
 #include "InnerPanel.h"
-#include "PanelWindowView.h"
-#include "RosterPrivate.h"
 #include "OffscreenView.h"
-
+#include "othericons.h"
+#include "PanelWindow.h"
+#include "PanelWindowView.h"
+#include "ResourceSet.h"
+#include "RosterPrivate.h"
+#include "TrackerMenus.h"
+#include "tracker_private.h"
+#include "Utils.h"
 #include "WindowMenuItem.h" // for nasty stuff
 
-#include <ObjectList.h>
-#include "FSUtils.h"
-#include "Commands.h"
-
-#include "tracker_private.h"
-
-#include "ResourceSet.h"
-#include "othericons.h"
-
-#include <Catalog.h>
-#include <Locale.h>
-
-#include <Screen.h>
 
 #define B_TRANSLATION_CONTEXT "inner-panel-icons"
 
@@ -1812,8 +1810,11 @@ void TSeparatorIcon::Draw()
 TShowDesktopIcon::TShowDesktopIcon()
 	: TZoomableIcon()
 {
-	fSmallIcon = const_cast<BBitmap*>( AppResSet()->FindBitmap( 'BBMP', R_ShowDesktopIconSmall ) );
-	fBigIcon = const_cast<BBitmap*>( AppResSet()->FindBitmap( 'BBMP', R_ShowDesktopIcon ) );
+	fSmallIcon = new BBitmap(BRect(0, 0, kDefaultSmallIconSize - 1, kDefaultSmallIconSize - 1), B_RGBA32);
+	GetVectorIcon("ShowDesktopIcon", fSmallIcon);
+
+	fBigIcon = new BBitmap(BRect(0, 0, kDefaultBigIconSize - 1, kDefaultBigIconSize - 1), B_RGBA32);
+	GetVectorIcon("ShowDesktopIcon", fBigIcon);
 
 	SetDestroyBitmaps(false);
 }
@@ -1821,8 +1822,11 @@ TShowDesktopIcon::TShowDesktopIcon()
 TShowDesktopIcon::TShowDesktopIcon(BMessage *msg)
 	: TZoomableIcon(msg)
 {
-	fSmallIcon = const_cast<BBitmap*>( AppResSet()->FindBitmap( 'BBMP', R_ShowDesktopIconSmall ) );
-	fBigIcon = const_cast<BBitmap*>( AppResSet()->FindBitmap( 'BBMP', R_ShowDesktopIcon ) );
+	fSmallIcon = new BBitmap(BRect(0, 0, kDefaultSmallIconSize - 1, kDefaultSmallIconSize - 1), B_RGBA32);
+	GetVectorIcon("ShowDesktopIcon", fSmallIcon);
+
+	fBigIcon = new BBitmap(BRect(0, 0, kDefaultBigIconSize - 1, kDefaultBigIconSize - 1), B_RGBA32);
+	GetVectorIcon("ShowDesktopIcon", fBigIcon);
 
 	SetDestroyBitmaps(false);
 }

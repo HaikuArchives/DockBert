@@ -31,10 +31,10 @@ APP_MIME_SIG = x-vnd.Dockbert
 #	if two source files with the same name (source.c or source.cpp)
 #	are included from different directories.  Also note that spaces
 #	in folder names do not work well with this makefile.
-SRCS= Bubble.cpp DockArchivableUtils.cpp InnerPanel.cpp \
-      InnerPanelIcons.cpp main.cpp NMenu.cpp PanelWindow.cpp \
-      PanelWindowView.cpp ResourceSet.cpp TrackerMenus.cpp \
-	PreferencesWindow.cpp
+SRCS= 	Bubble.cpp DockArchivableUtils.cpp InnerPanel.cpp \
+		InnerPanelIcons.cpp main.cpp NMenu.cpp PanelWindow.cpp \
+		PanelWindowView.cpp ResourceSet.cpp TrackerMenus.cpp \
+		PreferencesWindow.cpp Utils.cpp
 
 #	specify the resource definition files to use
 #	full path or a relative path to the resource file can be used.
