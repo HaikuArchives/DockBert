@@ -21,7 +21,7 @@ TYPE= APP
 APP_MIME_SIG = x-vnd.Dockbert
 
 #%{
-# @src->@ 
+# @src->@
 
 #	specify the source files to use
 #	full paths or paths relative to the makefile can be included
@@ -39,13 +39,13 @@ SRCS= Bubble.cpp DockArchivableUtils.cpp InnerPanel.cpp \
 #	specify the resource definition files to use
 #	full path or a relative path to the resource file can be used.
 RDEFS= icons.rdef othericons.rdef
-	
-#	specify the resource files to use. 
+
+#	specify the resource files to use.
 #	full path or a relative path to the resource file can be used.
 #	both RDEFS and RSRCS can be defined in the same makefile.
 RSRCS= dockbert.rsrc
 
-# @<-src@ 
+# @<-src@
 #%}
 
 #	end support for Pe and Eddie
@@ -55,7 +55,7 @@ RSRCS= dockbert.rsrc
 #	-	if your library follows the naming pattern of:
 #		libXXX.so or libXXX.a you can simply specify XXX
 #		library: libbe.so entry: be
-#		
+#
 #	- 	if your library does not follow the standard library
 #		naming scheme you need to specify the path to the library
 #		and it's name
@@ -68,21 +68,21 @@ LIBS= be tracker $(STDCPPLIBS) localestub
 #	be recursive, so include all of the paths where libraries can
 #	be found.  Directories where source files are found are
 #	automatically included.
-LIBPATHS= 
+LIBPATHS=
 
 #	additional paths to look for system headers
 #	thes use the form: #include <header>
 #	source file directories are NOT auto-included here
-SYSTEM_INCLUDE_PATHS = 
+SYSTEM_INCLUDE_PATHS =
 
 #	additional paths to look for local headers
 #	thes use the form: #include "header"
 #	source file directories are automatically included
-LOCAL_INCLUDE_PATHS = 
+LOCAL_INCLUDE_PATHS =
 
 #	specify the level of optimization that you desire
 #	NONE, SOME, FULL
-OPTIMIZE= 
+OPTIMIZE=
 
 #	specify any preprocessor symbols to be defined.  The symbols will not
 #	have their values set automatically; you must supply the value (if any)
@@ -95,17 +95,17 @@ DEFINES= DEBUG=1
 #	if unspecified default warnings will be used
 #	NONE = supress all warnings
 #	ALL = enable all warnings
-WARNINGS = 
+WARNINGS =
 
 #	specify whether image symbols will be created
 #	so that stack crawls in the debugger are meaningful
 #	if TRUE symbols will be created
-SYMBOLS = 
+SYMBOLS =
 
 #	specify debug settings
 #	if TRUE will allow application to be run from a source-level
 #	debugger.  Note that this will disable all optimzation.
-DEBUGGER =
+DEBUGGER = TRUE
 
 #	specify additional compiler flags for all files
 COMPILER_FLAGS = -fpermissive
@@ -114,16 +114,16 @@ COMPILER_FLAGS = -fpermissive
 LINKER_FLAGS =
 
 #	specify the version of this particular item
-#	(for example, -app 3 4 0 d 0 -short 340 -long "340 "`echo -n -e '\302\251'`"1999 GNU GPL") 
+#	(for example, -app 3 4 0 d 0 -short 340 -long "340 "`echo -n -e '\302\251'`"1999 GNU GPL")
 #	This may also be specified in a resource.
-APP_VERSION = 
+APP_VERSION =
 
 #	(for TYPE == DRIVER only) Specify desired location of driver in the /dev
 #	hierarchy. Used by the driverinstall rule. E.g., DRIVER_PATH = video/usb will
 #	instruct the driverinstall rule to place a symlink to your driver's binary in
 #	~/add-ons/kernel/drivers/dev/video/usb, so that your driver will appear at
 #	/dev/video/usb when loaded. Default is "misc".
-DRIVER_PATH = 
+DRIVER_PATH =
 LOCALES = en ru
 ## include the makefile-engine
 include $(BUILDHOME)/etc/makefile-engine

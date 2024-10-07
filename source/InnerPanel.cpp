@@ -1042,7 +1042,7 @@ bool TApplicationPanel::AddItem( entry_ref &ref, int32 index )
 			icon = (TPanelIcon*) ( new TTrashIcon() );
 		else if ( FSIsDirFlavor( &entry, B_SYSTEM_DESKBAR_DIRECTORY ) ||
 			FSIsDirFlavor( &entry, B_USER_DESKBAR_DIRECTORY) ) {
-			icon = (TPanelIcon*) ( new TDockbertIcon( ref ) );
+			icon = (TPanelIcon*) ( new TDockbertIcon() );
 		} else
 			icon = (TPanelIcon*) ( new TTrackerIcon( ref ) );
 	}

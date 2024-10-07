@@ -58,13 +58,13 @@ void TBitmapMenuItem::DrawContent()
 {
 	TMenu *menu = Menu();
 	BRect frame(Frame());
-	
+
 	BPoint drawPoint(ContentLocation());
 	drawPoint.x += fBitmapDeslX + ( fBitmap ? ( fBitmap->Bounds().Width() > 16 ? - 8 : 0 ) : 0 );
 	drawPoint.y += (frame.Height()/2) - (fTitleAscent - fTitleDescent);
 	menu->MovePenTo(drawPoint);
 	TMenuItem::DrawContent();
-	
+
 	if (fBitmap)
 	{
 		BPoint where(ContentLocation());
@@ -122,6 +122,7 @@ TAwarePopupMenu::~TAwarePopupMenu()
 	BMessage msg(T_MENU_CLOSED);
 	msg.AddPointer( "source", this );
 	fMessenger.SendMessage( &msg );
+
 }
 
 void TAwarePopupMenu::SetTargetMessenger( BMessenger messenger )
