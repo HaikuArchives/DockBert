@@ -1684,9 +1684,11 @@ TDockbertIcon::TDockbertIcon( BMessage *message )
 
 void TDockbertIcon::_InitIcons()
 {
-	fSmallIcon = const_cast<BBitmap*>( AppResSet()->FindBitmap( 'BBMP', R_ShowDesktopIconSmall ) );
-	fBigIcon = const_cast<BBitmap*>( AppResSet()->FindBitmap( 'BBMP', R_ShowDesktopIcon ) );
+	fSmallIcon = new BBitmap(BRect(0, 0, kDefaultSmallIconSize - 1, kDefaultSmallIconSize - 1), B_RGBA32);
+	GetVectorIcon("HaikuMenuIcon", fSmallIcon);
 
+	fBigIcon = new BBitmap(BRect(0, 0, kDefaultBigIconSize - 1, kDefaultBigIconSize - 1), B_RGBA32);
+	GetVectorIcon("HaikuMenuIcon", fBigIcon);
 	SetDestroyBitmaps(false);
 }
 
