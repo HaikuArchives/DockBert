@@ -50,12 +50,15 @@ BBitmap* GetTrackerIcon(BEntry *e, icon_size which)
     BBitmap *bmp = NULL;
 
     switch (which) {
-		case kDefaultMenuIconSize:   	bmp = new BBitmap(BRect(0,0,15,15), B_RGBA32);
-										break;
-		case kDefaultSmallIconSize:  	bmp = new BBitmap(BRect(0,0,31,31), B_RGBA32);
-										break;
+		case kDefaultMenuIconSize:
+			bmp = new BBitmap(BRect(0,0,15,15), B_RGBA32);
+			break;
+		case kDefaultSmallIconSize:
+			bmp = new BBitmap(BRect(0,0,31,31), B_RGBA32);
+			break;
 		case kDefaultBigIconSize:
-		default:						bmp = new BBitmap(BRect(0,0,47,47), B_RGBA32);
+		default:
+			bmp = new BBitmap(BRect(0,0,47,47), B_RGBA32);
     }
 
     if(e->GetRef(&ref) == B_OK) {
@@ -1666,28 +1669,38 @@ void TWorkspacesIcon::DrawIcon()
 	canvas->SetFont(&font);
 }
 
-TDockbertIcon::TDockbertIcon( entry_ref &ref )
-	: TTrackerIcon( ref )
+TDockbertIcon::TDockbertIcon()
+	: TZoomableIcon()
 {
+	_InitIcons();
 }
 
 TDockbertIcon::TDockbertIcon( BMessage *message )
-	: TTrackerIcon( message )
+	: TZoomableIcon( message )
 {
+	_InitIcons();
+}
+
+void TDockbertIcon::_InitIcons()
+{
+	fSmallIcon = new BBitmap(BRect(0, 0, kDefaultSmallIconSize - 1, kDefaultSmallIconSize - 1), B_RGBA32);
+	GetVectorIcon("HaikuMenuIcon", fSmallIcon);
+
+	fBigIcon = new BBitmap(BRect(0, 0, kDefaultBigIconSize - 1, kDefaultBigIconSize - 1), B_RGBA32);
+	GetVectorIcon("HaikuMenuIcon", fBigIcon);
+	SetDestroyBitmaps(false);
 }
 
 bool TDockbertIcon::Removable() const
 {
-	BAlert *alert = new BAlert( "Question", B_TRANSLATE("ReallyRemoveTheBeMenu"), B_TRANSLATE("Yes"), B_TRANSLATE("No"));
+	BAlert *alert = new BAlert( "Question", B_TRANSLATE("Do you really want to remove the Haiku Menu?"),
+						B_TRANSLATE("Yes"), B_TRANSLATE("No"));
 	int32 res = alert->Go();
 	return res == 0;
 }
 
 TAwarePopupMenu *TDockbertIcon::Menu()
 {
-	entry_ref ref;
-	BPath path;
-
 	TAwarePopupMenu *menu = new TAwarePopupMenu("BeMenu");
 
 	menu->AddItem( new TMenuItem( B_TRANSLATE("Restart"), new BMessage(kRebootSystem) ) );
@@ -1695,30 +1708,29 @@ TAwarePopupMenu *TDockbertIcon::Menu()
 
 	menu->AddSeparatorItem();
 
+	entry_ref deskbarDirRef;
+	BPath path;
 	find_directory (B_SYSTEM_DESKBAR_DIRECTORY, &path);
-	get_ref_for_path(path.Path(), &ref);
-
-	TDockMenus::BuildTrackerMenu( menu, ref );
+	get_ref_for_path(path.Path(), &deskbarDirRef);
+	TDockMenus::BuildTrackerMenu( menu, deskbarDirRef );
 
 	menu->AddSeparatorItem();
 
-	BBitmap *icon = NULL; //new BBitmap( BRect( 0, 0, B_MINI_ICON-1, B_MINI_ICON-1), B_RGBA32);
+	BBitmap *findIcon = nullptr;
+	menu->AddItem( new TBitmapMenuItem( B_TRANSLATE("Find" B_UTF8_ELLIPSIS), findIcon, new BMessage(kFindButton) ) );
 
-	if ( be_roster->FindApp( "application/x-vnd.Haiku-Magnify", &ref ) == B_OK )
+	// TODO: disable until the original preferences panel is reintroduced
+	// BBitmap *prefsIcon = nullptr;
+	// menu->AddItem( new TBitmapMenuItem( B_TRANSLATE("Dockbert Preferences" B_UTF8_ELLIPSIS), prefsIcon, new BMessage(kDockbertPreferences) ) );
+
+	entry_ref aboutRef;
+	BBitmap *aboutIcon = nullptr;
+	if ( be_roster->FindApp( "application/x-vnd.Haiku-About", &aboutRef ) == B_OK )
 	{
-		BEntry e(&ref, true);
-		icon = new BBitmap( GetTrackerIcon(&e, B_MINI_ICON) );
+		BEntry e(&aboutRef, true);
+		aboutIcon = new BBitmap( GetTrackerIcon(&e, B_MINI_ICON) );
 	}
-
-	menu->AddItem( new TBitmapMenuItem( B_TRANSLATE("Find"), icon, new BMessage(kFindButton) ) );
-	menu->AddItem( new TBitmapMenuItem( B_TRANSLATE("Dockbert Preferences"), icon, new BMessage(kDockbertPreferences) ) );
-
-	if ( be_roster->FindApp( "application/x-vnd.Haiku-About", &ref ) == B_OK )
-	{
-		BEntry e(&ref, true);
-		icon = new BBitmap( GetTrackerIcon(&e, B_MINI_ICON) );
-	}
-	TBitmapMenuItem *item = new TBitmapMenuItem( B_TRANSLATE("About Haiku"), icon, new BMessage(kShowSplash) );
+	TBitmapMenuItem *item = new TBitmapMenuItem( B_TRANSLATE("About Haiku"), aboutIcon, new BMessage(kShowSplash) );
 	item->SetBitmapAutoDestruct(false);
 	menu->AddItem( item );
 
@@ -1754,7 +1766,7 @@ void TDockbertIcon::MessageReceived( BMessage *message )
 			break;
 		}
 	default:
-		TTrackerIcon::MessageReceived(message);
+		TZoomableIcon::MessageReceived(message);
 	}
 }
 
@@ -1765,7 +1777,7 @@ void TDockbertIcon::MouseDown( BPoint point, uint32 modifiers, uint32 buttons )
 		DoMenu();
 	}
 	else
-		TTrackerIcon::MouseDown( point, modifiers, buttons );
+		TZoomableIcon::MouseDown( point, modifiers, buttons );
 }
 
 TSeparatorIcon::TSeparatorIcon()

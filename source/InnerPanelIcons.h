@@ -156,7 +156,7 @@ public:
 protected:
 	// the default implementation prepares drawing using B_OP_COPY
 	virtual void PrepareDrawing();
-	
+
 	BBitmap *fSmallIcon, *fBigIcon;
 	BBitmap *fDimmedSmallIcon, *fDimmedBigIcon;
 	bool fDeleteBitmaps;
@@ -167,7 +167,7 @@ private:
 
 	virtual void CreateIconCache();
 	BBitmap *fIconCache[kAnimationSteps + 1];
-	
+
 	BBitmap *Bitmap();
 	static BBitmap *DimmBitmap(BBitmap *);
 	static void ScaleBilinear(BBitmap *, BBitmap *);
@@ -392,22 +392,6 @@ protected:
 	BBitmap *fWorkspaceImage;
 };
 
-class TDockbertIcon : public TTrackerIcon
-{
-public:
-	TDockbertIcon( entry_ref &ref );
-	TDockbertIcon( BMessage * );
-
-	INSTANTIATE_OBJECT( TDockbertIcon )
-
-	virtual bool Removable() const;
-
-	virtual TAwarePopupMenu *Menu();
-	virtual void MessageReceived( BMessage * );
-	virtual void MouseDown( BPoint point, uint32 modifiers, uint32 buttons );
-
-	virtual const char *BubbleText() const { return "Be Menu"; }
-};
 
 class TSeparatorIcon : public TPanelIcon
 {
@@ -438,6 +422,25 @@ public:
 
 private:
 	BList fWindowList;
+};
+
+class TDockbertIcon : public TZoomableIcon
+{
+public:
+	TDockbertIcon();
+	TDockbertIcon(BMessage *);
+
+	void _InitIcons();
+
+	INSTANTIATE_OBJECT( TDockbertIcon )
+
+	virtual bool Removable() const;
+
+	virtual TAwarePopupMenu *Menu();
+	virtual void MessageReceived( BMessage * );
+	virtual void MouseDown( BPoint point, uint32 modifiers, uint32 buttons );
+
+	virtual const char *BubbleText() const { return "Be Menu"; }
 };
 
 #endif
