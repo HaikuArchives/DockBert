@@ -61,13 +61,12 @@ BBitmap* GetTrackerIcon(BEntry *e, icon_size which)
 			bmp = new BBitmap(BRect(0,0,47,47), B_RGBA32);
     }
 
-	if (e->GetRef(&ref) == B_OK) {
-		if(BNodeInfo::GetTrackerIcon(&ref, bmp, which) == B_OK) {
-			return bmp;
-		}
-	}
-
-    return nullptr;
+    if(e->GetRef(&ref) == B_OK) {
+        if(BNodeInfo::GetTrackerIcon(&ref, bmp, which) == B_OK) {
+            return bmp;
+        }
+    }
+    return NULL;
 }
 
 
