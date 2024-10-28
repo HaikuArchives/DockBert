@@ -1669,25 +1669,37 @@ void TWorkspacesIcon::DrawIcon()
 TDockbertIcon::TDockbertIcon( entry_ref &ref )
 	: TTrackerIcon( ref )
 {
+	_InitIcons();
 }
 
 TDockbertIcon::TDockbertIcon( BMessage *message )
 	: TTrackerIcon( message )
 {
+	_InitIcons();
+}
+
+void TDockbertIcon::_InitIcons()
+{
+	fSmallIcon = new BBitmap(BRect(0, 0, kDefaultSmallIconSize - 1, kDefaultSmallIconSize - 1), B_RGBA32);
+	GetVectorIcon("HaikuMenuIcon", fSmallIcon);
+
+	fBigIcon = new BBitmap(BRect(0, 0, kDefaultBigIconSize - 1, kDefaultBigIconSize - 1), B_RGBA32);
+	GetVectorIcon("HaikuMenuIcon", fBigIcon);
+	SetDestroyBitmaps(false);
 }
 
 bool TDockbertIcon::Removable() const
 {
-	BAlert *alert = new BAlert( "Question", B_TRANSLATE("ReallyRemoveTheBeMenu"), B_TRANSLATE("Yes"), B_TRANSLATE("No"));
+	BAlert *alert = new BAlert( "Question",
+		B_TRANSLATE("Do you really want to remove the Haiku Menu?"),
+		B_TRANSLATE("Yes"),
+		B_TRANSLATE("No"));
 	int32 res = alert->Go();
 	return res == 0;
 }
 
 TAwarePopupMenu *TDockbertIcon::Menu()
 {
-	entry_ref ref;
-	BPath path;
-
 	TAwarePopupMenu *menu = new TAwarePopupMenu("BeMenu");
 
 	menu->AddItem( new TMenuItem( B_TRANSLATE("Restart"), new BMessage(kRebootSystem) ) );
@@ -1695,30 +1707,32 @@ TAwarePopupMenu *TDockbertIcon::Menu()
 
 	menu->AddSeparatorItem();
 
-	find_directory (B_SYSTEM_DESKBAR_DIRECTORY, &path);
-	get_ref_for_path(path.Path(), &ref);
-
-	TDockMenus::BuildTrackerMenu( menu, ref );
+	TDockMenus::BuildTrackerMenu( menu, fRef );
 
 	menu->AddSeparatorItem();
 
-	BBitmap *icon = NULL; //new BBitmap( BRect( 0, 0, B_MINI_ICON-1, B_MINI_ICON-1), B_RGBA32);
-
-	if ( be_roster->FindApp( "application/x-vnd.Haiku-Magnify", &ref ) == B_OK )
+	BBitmap *findIcon = nullptr;
+	entry_ref magnifyRef;
+	if ( be_roster->FindApp( "application/x-vnd.Haiku-Magnify", &magnifyRef ) == B_OK )
 	{
-		BEntry e(&ref, true);
-		icon = new BBitmap( GetTrackerIcon(&e, B_MINI_ICON) );
+
+		BEntry e(&magnifyRef, true);
+		findIcon = new BBitmap( GetTrackerIcon(&e, B_MINI_ICON) );
 	}
+	menu->AddItem( new TBitmapMenuItem( B_TRANSLATE("Find"), findIcon, new BMessage(kFindButton) ) );
 
-	menu->AddItem( new TBitmapMenuItem( B_TRANSLATE("Find"), icon, new BMessage(kFindButton) ) );
-	menu->AddItem( new TBitmapMenuItem( B_TRANSLATE("Dockbert Preferences"), icon, new BMessage(kDockbertPreferences) ) );
+	BBitmap *prefsIcon = nullptr;
+	menu->AddItem( new TBitmapMenuItem( B_TRANSLATE("Dockbert Preferences" B_UTF8_ELLIPSIS), prefsIcon, new BMessage(kDockbertPreferences) ) );
 
-	if ( be_roster->FindApp( "application/x-vnd.Haiku-About", &ref ) == B_OK )
+	entry_ref aboutRef;
+	BBitmap *aboutIcon = nullptr;
+	if ( be_roster->FindApp( "application/x-vnd.Haiku-About", &aboutRef ) == B_OK )
 	{
-		BEntry e(&ref, true);
-		icon = new BBitmap( GetTrackerIcon(&e, B_MINI_ICON) );
+		BEntry e(&aboutRef, true);
+		aboutIcon = new BBitmap( GetTrackerIcon(&e, B_MINI_ICON) );
 	}
-	TBitmapMenuItem *item = new TBitmapMenuItem( B_TRANSLATE("About Haiku"), icon, new BMessage(kShowSplash) );
+	TBitmapMenuItem *item = new TBitmapMenuItem( B_TRANSLATE("About Haiku"), aboutIcon, new BMessage(kShowSplash) );
+
 	item->SetBitmapAutoDestruct(false);
 	menu->AddItem( item );
 

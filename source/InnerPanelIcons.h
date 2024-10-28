@@ -156,7 +156,7 @@ public:
 protected:
 	// the default implementation prepares drawing using B_OP_COPY
 	virtual void PrepareDrawing();
-	
+
 	BBitmap *fSmallIcon, *fBigIcon;
 	BBitmap *fDimmedSmallIcon, *fDimmedBigIcon;
 	bool fDeleteBitmaps;
@@ -167,7 +167,7 @@ private:
 
 	virtual void CreateIconCache();
 	BBitmap *fIconCache[kAnimationSteps + 1];
-	
+
 	BBitmap *Bitmap();
 	static BBitmap *DimmBitmap(BBitmap *);
 	static void ScaleBilinear(BBitmap *, BBitmap *);
@@ -406,7 +406,10 @@ public:
 	virtual void MessageReceived( BMessage * );
 	virtual void MouseDown( BPoint point, uint32 modifiers, uint32 buttons );
 
-	virtual const char *BubbleText() const { return "Be Menu"; }
+	virtual const char *BubbleText() const { return "Haiku Menu"; }
+
+private:
+	void _InitIcons();
 };
 
 class TSeparatorIcon : public TPanelIcon
