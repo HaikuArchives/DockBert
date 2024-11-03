@@ -1,63 +1,83 @@
 /*
- * Copyright 2009 Haiku, Inc.
+ * Copyright 2024 Nexus6 <nexus6@disroot.org>
  * All Rights Reserved. Distributed under the terms of the MIT License.
  */
-#ifndef _PREFERENCES_WINDOW_H
-#define _PREFERENCES_WINDOW_H
 
+#pragma once
+
+#include "PreferencesWindow.h"
+#include "Preferences.h"
+#include "TabListView.h"
 
 #include <Box.h>
 #include <Button.h>
 #include <CheckBox.h>
+#include <ColorControl.h>
+#include <ListView.h>
 #include <RadioButton.h>
+#include <Spinner.h>
+#include <ScrollView.h>
 #include <StringView.h>
+#include <TabView.h>
 #include <TextControl.h>
 #include <Window.h>
 
+static const int kTimeout = 1000000;
 
-const uint32 kConfigShow = 'show';
-const uint32 kDockbertPreferencesClose = 'canc';
-const uint32 kUpdateRecentCounts = 'upct';
-const uint32 kEditMenuInTracker = 'mtrk';
-const uint32 kStateChanged = 'stch';
+static const uint32 kMsgAlwaysOnTop = 'alot';
+static const uint32 kMsgAutoHide = 'auhi';
+static const uint32 kMsgDrawOuterFrame = 'drof';
+static const uint32 kMsgHideEffectDelay = 'hied';
+static const uint32 kMsgBackgroundColor = 'bgco';
+static const uint32 kMsgTabColor = 'taco';
+static const uint32 kMsgChangeTabName = 'tana';
+static const uint32 kMsgModifyName = 'mona';
+static const uint32 kMsgAddTab = 'adta';
+static const uint32 kMsgRemoveTab = 'reta';
+static const uint32 kMsgSelectTab = 'seta';
+static const uint32 kMsgOuterFrameColor = 'ofco';
+static const uint32 kMsgPreferencesChangedFromOutside = 'scfo';
+static const uint32 kMsgItemDragged = 'itdr';
 
 
 class PreferencesWindow : public BWindow
 {
 public:
-							PreferencesWindow(BRect frame);
-							~PreferencesWindow();
+						PreferencesWindow(BRect frame, BView* mainView);
+						~PreferencesWindow();
 
-	virtual void			MessageReceived(BMessage* message);
-	virtual void			WindowActivated(bool active);
+	virtual void		MessageReceived(BMessage* message);
+	virtual void		WindowActivated(bool active);
+	virtual bool		QuitRequested();
 
 private:
-			void			_UpdateRecentCounts();
-			void			_EnableDisableDependentItems();
+	void				_LoadSettings();
+	void				_InitControls();
+	void				_SetWatch(bool watch);
 
-			BBox*			fMenuBox;
-			BBox*			fAppsBox;
-			BBox*			fClockBox;
-			BBox*			fWindowBox;
+	bool				fLoadSettings;
+	Preferences*		fPreferences;
+	int32				fDebugLevel;
 
-			BCheckBox*		fMenuRecentDocuments;
-			BCheckBox*		fMenuRecentApplications;
-			BCheckBox*		fMenuRecentFolders;
+	BColorControl*		fBackgroundColorControl;
+	BColorControl*		fOuterFrameColorControl;
+	BCheckBox*			fAlwaysOnTopControl;
+	BCheckBox*			fAutoHideControl;
+	BCheckBox*			fDrawOuterFrameControl;
+	BSpinner*			fHideEffectDelayControl;
 
-			BTextControl*	fMenuRecentDocumentCount;
-			BTextControl*	fMenuRecentApplicationCount;
-			BTextControl*	fMenuRecentFolderCount;
+	TabListView*		fTabListView;
+	BScrollView* 		fScrollListView;
+	BButton*			fAddTabButton;
+	BButton*			fRemoveTabButton;
+	BColorControl*		fTabColorControl;
+	BTextControl*		fTabNameControl;
 
-			BCheckBox*		fAppsSort;
-			BCheckBox*		fAppsSortTrackerFirst;
-			BCheckBox*		fAppsShowExpanders;
-			BCheckBox*		fAppsExpandNew;
+	BView*				fGeneralPrefsView;
+	BView*				fTabPrefsView;
+	BTabView*			fTabView;
 
-			BCheckBox*		fClockSeconds;
+	BMessageRunner*		fMessageRunner;
 
-			BCheckBox*		fWindowAlwaysOnTop;
-			BCheckBox*		fWindowAutoRaise;
+	BView*			fMainView;
 };
-
-#endif	// _PREFERENCES_WINDOW_H
-

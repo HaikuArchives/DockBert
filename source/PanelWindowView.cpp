@@ -359,6 +359,7 @@ void TPanelWindowView::MessageReceived( BMessage *message )
 					{
 						AddPanel( panel );
 					}
+					SendNotices(kMsgPreferencesChangedFromOutside);
 					fPanels.Unlock();
 
 					ChangedSize(0);
@@ -384,6 +385,7 @@ void TPanelWindowView::MessageReceived( BMessage *message )
 						if ( panel != fRunningAppPanel )
 						{
 							RemovePanel( panel );
+							SendNotices(kMsgPreferencesChangedFromOutside);
 							reply.AddInt32( "error", 0 );
 						}
 						else
@@ -420,6 +422,7 @@ void TPanelWindowView::MessageReceived( BMessage *message )
 
 					rpanel = new TShortcutPanel(this);
 					AddPanel( rpanel, left ? panel : 0 );
+					SendNotices(kMsgPreferencesChangedFromOutside);
 				}
 				else
 					rpanel = dynamic_cast<TRaisingIconPanel*>(panel);
@@ -442,8 +445,10 @@ void TPanelWindowView::MessageReceived( BMessage *message )
 						if ( item->Removable() )
 							RemoveShortcut(item);
 					}
-					if ( previous_parent->CountItems() == 0 && previous_parent != fRunningAppPanel )
+					if ( previous_parent->CountItems() == 0 && previous_parent != fRunningAppPanel ) {
 						RemovePanel( previous_parent );
+						SendNotices(kMsgPreferencesChangedFromOutside);
+					}
 				}
 			}
 		}
@@ -1059,7 +1064,7 @@ bool TPanelWindowView::SetOptions( const char *option, const BMessage *msg )
 	}
 	else
 		return false;
-
+	SendNotices(kMsgPreferencesChangedFromOutside);
 	return true;
 }
 
