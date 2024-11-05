@@ -46,7 +46,7 @@ Preferences::SetProperty(BString property, T value)
 	message.AddSpecifier(property);
 	if constexpr (std::is_same<T, int32>::value) {
 		message.AddInt32("data", value);
-    } else if constexpr (std::is_same<T, bool>::value) {
+	} else if constexpr (std::is_same<T, bool>::value) {
 		message.AddBool("data", value);
 	} else if constexpr (std::is_same<T, rgb_color>::value) {
 		message.AddData("data", B_RGB_COLOR_TYPE, &value, sizeof(value));
@@ -148,7 +148,7 @@ Preferences::SetTabProperty(int32 tabIndex, BString property, T value)
 	message.AddSpecifier("tab", tabIndex);
 	if constexpr (std::is_same<T, int32>::value) {
 		message.AddInt32("data", value);
-    } else if constexpr (std::is_same<T, BString>::value) {
+	} else if constexpr (std::is_same<T, BString>::value) {
 		message.AddString("data", value.String());
 	} else if constexpr (std::is_same<T, rgb_color>::value) {
 		message.AddData("data", B_RGB_COLOR_TYPE, &value, sizeof(value));

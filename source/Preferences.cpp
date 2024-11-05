@@ -11,9 +11,11 @@ Preferences::Preferences(BMessenger target)
 {
 }
 
+
 Preferences::~Preferences()
 {
 }
+
 
 int32
 Preferences::CountProperties(BString property)

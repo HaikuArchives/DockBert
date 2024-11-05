@@ -41,6 +41,8 @@ TabListView::TabListView(const char* name, list_view_type type)
 
 TabListView::~TabListView()
 {
+	delete fDeleteMessage;
+	delete fDragMessage;
 }
 
 

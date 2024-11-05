@@ -9,18 +9,19 @@
 #include "Preferences.h"
 #include "TabListView.h"
 
-#include <Box.h>
-#include <Button.h>
-#include <CheckBox.h>
-#include <ColorControl.h>
-#include <ListView.h>
-#include <RadioButton.h>
-#include <Spinner.h>
-#include <ScrollView.h>
-#include <StringView.h>
-#include <TabView.h>
-#include <TextControl.h>
 #include <Window.h>
+
+class BButton;
+class BCheckBox;
+class BColorControl;
+class BListView;
+class BRadioButton;
+class BSpinner;
+class BScrollView;
+class BStringView;
+class BTabView;
+class BTextControl;
+
 
 static const int kTimeout = 1000000;
 

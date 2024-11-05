@@ -6,10 +6,17 @@
 
 #include "PreferencesWindow.h"
 
+#include <Box.h>
+#include <Button.h>
 #include <Catalog.h>
 #include <CheckBox.h>
+#include <ColorControl.h>
 #include <LayoutBuilder.h>
 #include <MessageRunner.h>
+#include <ScrollView.h>
+#include <Spinner.h>
+#include <StringView.h>
+#include <TabView.h>
 
 
 #undef B_TRANSLATION_CONTEXT
