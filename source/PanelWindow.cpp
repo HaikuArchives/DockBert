@@ -118,7 +118,7 @@ TPanelWindow::TPanelWindow()
 			 && strcasecmp( appinfo.signature, TASK_BAR_MIME_SIG ) )
 			fTeamListView->AddTeam( appinfo.team, appinfo.signature, appinfo.ref );
 	}
-	
+
 	CenterCorrectly();
 
 	Show();
@@ -130,6 +130,13 @@ TPanelWindow::~TPanelWindow()
 {
 	if ( fHidderTimer )
 		delete fHidderTimer;
+
+	if (fPreferencesWindow != nullptr) {
+		BMessenger messenger(fPreferencesWindow);
+		if (messenger.IsValid() && messenger.LockTarget())
+			fPreferencesWindow->Quit();
+	}
+
 	SaveSettings();
 }
 
@@ -174,7 +181,7 @@ void TPanelWindow::MessageReceived( BMessage *message )
 			break;
 		}
 	case B_SOME_APP_QUIT:
-		{	
+		{
 			team_id team = -1;
 			message->FindInt32("team", &team);
 			fTeamListView->RemoveTeam(team);
@@ -187,7 +194,7 @@ void TPanelWindow::MessageReceived( BMessage *message )
 	case msg_AddTeam:
 		{
 			const char *sig = message->FindString("sig");
-			team_id team = message->FindInt32("team");			
+			team_id team = message->FindInt32("team");
 
 			BList *list = new BList;
 			list->AddItem( (void*) team );
@@ -228,7 +235,7 @@ void TPanelWindow::MessageReceived( BMessage *message )
 				fAlmostHidding = false;
 				if ( fHidderTimer )
 					delete fHidderTimer;
-				fHidderTimer = new MESSAGERUNNER(  BMessenger(this), 
+				fHidderTimer = new MESSAGERUNNER(  BMessenger(this),
 									new BMessage(kPanelWindowHidderTimer),
 									kWindowHidderAnimationSpeed );
 			}
@@ -357,7 +364,7 @@ void TPanelWindow::CenterCorrectly()
 				mpt.x = screenFrame.Width()-1;
 		}
 
-	}		
+	}
 
 	MoveTo( mpt );
 }
@@ -385,7 +392,7 @@ void TPanelWindow::ShowHide(bool flag)
 			fIsVisible = true;
 			if ( fHidderTimer )
 				delete fHidderTimer;
-			fHidderTimer = new MESSAGERUNNER(  BMessenger(this), 
+			fHidderTimer = new MESSAGERUNNER(  BMessenger(this),
 								new BMessage(kPanelWindowHidderTimer),
 								kWindowHidderAnimationSpeed );
 		}
@@ -479,11 +486,11 @@ void TPanelWindow::DockChangedPlaces( int32 prev )
 	if ( (loc == kLocationTop || loc == kLocationBottom) && ( prev == kLocationLeft || prev == kLocationRight ) )
 	{
 		ResizeTo( Bounds().Height(), Bounds().Width() );
-	} 
+	}
 	if ( (loc == kLocationLeft || loc == kLocationRight) && ( prev == kLocationTop || prev == kLocationBottom ) )
 	{
 		ResizeTo( Bounds().Height(), Bounds().Width() );
-	} 
+	}
 
 	CenterCorrectly();
 }
@@ -556,10 +563,14 @@ int32 TMessageRunner::_thread_instance( void *p )
 void
 TPanelWindow::ShowPreferencesWindow()
 {
-       if (fPreferencesWindow)
-               fPreferencesWindow->Activate();
-       else {
-               fPreferencesWindow = new PreferencesWindow(BRect(0, 0, 320, 240));
-               fPreferencesWindow->Show();
-       }
+	if (fPreferencesWindow == nullptr)
+		fPreferencesWindow = new PreferencesWindow(BRect(0, 0, 640, 480), this->fTeamListView);
+
+	if (fPreferencesWindow->Lock()) {
+		if (fPreferencesWindow->IsHidden())
+			fPreferencesWindow->Show();
+		else
+			fPreferencesWindow->Activate();
+		fPreferencesWindow->Unlock();
+	}
 }
