@@ -3,12 +3,12 @@ resource app_signature "application/x-vnd.Dockbert";
 resource app_flags B_SINGLE_LAUNCH;
 
 resource app_version {
-	major  = 0,
+	major  = 1,
 	middle = 0,
-	minor  = 0,
+	minor  = 2,
 
 	variety = B_APPV_DEVELOPMENT,
-	internal = 0,
+	internal = 1,
 
 	short_info = "",
 	long_info = ""
