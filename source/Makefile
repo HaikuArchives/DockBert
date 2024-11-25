@@ -31,10 +31,20 @@ APP_MIME_SIG = x-vnd.Dockbert
 #	if two source files with the same name (source.c or source.cpp)
 #	are included from different directories.  Also note that spaces
 #	in folder names do not work well with this makefile.
-SRCS= 	Bubble.cpp DockArchivableUtils.cpp InnerPanel.cpp \
-		InnerPanelIcons.cpp main.cpp NMenu.cpp PanelWindow.cpp \
-		PanelWindowView.cpp ResourceSet.cpp TrackerMenus.cpp \
-		PreferencesWindow.cpp Utils.cpp
+SRCS= 	Bubble.cpp \
+		DockArchivableUtils.cpp \
+		InnerPanel.cpp \
+		InnerPanelIcons.cpp \
+		NMenu.cpp \
+		main.cpp \
+		PanelWindow.cpp \
+		PanelWindowView.cpp \
+		Preferences.cpp \
+		PreferencesWindow.cpp \
+		ResourceSet.cpp \
+		TabListView.cpp \
+		TrackerMenus.cpp \
+		Utils.cpp
 
 #	specify the resource definition files to use
 #	full path or a relative path to the resource file can be used.
@@ -73,7 +83,7 @@ LIBPATHS=
 #	additional paths to look for system headers
 #	thes use the form: #include <header>
 #	source file directories are NOT auto-included here
-SYSTEM_INCLUDE_PATHS =
+SYSTEM_INCLUDE_PATHS  = $(shell findpaths -e B_FIND_PATH_HEADERS_DIRECTORY private/interface)
 
 #	additional paths to look for local headers
 #	thes use the form: #include "header"
