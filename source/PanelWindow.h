@@ -2,8 +2,8 @@
 #define PANEL_WINDOW_H
 
 #define BUILDSTATUS		"development"
-#define BUILDVERSION	"1.0.2b1"
-#define BUILDNR			"110"
+#define BUILDVERSION	"1.1.0"
+#define BUILDNR			"111"
 #define BUILDDATE		__DATE__ " " __TIME__
 #define THREAD_NAME		"dock_thread"
 
@@ -40,7 +40,7 @@ class BMessageRunner;
 
 class TPanelWindowView;
 
-// 0.0046f, 0.0066f, 0.0088f, 0.011f, 0.014f, 0.018f, 0.021f, 0.025f, 0.030f, 0.036f, 0.041f, 0.048f, 0.057f, 0.066f, 0.076f, 0.087f, 
+// 0.0046f, 0.0066f, 0.0088f, 0.011f, 0.014f, 0.018f, 0.021f, 0.025f, 0.030f, 0.036f, 0.041f, 0.048f, 0.057f, 0.066f, 0.076f, 0.087f,
 const float kWindowHidderFrames[] = { 0.0f, 0.0125f, 0.025f, 0.05f, 0.065f, 0.075f, 0.085f, 0.1f, 0.116f, 0.132f, 0.152f, 0.174f, 0.199f, 0.227f, 0.260f, 0.3f, 0.336f, 0.38f, 0.435f, 0.5f, 0.56f, 0.64f, 0.73f, 0.83f, 0.94f, 1.0f };
 const int kWindowHidderNumberFrames = (sizeof(kWindowHidderFrames) / sizeof(float)) -1;
 const float kWindowHidderSpeed = 200000.f;
