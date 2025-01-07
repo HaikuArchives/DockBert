@@ -1244,9 +1244,11 @@ void TClockIcon::DrawTime()
 }
 
 // this functions were taken from FLITE's source
-
+//
+// TODO: the strings produced by these functions cannot be easily translated so they are disabled
+// and BubbleText() has a bug which prevents from returning the correct string anyway
+/*
 static const char *time_approx(int hour, int minute)
-
 {
     int mm;
 
@@ -1359,31 +1361,32 @@ static const char *time_tod(int hour, int minute)
     else
 	return B_TRANSLATE("In the morning");
 }
-
+*/
 const char *TClockIcon::BubbleText() const
 {
-	time_t fCurrentTime;
-	fCurrentTime = time(NULL);
-	struct tm *_time = localtime( &fCurrentTime );
+	// time_t fCurrentTime;
+	// fCurrentTime = time(NULL);
+	// struct tm *_time = localtime( &fCurrentTime );
+//
+	// int hour = _time->tm_hour;
+	// int min = _time->tm_min;
+//
+	// char thetime[512];
+	// char formatedday[256];
+	// strftime( formatedday, 256, "Today is %A, the %d %B of %Y", _time );
+//
+    // sprintf(thetime,
+	    // "%s, %s %s %s, %s", B_TRANSLATE("The time is now"),
+	    // "The time is now, %s %s %s, %s",
+	    // time_approx(hour,min),
+	    // time_min(hour,min),
+	    // time_hour(hour,min),
+	    // time_tod(hour,min));
 
-	int hour = _time->tm_hour;
-	int min = _time->tm_min;
+// sprintf( thetime, "%s%s", thetime, formatedday );
 
-	char thetime[512];
-	char formatedday[256];
-	strftime( formatedday, 256, "Today is %A, the %d %B of %Y", _time );
-
-    sprintf(thetime,
-	    "%s, %s %s %s, %s", B_TRANSLATE("The time is now"),
-	    //"The time is now, %s %s %s, %s",
-	    time_approx(hour,min),
-	    time_min(hour,min),
-	    time_hour(hour,min),
-	    time_tod(hour,min));
-
-//	sprintf( thetime, "%s%s", thetime, formatedday );
-
-	return thetime;
+	// return thetime;
+	return 0;
 }
 
 TTrashIcon::TTrashIcon()
