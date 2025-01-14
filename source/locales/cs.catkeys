@@ -1,0 +1,48 @@
+1	Czech	x-vnd.Dockbert	1215109014
+24 hour clock	inner-panel-icons		24 hodinové
+About Haiku	inner-panel-icons		O Haiku
+Change time	inner-panel-icons		Změnit čas
+Disks	inner-panel-icons		Disky
+Do you really want to remove the Haiku Menu?	inner-panel-icons		Opravdu si přejete odstranit Haiku menu?
+Do you really wish to remove the Trash icon?	inner-panel-icons		Opravdu si přejete odstranit ikonu koše?
+Dockbert Preferences…	inner-panel-icons		Dockbert nastavení…
+Empty trash	inner-panel-icons		Vysypat koš
+Find	inner-panel-icons		Najít
+Hide seconds	inner-panel-icons		Schovat sekundy
+Left Click to Hide All Windows in this workspace,\nRight click to bring them back.	inner-panel-icons		Left Click to Hide All Windows in this workspace,\nRight click to bring them back.\nLevým kliknutím schováte všechna okna na této pracovní ploše,\n pravým kliknutím je navrátíte zpátky.
+No	inner-panel-icons		Ne
+No entries	inner-panel-icons		Žádný záznam
+Restart	inner-panel-icons		Restart
+Show clock	inner-panel-icons		Zobrazit hodiny
+Show date	inner-panel-icons		Zobrazit datum
+Show seconds	inner-panel-icons		Zobrazit sekundy
+Shut down	inner-panel-icons		Vypnout
+Yes	inner-panel-icons		Ano
+Add	PreferencesWindow		Přidat
+Always on top	PreferencesWindow		Vždy na vrchu
+Auto hide	PreferencesWindow		Automaticky schovat
+Background	PreferencesWindow		Pozadí
+Background color	PreferencesWindow		Barva pozadí
+Dockbert Preferences	PreferencesWindow		Dockbert nastavení
+Draw outer frame	PreferencesWindow		Vykreslit vnější rám
+Frame	PreferencesWindow		Rámec
+General	PreferencesWindow		Obecné
+Hide effect delay	PreferencesWindow		Schovat opoždění efektu
+Name	PreferencesWindow		Jméno
+Remove	PreferencesWindow		Odstranit
+Tabs	PreferencesWindow		Taby
+Bring all here	tracker-menus		Převést vše zde
+Bring here	tracker-menus		Převést zde
+Bring to front	tracker-menus		Přesunout do popředí
+Close	tracker-menus		Zavřít
+Close all	tracker-menus		Zavřit vše
+Hide	tracker-menus		Schovat
+Hide all	tracker-menus		Schovat vše
+No entries	tracker-menus		Žádná položka
+No windows	tracker-menus		Žádné okna
+Quit application	tracker-menus		Ukončit aplikaci
+Show	tracker-menus		Zobrazit
+Show all	tracker-menus		Zobrazit vše
+First Time	panel-window		Zaprvé
+Ok thanks!	panel-window		Ok díky!
+This is your first time running Dockbert so we'll give you a small introduction to it.\nBy now there should be a small window in the bottom of your screen with some icons, that's Dockbert.\nWe'll now give you a small info about each icon, from left to right:\n- The trash, drag files to it to move them to trash, left clicking it opens the trash window, right clicking shows you a handy menu\n-The workspaces, left click to forward a workspace, right click to backward a workspace, the middle button gives you a list of the workspaces\n-The clock, right click it for options\n-The Tracker, right click the tracker for the tracker menu, with some useful options\n-The Be menu, right click it to see the Be Menu\n-the other two icons are shortcuts, read the readme for aditional information	panel-window		Toto je vaše první spuštění Dockberta, takže vám jej krátce představíme.\nTeď by ve spodní části obrazovky mělo být malé okno s ikonami, to je Dockbert.\nNyní vám dáme malé informace o každé ikoně, zleva doprava:\n- Koš, přetažením souborů do něj je přesunete do koše, kliknutím levým tlačítkem otevřete okno koše, kliknutím pravým tlačítkem zobrazíte praktickou nabídku\n-Pracovní prostory, kliknutím levým tlačítkem myši přejdete vpřed o jeden pracovní prostor, kliknutím pravým tlačítkem přejdete o pracovní prostor zpět, prostřední tlačítko vám zobrazí seznam pracovních prostorů\n-Hodiny, kliknutím na ně pravým tlačítkem zobrazíte možnosti\n-Tracker, kliknutím pravým tlačítkem na tracker zobrazíte nabídku sledování s několika užitečnými možnosti\n-Nabídka Be, kliknutím pravým tlačítkem na ni zobrazíte nabídku Be\n-další dvě ikony jsou zkratky, přečtěte si readme pro další informace

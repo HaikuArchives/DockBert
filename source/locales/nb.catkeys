@@ -1,0 +1,48 @@
+1	Norwegian	x-vnd.Dockbert	1215109014
+24 hour clock	inner-panel-icons		24-timers klokke
+About Haiku	inner-panel-icons		Om Haiku
+Change time	inner-panel-icons		Endre tid
+Disks	inner-panel-icons		Disker
+Do you really want to remove the Haiku Menu?	inner-panel-icons		Vil du virkelig fjerne Haiku-menyen?
+Do you really wish to remove the Trash icon?	inner-panel-icons		Ønsker du virkelig å fjerne Papirkurv-ikonet?
+Dockbert Preferences…	inner-panel-icons		Dockbert Innstillinger…
+Empty trash	inner-panel-icons		Tøm papirkurv
+Find	inner-panel-icons		Finn
+Hide seconds	inner-panel-icons		Skjul sekunder
+Left Click to Hide All Windows in this workspace,\nRight click to bring them back.	inner-panel-icons		Venstreklikk for å skjule alle vinduer i dette arbeidsområdet,\nHøyreklikk for å få dem tilbake.
+No	inner-panel-icons		Nei
+No entries	inner-panel-icons		Ingen oppføringer
+Restart	inner-panel-icons		Omstart
+Show clock	inner-panel-icons		Vis klokke
+Show date	inner-panel-icons		Vis dato
+Show seconds	inner-panel-icons		Vis sekunder
+Shut down	inner-panel-icons		Avslutt
+Yes	inner-panel-icons		Ja
+Add	PreferencesWindow		Legg til
+Always on top	PreferencesWindow		Alltid øverst
+Auto hide	PreferencesWindow		Auto-skjul
+Background	PreferencesWindow		Bakgrunn
+Background color	PreferencesWindow		Bakgrunnsfarge
+Dockbert Preferences	PreferencesWindow		Dockbert Innstillinger
+Draw outer frame	PreferencesWindow		Tegn ytre ramme
+Frame	PreferencesWindow		Ramme
+General	PreferencesWindow		General
+Hide effect delay	PreferencesWindow		Forsinkelse ved skjul
+Name	PreferencesWindow		Navn
+Remove	PreferencesWindow		Fjern
+Tabs	PreferencesWindow		Faner
+Bring all here	tracker-menus		Bring alle hit
+Bring here	tracker-menus		Bring hit
+Bring to front	tracker-menus		Bring til front
+Close	tracker-menus		Lukk
+Close all	tracker-menus		Lukk alle
+Hide	tracker-menus		Skjul
+Hide all	tracker-menus		Skjul alle
+No entries	tracker-menus		Ingen oppføringer
+No windows	tracker-menus		Ingen vinduer
+Quit application	tracker-menus		Avslutt program
+Show	tracker-menus		Vis
+Show all	tracker-menus		Vis alle
+First Time	panel-window		Første gang
+Ok thanks!	panel-window		Ok takk!
+This is your first time running Dockbert so we'll give you a small introduction to it.\nBy now there should be a small window in the bottom of your screen with some icons, that's Dockbert.\nWe'll now give you a small info about each icon, from left to right:\n- The trash, drag files to it to move them to trash, left clicking it opens the trash window, right clicking shows you a handy menu\n-The workspaces, left click to forward a workspace, right click to backward a workspace, the middle button gives you a list of the workspaces\n-The clock, right click it for options\n-The Tracker, right click the tracker for the tracker menu, with some useful options\n-The Be menu, right click it to see the Be Menu\n-the other two icons are shortcuts, read the readme for aditional information	panel-window		Dette er første gang du kjører Dockbert, så vi vil gi deg en liten introduksjon til det.\nNå skal det være et lite vindu nederst på skjermen med noen ikoner, det er Dockbert.\nVi vil nå gi deg litt info om hvert ikon, fra venstre til høyre:\n- Papirkurven, dra filer til den for å flytte dem til papirkurven, venstreklikk åpner søppelvinduet, høyreklikk viser deg en praktisk meny\n-Arbeidsområdene, venstreklikk for å videresende et arbeidsområde, høyreklikk for å gå bakover til et arbeidsområde, midtknappen gir deg en liste over arbeidsområdene\n-Klokken, høyreklikk for alternativer\n-Tracker, høyreklikk på tracker-menyen for , med noen nyttige alternativer\n-Be-menyen, høyreklikk den for å se Be-menyen\n-de to andre ikonene er snarveier, les readme for mer informasjon

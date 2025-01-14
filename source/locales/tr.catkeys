@@ -1,0 +1,48 @@
+1	Turkish	x-vnd.Dockbert	1215109014
+24 hour clock	inner-panel-icons		24 saat biçimi
+About Haiku	inner-panel-icons		Haiku hakkında
+Change time	inner-panel-icons		Zamanı değiştir
+Disks	inner-panel-icons		Diskler
+Do you really want to remove the Haiku Menu?	inner-panel-icons		Haiku menüsünü kaldırmak istediğinizden emin misiniz?
+Do you really wish to remove the Trash icon?	inner-panel-icons		Çöp Sepeti simgesini kaldırmak istediğinizden emin misiniz?
+Dockbert Preferences…	inner-panel-icons		Dockbert tercihleri…
+Empty trash	inner-panel-icons		Çöp sepetini boşalt
+Find	inner-panel-icons		Bul
+Hide seconds	inner-panel-icons		Saniyeleri gizle
+Left Click to Hide All Windows in this workspace,\nRight click to bring them back.	inner-panel-icons		Bu çalışma alanındaki tüm pencereleri gizlemek için sol tıklayın.\nGeri getirmek içinse sağ tıklayın.
+No	inner-panel-icons		Hayır
+No entries	inner-panel-icons		Girdi yok
+Restart	inner-panel-icons		Yeniden başlat
+Show clock	inner-panel-icons		Saati göster
+Show date	inner-panel-icons		Tarihi göster
+Show seconds	inner-panel-icons		Saniyeleri göster
+Shut down	inner-panel-icons		Kapat
+Yes	inner-panel-icons		Evet
+Add	PreferencesWindow		Ekle
+Always on top	PreferencesWindow		Her zaman üstte
+Auto hide	PreferencesWindow		Kendiliğinden gizle
+Background	PreferencesWindow		Arka plan
+Background color	PreferencesWindow		Arka plan rengi
+Dockbert Preferences	PreferencesWindow		Dockbert tercihleri
+Draw outer frame	PreferencesWindow		Dış ana hattı çiz
+Frame	PreferencesWindow		Çerçeve
+General	PreferencesWindow		Genel
+Hide effect delay	PreferencesWindow		Efekt gecikmesini gizle
+Name	PreferencesWindow		Ad
+Remove	PreferencesWindow		Kaldır
+Tabs	PreferencesWindow		Sekmeler
+Bring all here	tracker-menus		Tümünü buraya getir
+Bring here	tracker-menus		Buraya getir
+Bring to front	tracker-menus		Öne getir
+Close	tracker-menus		Kapat
+Close all	tracker-menus		Tümünü kapat
+Hide	tracker-menus		Gizle
+Hide all	tracker-menus		Tümünü gizle
+No entries	tracker-menus		Girdi yok
+No windows	tracker-menus		Pencere yok
+Quit application	tracker-menus		Uygulamadan çık
+Show	tracker-menus		Göster
+Show all	tracker-menus		Tümünü göster
+First Time	panel-window		İlk kez
+Ok thanks!	panel-window		Tamam, teşekkürler!
+This is your first time running Dockbert so we'll give you a small introduction to it.\nBy now there should be a small window in the bottom of your screen with some icons, that's Dockbert.\nWe'll now give you a small info about each icon, from left to right:\n- The trash, drag files to it to move them to trash, left clicking it opens the trash window, right clicking shows you a handy menu\n-The workspaces, left click to forward a workspace, right click to backward a workspace, the middle button gives you a list of the workspaces\n-The clock, right click it for options\n-The Tracker, right click the tracker for the tracker menu, with some useful options\n-The Be menu, right click it to see the Be Menu\n-the other two icons are shortcuts, read the readme for aditional information	panel-window		Bu, Dockbert’i ilk çalıştırmanız gibi görünüyor; bu yüzden size biraz bilgi vereceğiz\nŞimdi, ekranınızın alt kısmında birkaç simge içeren küçük bir pencere olmalı, işte o Dockbert’tir.\nSoldan sağa başlayarak her bir simge hakkında biraz bilgi vereceğiz:\n- Çöp Sepeti; dosyaları çöpe atmak için onları sürükleyin. Sol tıklamak çöp sepeti penceresini açar, sağ tıklamak size özellikler içeren bir menü sunar.\n-Çalışma alanları, bir çalışma alanını ilerletmek için sol, geri götürmek için sağ fare düğmesine tıklayın. Orta tık, size bu alanların bir listesini gösterir.\n- Saat, seçenekler için sağ tıklayın\n- İzleyici, İzleyici menüsü için sağ tıklayın; burada bazı yararlı özellikler vardır.\n- Haiku menüsü, görmek için sağ tıklayın.\n- Diğer iki simge kısayollardır; ek bilgi için README dosyasına bakın.

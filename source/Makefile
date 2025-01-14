@@ -134,7 +134,7 @@ APP_VERSION =
 #	~/add-ons/kernel/drivers/dev/video/usb, so that your driver will appear at
 #	/dev/video/usb when loaded. Default is "misc".
 DRIVER_PATH =
-LOCALES = en ru
+LOCALES = ca cs de en_AU en_CA en_GB en es_419 es fr fur it ko nb ru sc tr
 
 ## Include the Makefile-Engine
 DEVEL_DIRECTORY := \

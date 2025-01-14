@@ -1,0 +1,48 @@
+1	Friulian	x-vnd.Dockbert	1215109014
+24 hour clock	inner-panel-icons		Orloi a 24 oris
+About Haiku	inner-panel-icons		Informazions su Haiku
+Change time	inner-panel-icons		Cambie ore
+Disks	inner-panel-icons		Discs
+Do you really want to remove the Haiku Menu?	inner-panel-icons		Desideristu pardabon gjavâ il menù di Haiku?
+Do you really wish to remove the Trash icon?	inner-panel-icons		Desideristu pardabon gjavâ la icone de Scovacere?
+Dockbert Preferences…	inner-panel-icons		Preferencis di Dockbert…
+Empty trash	inner-panel-icons		Disvuede scovacere
+Find	inner-panel-icons		Cjate
+Hide seconds	inner-panel-icons		Plate seconts
+Left Click to Hide All Windows in this workspace,\nRight click to bring them back.	inner-panel-icons		Clic di çampe par platâ ducj i barcons in chest spazi di lavôr,\nclic diestri par tornâ a puartâju indaûr.
+No	inner-panel-icons		No
+No entries	inner-panel-icons		Nissune vôs
+Restart	inner-panel-icons		Torne invie
+Show clock	inner-panel-icons		Mostre orloi
+Show date	inner-panel-icons		Mostre date
+Show seconds	inner-panel-icons		Mostre seconts
+Shut down	inner-panel-icons		Distude
+Yes	inner-panel-icons		Sì
+Add	PreferencesWindow		Zonte
+Always on top	PreferencesWindow		Simpri denant
+Auto hide	PreferencesWindow		Plate in automatic
+Background	PreferencesWindow		Fonts
+Background color	PreferencesWindow		Colôr di fonts
+Dockbert Preferences	PreferencesWindow		Preferencis di Dockbert
+Draw outer frame	PreferencesWindow		Dissegne la suaze esterne
+Frame	PreferencesWindow		Suaze
+General	PreferencesWindow		Gjenerâl
+Hide effect delay	PreferencesWindow		Ritart efiet dal platâ
+Name	PreferencesWindow		Non
+Remove	PreferencesWindow		Gjave
+Tabs	PreferencesWindow		Schedis
+Bring all here	tracker-menus		Puarte ducj achì
+Bring here	tracker-menus		Puarte achì
+Bring to front	tracker-menus		Puarte denant
+Close	tracker-menus		Siere
+Close all	tracker-menus		Siere dut
+Hide	tracker-menus		Plate
+Hide all	tracker-menus		Plate dut
+No entries	tracker-menus		Nissune vôs
+No windows	tracker-menus		Nissun barcon
+Quit application	tracker-menus		Jes de aplicazion
+Show	tracker-menus		Mostre
+Show all	tracker-menus		Mostre dut
+First Time	panel-window		Prime volte
+Ok thanks!	panel-window		Va ben, graciis!
+This is your first time running Dockbert so we'll give you a small introduction to it.\nBy now there should be a small window in the bottom of your screen with some icons, that's Dockbert.\nWe'll now give you a small info about each icon, from left to right:\n- The trash, drag files to it to move them to trash, left clicking it opens the trash window, right clicking shows you a handy menu\n-The workspaces, left click to forward a workspace, right click to backward a workspace, the middle button gives you a list of the workspaces\n-The clock, right click it for options\n-The Tracker, right click the tracker for the tracker menu, with some useful options\n-The Be menu, right click it to see the Be Menu\n-the other two icons are shortcuts, read the readme for aditional information	panel-window		Cheste e je la prime volte che tu eseguissis Dockbert duncje ti darìn une piçule introduzion.\nA chest pont tu varessis di viodi un piçul barcon te part basse dal to schermi cun cualchi icone, chel al è Dockbert.\nCumò ti darìn une piçule spiegazion su ogni icone, tacant di çampe lant a diestre:\n- La scovacere, strissine parsore i files par spostâju te scovacere, fasintji un clic cul boton di çampe al vierç il barcon de scovacere, cuntun clic dal boton di diestre al mostre un comut menù\n- I spazis di lavôr, un clic di çampe par lâ indenant di un spazi di lavôr, un clic di diestre par lâ indaûr di un spazi di lavôr, il boton di mieç ti da une liste dai spazis di lavôr\n- L'orloi, fâs un clic di diestre pes opzions\n- Il Tracker, fâs un clic di diestre sul tracker par vê il menù dal tracker, cun cualchi utile opzion\n-Il menù Be, fâs un clic di diestre par viodi il menù di Be\n-chês altris dôs iconis a son scurtis, lei il file readme par vê plui informazions

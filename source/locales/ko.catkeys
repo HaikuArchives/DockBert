@@ -1,0 +1,48 @@
+1	Korean	x-vnd.Dockbert	1215109014
+24 hour clock	inner-panel-icons		24시간 시계
+About Haiku	inner-panel-icons		Haiku에 대하여
+Change time	inner-panel-icons		시간 바꾸기
+Disks	inner-panel-icons		디스크
+Do you really want to remove the Haiku Menu?	inner-panel-icons		정말 Haiku 메뉴를 없애시겠습니까?
+Do you really wish to remove the Trash icon?	inner-panel-icons		정말 휴지통 아이콘을 없애시겠습니까?
+Dockbert Preferences…	inner-panel-icons		Dockbert 설정…
+Empty trash	inner-panel-icons		휴지통 비우기
+Find	inner-panel-icons		찾기
+Hide seconds	inner-panel-icons		초 숨기기
+Left Click to Hide All Windows in this workspace,\nRight click to bring them back.	inner-panel-icons		왼쪽 클릭으로 현재 작업공간의 모든 창을 숨깁니다.\n오른쪽 클릭으로 다시 보여줍니다.
+No	inner-panel-icons		아니오
+No entries	inner-panel-icons		항목 없음
+Restart	inner-panel-icons		재시작
+Show clock	inner-panel-icons		시계 보기
+Show date	inner-panel-icons		날짜 보기
+Show seconds	inner-panel-icons		초 보기
+Shut down	inner-panel-icons		종료
+Yes	inner-panel-icons		네
+Add	PreferencesWindow		추가
+Always on top	PreferencesWindow		항상 위에
+Auto hide	PreferencesWindow		자동 숨김
+Background	PreferencesWindow		배경
+Background color	PreferencesWindow		배경색
+Dockbert Preferences	PreferencesWindow		Dockbert 설정
+Draw outer frame	PreferencesWindow		바깥 틀 그리기
+Frame	PreferencesWindow		틀
+General	PreferencesWindow		일반
+Hide effect delay	PreferencesWindow		숨김 효과 지연시간
+Name	PreferencesWindow		이름
+Remove	PreferencesWindow		제거
+Tabs	PreferencesWindow		탭
+Bring all here	tracker-menus		모두 여기로 가져오기
+Bring here	tracker-menus		여기로 가져오기
+Bring to front	tracker-menus		앞으로 가져오기
+Close	tracker-menus		닫기
+Close all	tracker-menus		모두 닫기
+Hide	tracker-menus		숨기기
+Hide all	tracker-menus		모두 숨기기
+No entries	tracker-menus		항목 없음
+No windows	tracker-menus		창 없음
+Quit application	tracker-menus		응용 프로그램 종료
+Show	tracker-menus		보이기
+Show all	tracker-menus		모두 보이기
+First Time	panel-window		첫 실행
+Ok thanks!	panel-window		감사합니다!
+This is your first time running Dockbert so we'll give you a small introduction to it.\nBy now there should be a small window in the bottom of your screen with some icons, that's Dockbert.\nWe'll now give you a small info about each icon, from left to right:\n- The trash, drag files to it to move them to trash, left clicking it opens the trash window, right clicking shows you a handy menu\n-The workspaces, left click to forward a workspace, right click to backward a workspace, the middle button gives you a list of the workspaces\n-The clock, right click it for options\n-The Tracker, right click the tracker for the tracker menu, with some useful options\n-The Be menu, right click it to see the Be Menu\n-the other two icons are shortcuts, read the readme for aditional information	panel-window		아무래도 Dockbert를 처음 실행하신 듯 하여 소개를 조금 드리겠습니다\n지금쯤이면 화면 하단에 아이콘 몇 개가 있는 작은 창이 하나 보일텐데, 그게 Dockbert입니다.\n이제 왼쪽에서 오른쪽 방향으로 각 아이콘에 대해 설명을 드리겠습니다.\n- 휴지통. 파일을 끌어다 놓아 휴지통에 버릴 수 있습니다. 왼쪽 클릭으로 휴지통 창을 열고, 오른쪽 클릭으로 단축메뉴를 보여줍니다.\n- 작업공간. 왼쪽 클릭은 정방향, 오른쪽 크릭은 역방향으로 작업공간을 이동하며, 가운데 클릭은 작업공간 목록을 보여줍니다.\n- 시계. 오른쪽 클릭으로 옵션을 설정합니다.\n- 트래커. 오른쪽 클릭으로 몇 가지 유용한 옵션이 있는 트래커 메뉴를 보여줍니다.\n- Be메뉴. 오른쪽 클릭으로 Be메뉴를 보여줍니다.\n- 나머지 아이콘 두 개는 바로가기이며, 추가 정보는 Readme 파일을 읽어보십시오.

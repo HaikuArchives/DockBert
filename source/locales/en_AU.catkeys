@@ -1,0 +1,48 @@
+1	English (Australian)	x-vnd.Dockbert	1215109014
+24 hour clock	inner-panel-icons		24 hour clock
+About Haiku	inner-panel-icons		About Haiku
+Change time	inner-panel-icons		Change time
+Disks	inner-panel-icons		Disks
+Do you really want to remove the Haiku Menu?	inner-panel-icons		Do you really want to remove the Haiku Menu?
+Do you really wish to remove the Trash icon?	inner-panel-icons		Do you really wish to remove the Rubbish bin icon?
+Dockbert Preferences…	inner-panel-icons		Dockbert Preferences…
+Empty trash	inner-panel-icons		Empty rubbish bin
+Find	inner-panel-icons		Find
+Hide seconds	inner-panel-icons		Hide seconds
+Left Click to Hide All Windows in this workspace,\nRight click to bring them back.	inner-panel-icons		Left Click to Hide All Windows in this workspace,\nRight click to bring them back.
+No	inner-panel-icons		No
+No entries	inner-panel-icons		No entries
+Restart	inner-panel-icons		Restart
+Show clock	inner-panel-icons		Show clock
+Show date	inner-panel-icons		Show date
+Show seconds	inner-panel-icons		Show seconds
+Shut down	inner-panel-icons		Shut down
+Yes	inner-panel-icons		Yes
+Add	PreferencesWindow		Add
+Always on top	PreferencesWindow		Always on top
+Auto hide	PreferencesWindow		Auto hide
+Background	PreferencesWindow		Background
+Background color	PreferencesWindow		Background colour
+Dockbert Preferences	PreferencesWindow		Dockbert Preferences
+Draw outer frame	PreferencesWindow		Draw outer frame
+Frame	PreferencesWindow		Frame
+General	PreferencesWindow		General
+Hide effect delay	PreferencesWindow		Hide effect delay
+Name	PreferencesWindow		Name
+Remove	PreferencesWindow		Remove
+Tabs	PreferencesWindow		Tabs
+Bring all here	tracker-menus		Bring all here
+Bring here	tracker-menus		Bring here
+Bring to front	tracker-menus		Bring to front
+Close	tracker-menus		Close
+Close all	tracker-menus		Close all
+Hide	tracker-menus		Hide
+Hide all	tracker-menus		Hide all
+No entries	tracker-menus		No entries
+No windows	tracker-menus		No windows
+Quit application	tracker-menus		Quit application
+Show	tracker-menus		Show
+Show all	tracker-menus		Show all
+First Time	panel-window		First Time
+Ok thanks!	panel-window		Ok thanks!
+This is your first time running Dockbert so we'll give you a small introduction to it.\nBy now there should be a small window in the bottom of your screen with some icons, that's Dockbert.\nWe'll now give you a small info about each icon, from left to right:\n- The trash, drag files to it to move them to trash, left clicking it opens the trash window, right clicking shows you a handy menu\n-The workspaces, left click to forward a workspace, right click to backward a workspace, the middle button gives you a list of the workspaces\n-The clock, right click it for options\n-The Tracker, right click the tracker for the tracker menu, with some useful options\n-The Be menu, right click it to see the Be Menu\n-the other two icons are shortcuts, read the readme for aditional information	panel-window		This is your first time running Dockbert so we'll give you a small introduction to it.\nBy now there should be a small window in the bottom of your screen with some icons, that's Dockbert.\nWe'll now give you a small info about each icon, from left to right:\n- The rubbish bin, drag files to it to move them to bin, left clicking it opens the rubbish bin window, right clicking shows you a handy menu\n-The workspaces, left click to advance a workspace, right click to go back a workspace, the middle button gives you a list of the workspaces\n-The clock, right click it for options\n-The Tracker, right click the tracker for the tracker menu, with some useful options\n-The Be menu, right click it to see the Be Menu\n-the other two icons are shortcuts, read the "readme" for aditional information

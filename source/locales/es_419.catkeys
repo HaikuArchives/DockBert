@@ -1,0 +1,48 @@
+1	Spanish (Latin American)	x-vnd.Dockbert	1215109014
+24 hour clock	inner-panel-icons		Reloj de 24 horas
+About Haiku	inner-panel-icons		Acerca de Haiku
+Change time	inner-panel-icons		Cambiar la hora
+Disks	inner-panel-icons		Discos
+Do you really want to remove the Haiku Menu?	inner-panel-icons		¿Realmente desea eliminar el menú Haiku?
+Do you really wish to remove the Trash icon?	inner-panel-icons		¿Realmente desea eliminar el ícono de Papelera?
+Dockbert Preferences…	inner-panel-icons		Preferencias de Dockbert
+Empty trash	inner-panel-icons		Vaciar la papelera
+Find	inner-panel-icons		Buscar
+Hide seconds	inner-panel-icons		Ocultar los segundos
+Left Click to Hide All Windows in this workspace,\nRight click to bring them back.	inner-panel-icons		Click con el botón izquierdo para ocultar todas las ventanas en este espacio,\nClick con el botón derecho para traerlas de vuelta.
+No	inner-panel-icons		No
+No entries	inner-panel-icons		Sin entradas
+Restart	inner-panel-icons		Reiniciar
+Show clock	inner-panel-icons		Mostrar el reloj
+Show date	inner-panel-icons		Mostrar la fecha
+Show seconds	inner-panel-icons		Mostrar los segundos
+Shut down	inner-panel-icons		Apagar
+Yes	inner-panel-icons		Sí
+Add	PreferencesWindow		Añadir
+Always on top	PreferencesWindow		Siempre encima
+Auto hide	PreferencesWindow		Ocultar automáticamente 
+Background	PreferencesWindow		Fondo
+Background color	PreferencesWindow		Color de fondo
+Dockbert Preferences	PreferencesWindow		Preferencias de Dockbert
+Draw outer frame	PreferencesWindow		Dibujar el marco exterior
+Frame	PreferencesWindow		Marco
+General	PreferencesWindow		General
+Hide effect delay	PreferencesWindow		Retraso del efecto de ocultamiento
+Name	PreferencesWindow		Nombre
+Remove	PreferencesWindow		Pestañas
+Tabs	PreferencesWindow		Tabs
+Bring all here	tracker-menus		Traer todo para acá
+Bring here	tracker-menus		Traer para acá
+Bring to front	tracker-menus		Traer al frente
+Close	tracker-menus		Cerrar
+Close all	tracker-menus		Cerrar todo
+Hide	tracker-menus		Ocultar
+Hide all	tracker-menus		Ocultar todo
+No entries	tracker-menus		Sin entradas
+No windows	tracker-menus		Sin ventanas
+Quit application	tracker-menus		Salir de la aplicación
+Show	tracker-menus		Mostrar
+Show all	tracker-menus		Mostrar todo
+First Time	panel-window		Primera vez
+Ok thanks!	panel-window		¡Ok gracias!
+This is your first time running Dockbert so we'll give you a small introduction to it.\nBy now there should be a small window in the bottom of your screen with some icons, that's Dockbert.\nWe'll now give you a small info about each icon, from left to right:\n- The trash, drag files to it to move them to trash, left clicking it opens the trash window, right clicking shows you a handy menu\n-The workspaces, left click to forward a workspace, right click to backward a workspace, the middle button gives you a list of the workspaces\n-The clock, right click it for options\n-The Tracker, right click the tracker for the tracker menu, with some useful options\n-The Be menu, right click it to see the Be Menu\n-the other two icons are shortcuts, read the readme for aditional information	panel-window		Esta es tu primera vez usando Dockbert así que te vamos a dar una pequeña introducción. \nPara este momento debe hacer una ventana pequeña en la parte de abajo de tu pantalla con algunos iconos, eso es Dockbert.\nAhora te daremos un poco de información sobre cada icono, de izquierda a derecha:\n La papelera, arrastra los archivos a ella para moverlos allí, click sobre ella con el botón izquierdo para abrir la ventana de la papelera, click sobre ella con el botón derecho para acceder a un menú utilitario\n-Los espacios de trabajo, click izquierdo para avanzar al siguiente espacio, click derecho para retroceder al espacio de trabajo previo, el botón del medio te muestra una lista de los espacios de trabajo\n-El reloj, click derecho para ver las opciones\n El Rastreador, click con el botón derecho sobre el rastreador para ver el menú de rastreo el cual contiene opciones útiles\n El menú Be, haz click con el botón derecho para ver el menú Be\n Los otros dos iconos son accesos directos, lee la sección de referencia "readme" para obtener información adicional 

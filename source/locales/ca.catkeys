@@ -1,0 +1,48 @@
+1	Catalan	x-vnd.Dockbert	1215109014
+24 hour clock	inner-panel-icons		Rellotge de 24 h
+About Haiku	inner-panel-icons		Quant al Haiku
+Change time	inner-panel-icons		Canvi d'hora
+Disks	inner-panel-icons		Discs
+Do you really want to remove the Haiku Menu?	inner-panel-icons		Realment voleu suprimir el menú del Haiku?
+Do you really wish to remove the Trash icon?	inner-panel-icons		Realment voleu suprimir la icona de la paperera?
+Dockbert Preferences…	inner-panel-icons		Preferències del Dockbert...
+Empty trash	inner-panel-icons		Buida la paperera
+Find	inner-panel-icons		Troba
+Hide seconds	inner-panel-icons		Amaga els segons
+Left Click to Hide All Windows in this workspace,\nRight click to bring them back.	inner-panel-icons		Cliqueu amb el botó esquerre per amagar totes les finestres d'aquest espai de treball,\nCliqueu amb el botó dret per recuperar-les.
+No	inner-panel-icons		No
+No entries	inner-panel-icons		Cap entrada
+Restart	inner-panel-icons		Reinicia
+Show clock	inner-panel-icons		Mostra el rellotge
+Show date	inner-panel-icons		Mostra la data
+Show seconds	inner-panel-icons		Mostra els segons
+Shut down	inner-panel-icons		Atura
+Yes	inner-panel-icons		Sí
+Add	PreferencesWindow		Afegeix
+Always on top	PreferencesWindow		Sempre a dalt
+Auto hide	PreferencesWindow		Amaga't automàticament
+Background	PreferencesWindow		Fons
+Background color	PreferencesWindow		Color del fons
+Dockbert Preferences	PreferencesWindow		Preferències del Dockbert
+Draw outer frame	PreferencesWindow		Dibuixa el marc extern
+Frame	PreferencesWindow		Marc
+General	PreferencesWindow		General
+Hide effect delay	PreferencesWindow		Retard de l'efecte d'amagar
+Name	PreferencesWindow		Nom
+Remove	PreferencesWindow		Suprimeix
+Tabs	PreferencesWindow		Pestanyes
+Bring all here	tracker-menus		Porta-ho tot aquí
+Bring here	tracker-menus		Porta-ho aquí
+Bring to front	tracker-menus		Posa-ho al davant
+Close	tracker-menus		Tanca
+Close all	tracker-menus		Tanca-ho tot
+Hide	tracker-menus		Amaga
+Hide all	tracker-menus		Amaga-ho tot
+No entries	tracker-menus		Sense entrades
+No windows	tracker-menus		Sense finestres
+Quit application	tracker-menus		Surt de l'aplicació
+Show	tracker-menus		Mostra-ho
+Show all	tracker-menus		Mostra-ho tot
+First Time	panel-window		El primer cop
+Ok thanks!	panel-window		D'acord, mercès!
+This is your first time running Dockbert so we'll give you a small introduction to it.\nBy now there should be a small window in the bottom of your screen with some icons, that's Dockbert.\nWe'll now give you a small info about each icon, from left to right:\n- The trash, drag files to it to move them to trash, left clicking it opens the trash window, right clicking shows you a handy menu\n-The workspaces, left click to forward a workspace, right click to backward a workspace, the middle button gives you a list of the workspaces\n-The clock, right click it for options\n-The Tracker, right click the tracker for the tracker menu, with some useful options\n-The Be menu, right click it to see the Be Menu\n-the other two icons are shortcuts, read the readme for aditional information	panel-window		Aquesta és la primera vegada que feu servir el Dockbert, així que us en farem una petita introducció.\nAra hi hauria d'haver una petita finestra a la part inferior de la pantalla amb algunes icones, això és el Dockbert.\nAquí teniu una petita informació sobre cada icona, d'esquerra a dreta:\n- La paperera: arrossegueu-hi els fitxers per moure'ls a la paperera, clicant amb el botó esquerre se n'obre la finestra, clicant amb el botó dret se us mostra un menú pràctic.\n-Els espais de treball: cliqueu amb el botó esquerre per avançar un espai de treball i cliqueu amb el dret per retrocedir-ne un, el botó central us ofereix una llista dels espais de treball.\n-El rellotge: cliqueu amb el botó dret per veure'n les opcions.\n-El rastrejador: cliqueu amb el botó dret al rastrejador per veure'n el menú, amb algunes opcions útils.\n-El menú del Be: cliqueu amb el botó dret per veure'l.\n-Les altres dues icones són dreceres. Llegiu el document anomenat llegiu-me per obtenir informació addicional.

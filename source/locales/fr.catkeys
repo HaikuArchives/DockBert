@@ -1,0 +1,48 @@
+1	French	x-vnd.Dockbert	1215109014
+24 hour clock	inner-panel-icons		Horloge de 24 heures
+About Haiku	inner-panel-icons		À propos de Haiku
+Change time	inner-panel-icons		Changer l'heure
+Disks	inner-panel-icons		Disques
+Do you really want to remove the Haiku Menu?	inner-panel-icons		Voulez-vous vraiment supprimer le menu Haiku ?
+Do you really wish to remove the Trash icon?	inner-panel-icons		Voulez-vous vraiment supprimer l'icone de la corbeille ?
+Dockbert Preferences…	inner-panel-icons		Préférences de Dockbert...
+Empty trash	inner-panel-icons		Vider la corbeille
+Find	inner-panel-icons		Chercher
+Hide seconds	inner-panel-icons		Cacher les secondes
+Left Click to Hide All Windows in this workspace,\nRight click to bring them back.	inner-panel-icons		Le clic gauche cache toutes les fenêtres de ce bureau,\n le clic droit les ramène.
+No	inner-panel-icons		Non
+No entries	inner-panel-icons		Aucune entrée
+Restart	inner-panel-icons		Redémarrer
+Show clock	inner-panel-icons		Afficher l'horloge
+Show date	inner-panel-icons		Afficher la date
+Show seconds	inner-panel-icons		Afficher les secondes
+Shut down	inner-panel-icons		Éteindre
+Yes	inner-panel-icons		Oui
+Add	PreferencesWindow		Ajouter
+Always on top	PreferencesWindow		Toujours au dessus
+Auto hide	PreferencesWindow		Masquer automatiquement
+Background	PreferencesWindow		Arrière plan
+Background color	PreferencesWindow		Couleur de fond
+Dockbert Preferences	PreferencesWindow		Préférences de Dockbert
+Draw outer frame	PreferencesWindow		Bordure extérieure
+Frame	PreferencesWindow		Bordure
+General	PreferencesWindow		Général
+Hide effect delay	PreferencesWindow		Délai de masquage
+Name	PreferencesWindow		Nom
+Remove	PreferencesWindow		Supprimer
+Tabs	PreferencesWindow		Onglets
+Bring all here	tracker-menus		Amener tout ici
+Bring here	tracker-menus		Amener ici
+Bring to front	tracker-menus		Amener devant
+Close	tracker-menus		Fermer
+Close all	tracker-menus		Fermer tout
+Hide	tracker-menus		Masquer
+Hide all	tracker-menus		Masquer tout
+No entries	tracker-menus		Aucune entrée
+No windows	tracker-menus		Aucune fenêtre
+Quit application	tracker-menus		Quitter l'application
+Show	tracker-menus		Afficher
+Show all	tracker-menus		Afficher tout
+First Time	panel-window		Première fois
+Ok thanks!	panel-window		D'accord merci !
+This is your first time running Dockbert so we'll give you a small introduction to it.\nBy now there should be a small window in the bottom of your screen with some icons, that's Dockbert.\nWe'll now give you a small info about each icon, from left to right:\n- The trash, drag files to it to move them to trash, left clicking it opens the trash window, right clicking shows you a handy menu\n-The workspaces, left click to forward a workspace, right click to backward a workspace, the middle button gives you a list of the workspaces\n-The clock, right click it for options\n-The Tracker, right click the tracker for the tracker menu, with some useful options\n-The Be menu, right click it to see the Be Menu\n-the other two icons are shortcuts, read the readme for aditional information	panel-window		Puisque c'est la première fois que vous utilisez Dockbert voici une brève introduction.\nIl devrait y avoir maintenant une petite fenêtre avec des icones au bas de votre écran, c'est Dockbert..\nMaintenant, une rapide info à propos de chaque icone, de gauche à droite :\n- La corbeille, déposez y des fichiers pour les déplacer vers la corbeille, un clic gauche ouvrira la fenêtre de la corbeille, un clic droit affichera un menu\n-Les bureaux, un clic gauche avancera d'un bureau, un clic droit reculera d'un bureau, le clic du milieu affichera la listes des bureaux\n-L'horloge, un clic droit affichera les options\n-Le Tracker, un clic droit affichera le menu du Tracker avec quelques options utiles\n-Le menu Haiku, un clic droit affichera le menu Haiku\n-les deux autres icones sont des raccourcis, lisez le readme pour plus d'infos.

@@ -1,0 +1,48 @@
+1	Sardinian	x-vnd.Dockbert	1215109014
+24 hour clock	inner-panel-icons		Relògiu a 24 h
+About Haiku	inner-panel-icons		A subra de Haiku
+Change time	inner-panel-icons		Muda s'oràriu
+Disks	inner-panel-icons		Unidades
+Do you really want to remove the Haiku Menu?	inner-panel-icons		A beru boles bogare su menù Haiku?
+Do you really wish to remove the Trash icon?	inner-panel-icons		A beru disìgias bogare su muntonàrgiu?
+Dockbert Preferences…	inner-panel-icons		Preferos de Dockbert…
+Empty trash	inner-panel-icons		Isbòida su muntonàrgiu
+Find	inner-panel-icons		Agata
+Hide seconds	inner-panel-icons		Cua is segundos
+Left Click to Hide All Windows in this workspace,\nRight click to bring them back.	inner-panel-icons		Faghe clic primàriu pro cuare totu is bentanas in custu ispàtziu de trabàgiu,\nsu clic segundàriu las batit a fatu.
+No	inner-panel-icons		Nono
+No entries	inner-panel-icons		Peruna boghe
+Restart	inner-panel-icons		Avia torra
+Show clock	inner-panel-icons		Mustra su relògiu
+Show date	inner-panel-icons		Mustra sa data
+Show seconds	inner-panel-icons		Mustra is segundos
+Shut down	inner-panel-icons		Istuda
+Yes	inner-panel-icons		Eja
+Add	PreferencesWindow		Agiunghe
+Always on top	PreferencesWindow		Sempre a pìgiu
+Auto hide	PreferencesWindow		Cua a sa sola
+Background	PreferencesWindow		Fundu
+Background color	PreferencesWindow		Colore de fundu
+Dockbert Preferences	PreferencesWindow		Preferos de Dockbert
+Draw outer frame	PreferencesWindow		Disinna sa guarnissa a fora
+Frame	PreferencesWindow		Guarnissa
+General	PreferencesWindow		Generale
+Hide effect delay	PreferencesWindow		Istentu de s'efetu pro cuare is bentanas
+Name	PreferencesWindow		Nòmine
+Remove	PreferencesWindow		Boga
+Tabs	PreferencesWindow		Pinnas
+Bring all here	tracker-menus		Bati totu inoghe
+Bring here	tracker-menus		Bati inoghe
+Bring to front	tracker-menus		Bati a pìgiu
+Close	tracker-menus		Serra
+Close all	tracker-menus		Serra totu
+Hide	tracker-menus		Cua
+Hide all	tracker-menus		Cua totu
+No entries	tracker-menus		Peruna boghe
+No windows	tracker-menus		Peruna bentana
+Quit application	tracker-menus		Essi dae s'aplicatzione
+Show	tracker-menus		Mustra
+Show all	tracker-menus		Mustra totu
+First Time	panel-window		Primu borta
+Ok thanks!	panel-window		Gràtzias!
+This is your first time running Dockbert so we'll give you a small introduction to it.\nBy now there should be a small window in the bottom of your screen with some icons, that's Dockbert.\nWe'll now give you a small info about each icon, from left to right:\n- The trash, drag files to it to move them to trash, left clicking it opens the trash window, right clicking shows you a handy menu\n-The workspaces, left click to forward a workspace, right click to backward a workspace, the middle button gives you a list of the workspaces\n-The clock, right click it for options\n-The Tracker, right click the tracker for the tracker menu, with some useful options\n-The Be menu, right click it to see the Be Menu\n-the other two icons are shortcuts, read the readme for aditional information	panel-window		Como ses incinniende Dockbert tando ti-nde amus a dare isceda.\nComogomo bi diat dèpere èssere una bentanedda in sa banda a giosso de s'ischermu cun unas cantu de conas, custu est Dockbert.\nComo t'amus a dare isceda a subra de cada cona, dae manu manca a dereta:\n-Su muntonàrgiu, a bi tragas ischedas pro las fuliare, su butone a manu manca aberet sa bentana de su muntonàrgiu, su butone a manu dereta ti mustrat unu menù ùtile\n-Is ispàtzios de trabàgiu, su butone a manu manca ti movet a s'ispàtziu de trabàgiu a fatu, su butone a manu dereta ti movet a in antis, su butone de mesu ti dat una lista de is ispàtzios\n-Su relògiu, faghe clic a manu dereta pro is seberos\n-Su rastradore, faghe clic a manu dereta pro su menù, cun unos cantu seberos ùtiles\n-Su menù Be, faghe clic a manu dereta pro lu biere\n-is àteras duas conas sunt curtzadòrgios, leghe sa ghia pro àtera isceda
