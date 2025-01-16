@@ -25,4 +25,8 @@ jobs:
           version: ${{ matrix.config.version }}
           architecture: ${{ matrix.config.architecture }}
           run: |
-            cd source && make
+            if [[ `uname -m` == BePC ]]; then
+              cd source && setarch x86 make
+            else
+              cd source && make
+            fi
