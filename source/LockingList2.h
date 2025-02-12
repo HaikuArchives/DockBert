@@ -8,10 +8,10 @@
 
 namespace BPrivate {
 
-template <class T>
-class LockingList2 : public BObjectList<T> {
+template <class T, bool Owning = false>
+class LockingList2 : public BObjectList<T, Owning> {
 public:
-	LockingList2(int32 itemsPerBlock = 20, bool owning = false);
+	LockingList2(int32 itemsPerBlock = 20);
 	~LockingList2()
 		{
 		Lock();
@@ -24,29 +24,29 @@ public:
 	BLocker lock;
 };
 
-template<class T>
-LockingList2<T>::LockingList2(int32 itemsPerBlock, bool owning)
-	:	BObjectList<T>(itemsPerBlock, owning)
+template<class T, bool O>
+LockingList2<T, O>::LockingList2(int32 itemsPerBlock)
+	:	BObjectList<T, O>(itemsPerBlock)
 {
 }
 
-template<class T>
+template<class T, bool O>
 bool 
-LockingList2<T>::Lock()
+LockingList2<T, O>::Lock()
 {
 	return lock.Lock();
 }
 
-template<class T>
+template<class T, bool O>
 void 
-LockingList2<T>::Unlock()
+LockingList2<T, O>::Unlock()
 {
 	lock.Unlock();
 }
 
-template<class T>
+template<class T, bool O>
 bool 
-LockingList2<T>::IsLocked() const
+LockingList2<T, O>::IsLocked() const
 {
 	return lock.IsLocked();
 }

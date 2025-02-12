@@ -155,7 +155,7 @@ status_t FSDeleteFolder(BEntry *, CopyLoopControl *, bool updateStatus,
 status_t FSCopyAttributesAndStats(BNode *, BNode *);
 
 void FSDuplicate(BObjectList<entry_ref> *srcList, BList *pointList);
-void FSMoveToFolder(BObjectList<entry_ref> *srcList, BEntry *, uint32 moveMode,
+void FSMoveToFolder(BObjectList<entry_ref, true> *srcList, BEntry *, uint32 moveMode,
 	BList *pointList = NULL);
 void FSMakeOriginalName(char *name, BDirectory *destDir, const char *suffix);
 bool FSIsTrashDir(const BEntry *);
@@ -164,7 +164,7 @@ bool FSIsDeskDir(const BEntry *);
 bool FSIsSystemDir(const BEntry *);
 bool FSIsBeOSDir(const BEntry *);
 bool FSIsHomeDir(const BEntry *);
-void FSMoveToTrash(BObjectList<entry_ref> *srcList, BList *pointList = NULL,
+void FSMoveToTrash(BObjectList<entry_ref, true> *srcList, BList *pointList = NULL,
 	bool asynch = true);
 	// Deprecated
 	// only returns actual result if asynch false
