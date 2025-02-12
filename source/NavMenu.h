@@ -46,7 +46,7 @@ All rights reserved.
 #include "SlowMenu.h"
 
 
-template<class T> class BObjectList;
+template<class T, bool O> class BObjectList;
 class BMenuItem;
 
 namespace BPrivate {
@@ -75,9 +75,9 @@ class TrackingHookData {
 class BNavMenu : public BSlowMenu {
 	public:
 		BNavMenu(const char* title, uint32 message, const BHandler *,
-			BWindow *parentWindow = NULL, const BObjectList<BString> *list = NULL);
+			BWindow* parentWindow = NULL, const BStringList* list = NULL);
 		BNavMenu(const char* title, uint32 message, const BMessenger &,
-			BWindow *parentWindow = NULL, const BObjectList<BString> *list = NULL);
+			BWindow* parentWindow = NULL, const BStringList* list = NULL);
 			// parentWindow, if specified, will be closed if nav menu item invoked
 			// with option held down
 							
@@ -95,8 +95,8 @@ class BNavMenu : public BSlowMenu {
 		void SetTarget(const BMessenger &);
 		BMessenger Target();
 
-		void SetTypesList(const BObjectList<BString> *list);
-		const BObjectList<BString> *TypesList() const;	
+		void SetTypesList(const BStringList* list);
+		const BStringList* TypesList() const;
 
 		void AddNavDir(const Model *model, uint32 what, BHandler *target,
 			bool populateSubmenu);
@@ -110,10 +110,10 @@ class BNavMenu : public BSlowMenu {
 		static int CompareFolderNamesFirstOne(const BMenuItem *, const BMenuItem *);
 		static int CompareOne(const BMenuItem *, const BMenuItem *);
 
-		static ModelMenuItem *NewModelItem(Model *, const BMessage *, const BMessenger &,
-			bool suppressFolderHierarchy=false, BContainerWindow * = NULL,
-			const BObjectList<BString> *typeslist = NULL,
-			TrackingHookData *hook = NULL);
+		static ModelMenuItem* NewModelItem(Model*, const BMessage*,
+		        const BMessenger&, bool suppressFolderHierarchy = false,
+		        BContainerWindow* = NULL, const BStringList* typeslist = NULL,
+		        TrackingHookData* hook = NULL);
 
 		TrackingHookData *InitTrackingHook(bool (*hookfunction)(BMenu *, void *),
 			const BMessenger *target, const BMessage *dragMessage);
@@ -137,11 +137,11 @@ class BNavMenu : public BSlowMenu {
 
 		// menu building state
 		uint8		fFlags;
-		BObjectList<BMenuItem> *fItemList;
+		BObjectList<BMenuItem, false>* fItemList;
 		EntryListBase *fContainer;
 		bool		fIteratingDesktop;
 
-		const BObjectList<BString> *fTypesList;
+		BStringList* fTypesList;
 
 		TrackingHookData fTrackingHook;
 };
@@ -154,11 +154,11 @@ class BNavMenu : public BSlowMenu {
 bool SpringLoadedFolderCompareMessages(const BMessage *incoming,
 	const BMessage *dragmessage);
 void SpringLoadedFolderSetMenuStates(const BMenu *menu,
-	const BObjectList<BString> *typeslist);
+	const BStringList *typeslist);
 void SpringLoadedFolderAddUniqueTypeToList(entry_ref *ref,
-	BObjectList<BString> *typeslist);
+	BStringList *typeslist);
 void SpringLoadedFolderCacheDragData(const BMessage *incoming,
-	BMessage **, BObjectList<BString> **typeslist);
+	BMessage **, BStringList **typeslist);
 
 } // namespace BPrivate
 

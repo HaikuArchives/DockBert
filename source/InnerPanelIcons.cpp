@@ -530,7 +530,7 @@ status_t TTrackerIcon::DroppedSomething( const BMessage *message )
 		BEntry entry( &fRef, true );
 		if ( entry.IsDirectory() )
 		{
-			BObjectList<entry_ref> *list = new BObjectList<entry_ref>();
+			BObjectList<entry_ref, true> *list = new BObjectList<entry_ref, true>();
 			entry_ref ref;
 			int i;
 			for ( i=0; ; i++ )
@@ -1506,7 +1506,7 @@ status_t TTrashIcon::DroppedSomething( const BMessage *message )
 {
 	if ( message->what == B_SIMPLE_DATA )
 	{
-		BObjectList<entry_ref> *list = new BObjectList<entry_ref>();
+		BObjectList<entry_ref, true> *list = new BObjectList<entry_ref, true>();
 		entry_ref ref;
 		int i;
 		for ( i=0; ; i++ )
