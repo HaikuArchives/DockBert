@@ -18,7 +18,6 @@ jobs:
           - { os: haiku, version: 'hrev58647', runner: 'ubuntu-latest', architecture: 'x86-64' }
           - { os: haiku, version: 'hrev58647',  runner: 'ubuntu-latest', architecture: 'x86' }
 
-
     steps:
       - uses: actions/checkout@v4
 
